@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux'
+import { createCampaign } from '../../store/actions/campaignActions'
+
 class CreateCampaign extends Component {
   state = {
     title: '',
@@ -15,6 +18,7 @@ class CreateCampaign extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
+    this.props.createCampaign(this.state);
   }
   render() {
     return (
@@ -34,4 +38,15 @@ class CreateCampaign extends Component {
   }
 }
 
-export default CreateCampaign;
+// connect is a funciton which returns a higher order component
+
+// now we can access createCampaign on the props object
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // accepts an individual campaign that we are passing to the dispatch function an action creator
+    createCampaign: (campaign) => dispatch(createCampaign(campaign))
+  }
+}
+
+// mapStateToProps is the first parameter of the connect function -> passed in null since you aren't using it
+export default connect(null, mapDispatchToProps)(CreateCampaign)

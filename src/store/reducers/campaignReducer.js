@@ -7,6 +7,10 @@ const initState = {
 }
 
 const campaignReducer = (state = initState, action) => {
+  switch (action.type) {
+    case 'CREATE_CAMPAIGN':
+      console.log('create campaign', action.campaign);
+  }
   return state;
 };
 
