@@ -5,7 +5,7 @@ const NavbarLinks = () => {
   return (
     <div>
       <ul className="right">
-        <li><NavLink to='/'> Create Campaign </NavLink></li>
+        <li><NavLink to='/create'> Create Campaign </NavLink></li>
         <li><NavLink to='/'> Locations </NavLink></li>
         <li><NavLink to='/'> Dashboard </NavLink></li>
         <li><NavLink to='/'> Log Out </NavLink></li>
