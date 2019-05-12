@@ -11,7 +11,6 @@ const CampaignDetails = (props) => {
           <p>Blah Blah</p>
         </div>
         <div className="card-action grey lighten-4 grey-text">
-          <div>Posted by Jimmy Jam</div>
           <div>2nd September, 2am</div>
         </div>
       </div>
