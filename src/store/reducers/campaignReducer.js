@@ -1,17 +1,21 @@
 const initState = {
   campaigns: [
-    {id: '1', title: 'sample campaign 1'},
-    {id: '2', title: 'sample campaign 2'},
-    {id: '3', title: 'sample campaign 3'}
+    {id: 1, title: 'yeezes'},
+    {id: 2, title: 'nike pegasus'}
   ]
 }
 
 const campaignReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'CREATE_CAMPAIGN':
-      console.log('create campaign', action.campaign);
+    case 'CREATE_PROJECT_SUCCESS':
+      console.log('create project success');
+      return state;
+    case 'CREATE_PROJECT_ERROR':
+      console.log('create project error');
+      return state;
+    default:
+      return state;
   }
-  return state;
 };
 
-export default campaignReducer;
+export default campaignReducer
