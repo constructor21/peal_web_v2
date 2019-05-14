@@ -1,6 +1,5 @@
 
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import './Footer.css';
 
@@ -26,8 +25,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div class="footer-copyright grey darken-4">
-        <div class="container center-align">&copy; 2019 Peal Display, Inc.</div>
+      <div className="footer-copyright grey darken-4">
+        <div className="container center-align">&copy; 2019 Peal Display, Inc.</div>
       </div>
     </footer>
 

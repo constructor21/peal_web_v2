@@ -16,4 +16,5 @@ Images
 
 
 TODO:
-Check if you keep adding campaigns will the footer dynamically get pushed down the page 
+Check if you keep adding campaigns will the footer dynamically get pushed down the page
+Get the validation sigin code from Peal_Web v1 
