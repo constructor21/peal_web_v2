@@ -1,7 +1,7 @@
 /*
 The state in this component is linked to the auth object in the root reducer
 The spread operator gets the current state
-What comes after the comma (authError in this case) is added onto the object that comes from the spread operator 
+What comes after the comma (authError in this case) is added onto the object that comes from the spread operator
 */
 
 const initState = {
@@ -21,6 +21,9 @@ const authReducer = (state = initState, action) => {
       return {
         authError: null
       }
+    case 'SIGNOUT_SUCCESS':
+      console.log('signout success');
+      return state
     default:
       return state
   }
