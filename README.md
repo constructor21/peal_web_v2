@@ -26,7 +26,7 @@ testuser password: qqqqqqq
 q x7
 
 firebase: auth: if uid is there it means you're logged in
-  if isEmpty: true means not logged in 
+  if isEmpty: true means not logged in
 
 TODO:
 Check if you keep adding campaigns will the footer dynamically get pushed down the page

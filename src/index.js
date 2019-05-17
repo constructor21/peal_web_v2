@@ -16,18 +16,20 @@ import fbConfig from './config/fbConfig'
 
 // requires a single reducer to be passed in
   // I created multiple reducers and passed them all into a root reducer that I am passing into the store
-  // compose is needed to use multiple store enhancers 
+  // compose is needed to use multiple store enhancers
 const store = createStore(rootReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
-    reactReduxFirebase(fbConfig), // redux binding for firebase
+    reactReduxFirebase(fbConfig, {attachAuthIsReady: true}), // redux binding for firebase
     reduxFirestore(fbConfig) // redux bindings for firestore
   )
 );
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// returns a promise that waits for firebase auth to occur. Can you be used to delay the dom rendering until this occurs.
+store.firebaseAuthIsReady.then(() => {
+  ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+  // If you want your app to work offline and load faster, you can change
+  // unregister() to register() below. Note this comes with some pitfalls.
+  // Learn more about service workers: https://bit.ly/CRA-PWA
+  serviceWorker.unregister();
+});
