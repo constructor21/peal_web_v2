@@ -15,12 +15,18 @@ If you get 'dispatch is not a function' error that likely means you are passing 
 
 If you get underscore this.props. name of export default is not a funciton you likely didn't pass in mapDispatchToProps as second argument
 
+
+Notes:
+
 Images
 -Unsplash
 -Noun Project
 
 testuser password: qqqqqqq  
 q x7
+
+firebase: auth: if uid is there it means you're logged in
+  if isEmpty: true means not logged in 
 
 TODO:
 Check if you keep adding campaigns will the footer dynamically get pushed down the page
