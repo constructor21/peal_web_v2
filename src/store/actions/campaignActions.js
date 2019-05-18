@@ -7,10 +7,12 @@ export const createCampaign = (campaign) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     // make async call to database (because it takes some time to do that means it returns a promise)
     const firestore = getFirestore();
+    // instead of campaigns you can put     campaign.title     because this.state = campaign
+    var authId = campaign.firebaseAuthId;
     firestore.collection('campaigns').add({
       ...campaign,
       companyName: 'JimmyJam',
-      authorId: 12345,
+      authorId: 123,
       createdAt: new Date()
     }).then(() => {
       // resume the dispatch
@@ -20,3 +22,16 @@ export const createCampaign = (campaign) => {
     });
   }
 };
+
+
+/*
+
+return firestore.collection('users').doc(resp.user.uid).set({
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        initials: newUser.firstName[0] + newUser.lastName[0]
+      });
+
+
+
+*/

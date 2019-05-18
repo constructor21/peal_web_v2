@@ -15,11 +15,14 @@ class SignIn extends Component {
       [e.target.id]: e.target.value
     })
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log("submit button clicked");
     console.log(this.state);
     this.props.signIn(this.state)
   }
+
   render() {
     const { authError, auth } = this.props;
     if (auth.uid) return <Redirect to='/dashboard' />

@@ -30,11 +30,12 @@ firebase: auth: if uid is there it means you're logged in
 
 The reason the flash was happening is because the dom was rendering before firebase runs to see if we are logged in or not
 
+Firesbase auth UID matches corresponding firestore doc ID
 
 
 
 TODO:
-Check if you keep adding campaigns will the footer dynamically get pushed down the page
+Check if you keep adding campaigns will the footer dynamically get pushed down the page ... it's not. Fix it
 Get the validation sigin code from Peal_Web v1
 If there are no campaigns created then have a header that prompts user to click the create campaign button
 Figure out how to make the footer a lower height but still dynamic (not a fixed px height)
@@ -46,15 +47,9 @@ Create a dev branch, master branch and google maps branch
 Have Aaron fork the repo
 Make the web icon logo the peal logo (favicon.ico)
 Make the legal stuff all / blah / blah after the company name on the very bottom like outfront does
+Put the notifications panel from the tutorial in the locations tab
 
 SignIn / SignOut game plan
-
-video 28 ->
-  Bring the signup functionality into the signin process.
-  You are creating users manually but the firestore collection part can still be done by code
-  There should be a way in firebase to see if the username & password already exists and get that id from the res object
-  If there is no res object simply pull the id using desturing and then create a firestore doc using it
-  peep the signup athorError .message property. Do research on that and incorporate error handling
 
 video 29 ->
   Don't make a first name / last name / initials thing but still follow the steps so you can have access to the profile key

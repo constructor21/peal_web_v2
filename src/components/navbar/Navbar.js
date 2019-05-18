@@ -10,6 +10,7 @@ const Navbar = (props) => {
   const { auth } = props;
   // console.log(auth);
   const links = auth.uid ? <NavbarLinks /> : <SignInPageLinks />;
+
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">

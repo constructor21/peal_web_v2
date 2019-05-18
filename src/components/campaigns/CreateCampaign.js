@@ -10,8 +10,10 @@ class CreateCampaign extends Component {
     title: '',
     mediaContent: '',
     startDate: '',
-    endDate: ''
+    endDate: '',
+    firebaseAuthId: ''
   }
+
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
@@ -22,9 +24,20 @@ class CreateCampaign extends Component {
     console.log(this.state);
     this.props.createCampaign(this.state);
   }
+
+  buildFirestore = (id) => {
+    console.log(id);
+    // Here is where you can map a firestore campaign ID to the user
+    this.setState({
+      firebaseAuthId: id 
+    })
+  }
+
+
   render() {
 
     const { auth } = this.props;
+
     if (!auth.uid) return <Redirect to='/' />
 
     return (
@@ -36,7 +49,7 @@ class CreateCampaign extends Component {
             <label htmlFor="title">Campaign Title</label>
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1">Create Campaign</button>
+            <button className="btn pink lighten-1" onClick={() => this.buildFirestore(auth.uid)}>Create Campaign</button>
           </div>
         </form>
       </div>
