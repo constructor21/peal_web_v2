@@ -5,6 +5,10 @@ import { compose } from 'redux'
 
 import { Redirect } from 'react-router-dom'
 
+import moment from 'moment'
+
+
+
 const CampaignDetails = (props) => {
   // console.log(props);
   // const id = props.match.params.id;
@@ -28,7 +32,7 @@ const CampaignDetails = (props) => {
 
           </div>
           <div className="card-action grey lighten-4 grey-text">
-            <div>2nd September, 2am</div>
+            <div>{moment(campaign.createdAt.toDate()).calendar()}</div>
           </div>
         </div>
       </div>

@@ -53,9 +53,6 @@ Use the other materialize tutorial list to make the legal pages super slick
 
 SignIn / SignOut game plan
 
-video 30 ->
-  important
-
 video 31 ->
   important
 
