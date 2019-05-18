@@ -23,13 +23,14 @@ class CreateCampaign extends Component {
     e.preventDefault();
     console.log(this.state);
     this.props.createCampaign(this.state);
+    this.props.history.push('/dashboard');
   }
 
   buildFirestore = (id) => {
     console.log(id);
     // Here is where you can map a firestore campaign ID to the user
     this.setState({
-      firebaseAuthId: id 
+      firebaseAuthId: id
     })
   }
 

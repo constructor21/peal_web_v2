@@ -22,6 +22,7 @@ export const signIn = (credentials) => {
       dispatch({ type: 'LOGIN_ERROR', err });
     });
 
+    // TODO: rewatch video 28 & 29 and do implement that signup process right here if you see if needed later on 
   }
 }
 

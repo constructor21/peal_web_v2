@@ -48,11 +48,10 @@ Have Aaron fork the repo
 Make the web icon logo the peal logo (favicon.ico)
 Make the legal stuff all / blah / blah after the company name on the very bottom like outfront does
 Put the notifications panel from the tutorial in the locations tab
+Use the other materialize tutorial list to make the legal pages super slick
+
 
 SignIn / SignOut game plan
-
-video 29 ->
-  Don't make a first name / last name / initials thing but still follow the steps so you can have access to the profile key
 
 video 30 ->
   important
