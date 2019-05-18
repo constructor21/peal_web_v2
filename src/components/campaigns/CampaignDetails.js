@@ -3,11 +3,17 @@ import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
+import { Redirect } from 'react-router-dom'
+
 const CampaignDetails = (props) => {
   // console.log(props);
   // const id = props.match.params.id;
-  const { campaign } = props;
+  const { campaign, auth } = props;
   // it may take some time for this to load which is why you have the else statement
+
+  if (!auth.uid) return <Redirect to='/' />
+
+
   if (campaign) {
     return (
       <div className="container section project-details">
@@ -46,7 +52,8 @@ const CampaignDetails = (props) => {
     const campaigns = state.firestore.data.campaigns;
     const campaign = campaigns ? campaigns[id] : null
     return {
-      campaign: campaign
+      campaign: campaign,
+      auth: state.firebase.auth
     }
   }
 

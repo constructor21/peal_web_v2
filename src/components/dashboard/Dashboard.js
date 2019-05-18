@@ -4,6 +4,7 @@ import Metrics from './Metrics';
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase' // connects a component to a firestore collection
 import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
 // 12 colums on small sized screens, 6 colums on medium sized sceens
 
@@ -12,7 +13,9 @@ class Dashboard extends Component {
   render() {
 
     // console.log(this.props);
-    const { campaigns } = this.props;
+    // use destructuring to grab these items from the props object
+    const { campaigns, auth } = this.props;
+    if (!auth.uid) return <Redirect to='/' /> 
 
     return (
       <div className="dashboard container">
@@ -38,7 +41,8 @@ const mapStateToProps = (state) => {
       // the first campaigns is just what you named this object
       // campaign comes from the root reducer
       // the second campaigns comes from the campaignReducer
-    campaigns: state.firestore.ordered.campaigns // ordered is just a required keyword for pulling from firestore 
+    campaigns: state.firestore.ordered.campaigns, // ordered is just a required keyword for pulling from firestore
+    auth: state.firebase.auth
   }
 }
 

@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createCampaign } from '../../store/actions/campaignActions'
 
+import { Redirect } from 'react-router-dom'
+
 class CreateCampaign extends Component {
   state = {
     title: '',
@@ -21,6 +23,10 @@ class CreateCampaign extends Component {
     this.props.createCampaign(this.state);
   }
   render() {
+
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to='/' />
+
     return (
       <div className="container">
         <form className="white" onSubmit={this.handleSubmit}>
@@ -38,6 +44,12 @@ class CreateCampaign extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
 // connect is a funciton which returns a higher order component
 
 // now we can access createCampaign on the props object
@@ -49,4 +61,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 // mapStateToProps is the first parameter of the connect function -> passed in null since you aren't using it
-export default connect(null, mapDispatchToProps)(CreateCampaign)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateCampaign)

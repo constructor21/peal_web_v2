@@ -15,9 +15,9 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Switch>
-            <Route exact path='/'component={Dashboard} />
+            <Route exact path='/'component={SignIn} />
             <Route path='/campaign/:id' component={CampaignDetails} />
-            <Route path='/signin' component={SignIn} />
+            <Route path='/dashboard' component={Dashboard} />
             <Route path='/create' component={CreateCampaign} />
           </Switch>
           <Footer />

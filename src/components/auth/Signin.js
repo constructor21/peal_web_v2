@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux' // this is used to connect react to redux
 import { signIn } from '../../store/actions/authActions'
 
+import { Redirect } from 'react-router-dom'
+
 class SignIn extends Component {
   state = {
     email: '',
@@ -19,7 +21,9 @@ class SignIn extends Component {
     this.props.signIn(this.state)
   }
   render() {
-    const { authError } = this.props;
+    const { authError, auth } = this.props;
+    if (auth.uid) return <Redirect to='/dashboard' />
+
     return (
       <div className="container">
         <form className="white" onSubmit={this.handleSubmit}>
@@ -49,7 +53,8 @@ class SignIn extends Component {
 const mapStateToProps = (state) => {
   return{
     // simply adding the error object to our state (which is in our props) -> now you can access it for displaying errors
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    auth: state.firebase.auth
   }
 }
 

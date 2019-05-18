@@ -28,6 +28,11 @@ q x7
 firebase: auth: if uid is there it means you're logged in
   if isEmpty: true means not logged in
 
+The reason the flash was happening is because the dom was rendering before firebase runs to see if we are logged in or not
+
+
+
+
 TODO:
 Check if you keep adding campaigns will the footer dynamically get pushed down the page
 Get the validation sigin code from Peal_Web v1
@@ -40,23 +45,9 @@ Make the repo private
 Create a dev branch, master branch and google maps branch
 Have Aaron fork the repo
 Make the web icon logo the peal logo (favicon.ico)
-
+Make the legal stuff all / blah / blah after the company name on the very bottom like outfront does
 
 SignIn / SignOut game plan
-
-video 25 ...
-  You can create a signOut link component and just have nothing in the navbar aside from the logo (no links)
-  This means the signin page still has the header and footer
-
-  Video 27 takes care of this:
-    Make the '/' route the signin page
-    When you signin push to the dashboard route
-    When you logout push to the signin page route
-
-video 26 ...
-  The reason the flash happens is because the dom renders before firebase runs to see if we are logged in or not
-  This shows you how to fix that
-
 
 video 28 ->
   Bring the signup functionality into the signin process.
