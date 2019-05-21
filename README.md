@@ -1,7 +1,14 @@
 npm install --> npm start
 
-React specific ui framework:  (Not yet installed)
+React specific ui framework:
+
 npm install @material-ui/core
+npm i gestalt --save
+npm install styled-components --save
+
+
+npm i react-file-drop
+
 
 Materialize CSS
 -responsive CSS framework
@@ -55,4 +62,4 @@ Make the legal stuff
 Put the notifications panel from the tutorial in the locations tab
 Use the other materialize tutorial list to make the legal pages super slick
 Add Security rules -> https://www.youtube.com/watch?v=O5QxNn6ET5c&list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3&index=32
-Add icons to the social media footer 
+Add icons to the social media footer

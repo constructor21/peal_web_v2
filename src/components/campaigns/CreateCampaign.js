@@ -5,6 +5,9 @@ import { createCampaign } from '../../store/actions/campaignActions'
 
 import { Redirect } from 'react-router-dom'
 
+
+import NewVideoPage from "../NewCampaignVideo/NewCampaignVideo";
+
 class CreateCampaign extends Component {
   state = {
     title: '',
@@ -43,6 +46,9 @@ class CreateCampaign extends Component {
 
     return (
       <div className="container">
+
+        <NewVideoPage />
+
         <form className="white" onSubmit={this.handleSubmit}>
           <h5 className="grey-text text-darken-3">Create a New Campaign</h5>
           <div className="input-field">
