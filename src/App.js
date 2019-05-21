@@ -12,16 +12,23 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
-          <Navbar />
-          <Switch>
-            <Route exact path='/'component={SignIn} />
-            <Route path='/campaign/:id' component={CampaignDetails} />
-            <Route path='/dashboard' component={Dashboard} />
-            <Route path='/create' component={CreateCampaign} />
-          </Switch>
-          <Footer />
+
+        <div id="page-container">
+
+          <div id="content-wrap">
+            <Navbar />
+            <Switch>
+              <Route exact path='/'component={SignIn} />
+              <Route path='/campaign/:id' component={CampaignDetails} />
+              <Route path='/dashboard' component={Dashboard} />
+              <Route path='/create' component={CreateCampaign} />
+            </Switch>
+          </div>
+
+          <Footer id="footer" />
+
         </div>
+
       </BrowserRouter>
     );
   }

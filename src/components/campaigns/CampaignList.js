@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 const CampaignList = ({campaigns}) => {
   return (
-    <div className="project-list section">
+    <div className="campaign-list section">
       { campaigns && campaigns.map(campaign => {
         return (
           <Link to={'/campaign/' + campaign.id} key={campaign.id}>

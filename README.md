@@ -63,3 +63,4 @@ Put the notifications panel from the tutorial in the locations tab
 Use the other materialize tutorial list to make the legal pages super slick
 Add Security rules -> https://www.youtube.com/watch?v=O5QxNn6ET5c&list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3&index=32
 Add icons to the social media footer
+Delete Campaign option 
