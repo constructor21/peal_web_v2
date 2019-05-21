@@ -32,6 +32,11 @@ The reason the flash was happening is because the dom was rendering before fireb
 
 Firesbase auth UID matches corresponding firestore doc ID
 
+Rules are matches to specific code paths. You can different rules for different documents.
+  Top line is for all of firebase which is good
+  Second line is for this specific database which is good
+  Beyond that is where you start editing for customization
+
 
 
 TODO:
@@ -46,14 +51,8 @@ Make the repo private
 Create a dev branch, master branch and google maps branch
 Have Aaron fork the repo
 Make the web icon logo the peal logo (favicon.ico)
-Make the legal stuff all / blah / blah after the company name on the very bottom like outfront does
+Make the legal stuff
 Put the notifications panel from the tutorial in the locations tab
 Use the other materialize tutorial list to make the legal pages super slick
-
-
-SignIn / SignOut game plan
-
-video 31 ->
-  important
-
-After this move onto adding the gesalt stuff into create campaign
+Add Security rules -> https://www.youtube.com/watch?v=O5QxNn6ET5c&list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3&index=32
+Add icons to the social media footer 
