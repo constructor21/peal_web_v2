@@ -15,7 +15,10 @@ Materialize CSS
 -based on materialize design concepts by Google
 
 Helpful debugging links:
+
 https://stackoverflow.com/questions/53872757/react-redux-v6-a-v3-version-of-react-redux-firebase-is-required
+
+https://medium.freecodecamp.org/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c
 
 Common Errors:
 If you get 'dispatch is not a function' error that likely means you are passing mapDispatchToProps as first argument instead of null or mapStateToProps
@@ -63,4 +66,6 @@ Put the notifications panel from the tutorial in the locations tab
 Use the other materialize tutorial list to make the legal pages super slick
 Add Security rules -> https://www.youtube.com/watch?v=O5QxNn6ET5c&list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3&index=32
 Add icons to the social media footer
-Delete Campaign option 
+Delete Campaign option
+Center drag and drop button
+Make the drag and drop content appear on the screen [gestalt video player]

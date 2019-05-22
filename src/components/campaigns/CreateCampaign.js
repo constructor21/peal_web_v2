@@ -5,8 +5,8 @@ import { createCampaign } from '../../store/actions/campaignActions'
 
 import { Redirect } from 'react-router-dom'
 
-
 import NewVideoPage from "../NewCampaignVideo/NewCampaignVideo";
+import NewBudgetPage from "../NewCampaignBudget/NewCampaignBudget";
 
 class CreateCampaign extends Component {
   state = {
@@ -46,6 +46,8 @@ class CreateCampaign extends Component {
 
     return (
       <div className="container">
+
+        <NewBudgetPage />
 
         <NewVideoPage />
 
