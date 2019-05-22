@@ -17,15 +17,16 @@ const Footer = () => {
           <div className="col l4 offset-l2 s12">
             <h5 className="white-text">Connect With Us</h5>
             <ul>
-              <li><a className="grey-text text-lighten-3" href="#">Instagram</a></li>
-              <li><a className="grey-text text-lighten-3" href="#">Twitter</a></li>
-              <li><a className="grey-text text-lighten-3" href="#">Facebook</a></li>
+              <li><a className="grey-text text-lighten-3" href="https://www.instagram.com/pealdisplay/">Instagram</a></li>
+              <li><a className="grey-text text-lighten-3" href="https://twitter.com/IncPeal">Twitter</a></li>
+              <li><a className="grey-text text-lighten-3" href="https://www.youtube.com/channel/UCD-ghZkzA3m-lxYzAF1mhlg">YouTube</a></li>
+              <li></li>
             </ul>
           </div>
         </div>
       </div>
       <div className="footer-copyright grey darken-4">
-        <div className="container center-align">&copy; 2019 Peal Display, Inc. / <a className="grey-text text-lighten-3" href="#">Privacy Policy</a>  / <a className="grey-text text-lighten-3" href="#">Terms of Use</a> / <a className="grey-text text-lighten-3" href="#">Nondiscrimination Policy</a> </div>
+        <div className="container center-align">&copy; 2019 Peal Display, Inc. / <a className="grey-text text-lighten-3" href="#">Privacy Policy</a>  / <a className="grey-text text-lighten-3" href="#">Terms of Use</a> / <a className="grey-text text-lighten-3" href="#">Nondiscrimination Policy</a> / <a className="grey-text text-lighten-3" href="#">Contact Us</a> </div>
       </div>
     </footer>
 

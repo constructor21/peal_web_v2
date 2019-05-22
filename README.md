@@ -56,16 +56,16 @@ If there are no campaigns created then have a header that prompts user to click 
 Figure out how to make the footer a lower height but still dynamic (not a fixed px height)
 Guard the locations route as well -> just have a coming soon block in there
 Add all of the gesalt components into the create campaign flow
-Get a nicer signin form from the internet ... doesn't need to be materializecss just needs to be dynamic
 Make the repo private
 Create a dev branch, master branch and google maps branch
 Have Aaron fork the repo
 Make the web icon logo the peal logo (favicon.ico)
 Make the legal stuff
 Put the notifications panel from the tutorial in the locations tab
+Look at how adquick is doing there map flow 
 Use the other materialize tutorial list to make the legal pages super slick
 Add Security rules -> https://www.youtube.com/watch?v=O5QxNn6ET5c&list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3&index=32
-Add icons to the social media footer
-Delete Campaign option
+Delete Campaign option in the project details component
 Center drag and drop button
 Make the drag and drop content appear on the screen [gestalt video player]
+Fix the date picker

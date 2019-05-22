@@ -47,9 +47,14 @@ class CreateCampaign extends Component {
     return (
       <div className="container">
 
+        {
+        /*
         <NewBudgetPage />
 
         <NewVideoPage />
+        */
+        }
+
 
         <form className="white" onSubmit={this.handleSubmit}>
           <h5 className="grey-text text-darken-3">Create a New Campaign</h5>
