@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-copyright grey darken-4">
-        <div className="container center-align">&copy; 2019 Peal Display, Inc. / <a className="grey-text text-lighten-3" href="#">Privacy Policy</a>  / <a className="grey-text text-lighten-3" href="#">Terms of Use</a> / <a className="grey-text text-lighten-3" href="#">Nondiscrimination Policy</a> / <a className="grey-text text-lighten-3" href="#">Contact Us</a> </div>
+        <div className="container center-align">&copy; 2019 Peal Display, Inc. / <a className="grey-text text-lighten-3" href="https://www.pealdisplay.com/privacy-policy">Privacy Policy</a>  / <a className="grey-text text-lighten-3" href="https://www.pealdisplay.com/terms">Terms of Use</a> / <a className="grey-text text-lighten-3" href="https://www.pealdisplay.com/non-discrimination-policy">Nondiscrimination Policy</a> / <a className="grey-text text-lighten-3" href="https://www.pealdisplay.com/contact">Contact Us</a> </div>
       </div>
     </footer>
 

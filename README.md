@@ -62,10 +62,13 @@ Have Aaron fork the repo
 Make the web icon logo the peal logo (favicon.ico)
 Make the legal stuff
 Put the notifications panel from the tutorial in the locations tab
-Look at how adquick is doing there map flow 
+Look at how adquick is doing there map flow
 Use the other materialize tutorial list to make the legal pages super slick
 Add Security rules -> https://www.youtube.com/watch?v=O5QxNn6ET5c&list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3&index=32
 Delete Campaign option in the project details component
 Center drag and drop button
 Make the drag and drop content appear on the screen [gestalt video player]
 Fix the date picker
+Clicking on a state opens Google Maps to that state → clickable markers per display -> look at how adquick does it
+Make the left side look like the notifications panel
+You only need the calendar not the budget part because its a subscription model pre CV
