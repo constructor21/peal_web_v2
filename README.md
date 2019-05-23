@@ -3,6 +3,9 @@ npm install --> npm start
 React specific ui framework:
 
 npm install @material-ui/core
+npm install @material-ui/icons
+
+
 npm i gestalt --save
 npm install styled-components --save
 
@@ -52,20 +55,20 @@ Rules are matches to specific code paths. You can different rules for different 
 TODO:
 
 Delete Campaign option in the project details component --> popup: Are you sure you want to delete this campaign?
-
-
-If there are no campaigns created then have a header that prompts user to click the create campaign button
-Guard the locations route as well -> just have a coming soon block in there
-Add all of the gesalt components into the create campaign flow
+SideNav is sometimes not opening ... you can't trust Jquery ... use the old code to activate it but still keep material style 
+Make the web icon logo the peal logo (favicon.ico)
+Center drag and drop button
+Make the drag and drop content appear on the screen [gestalt video player]
 Make the repo private
 Create a dev branch, master branch and google maps branch
 Have Aaron fork the repo
-Make the web icon logo the peal logo (favicon.ico)
-Put the notifications panel from the tutorial in the locations tab
-Add Security rules -> https://www.youtube.com/watch?v=O5QxNn6ET5c&list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3&index=32
-Center drag and drop button
-Make the drag and drop content appear on the screen [gestalt video player]
-Fix the date picker
-Clicking on a state opens Google Maps to that state → clickable markers per display -> look at how adquick does it
-Make the left side look like the notifications panel
-You only need the calendar not the budget part because its a subscription model pre CV
+
+
+
+
+
+Add security rules
+Cloud functions for map additions [Locations Tab: USA Map -> Google Maps zoom in]
+  Guard the locations route
+Metrics Dashboard
+Budget part to link to the calendar

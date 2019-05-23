@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^4.0.0",
     "firebase": "^6.0.2",
     "gestalt": "^0.97.0",
     "moment": "^2.24.0",

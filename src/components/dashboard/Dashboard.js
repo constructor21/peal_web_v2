@@ -15,7 +15,7 @@ class Dashboard extends Component {
     // console.log(this.props);
     // use destructuring to grab these items from the props object
     const { campaigns, auth } = this.props;
-    if (!auth.uid) return <Redirect to='/' /> 
+    if (!auth.uid) return <Redirect to='/' />
 
     return (
       <div className="dashboard container">
@@ -24,7 +24,7 @@ class Dashboard extends Component {
             <CampaignList campaigns={campaigns} />
           </div>
           <div className="col s12 m5 offset-m1">
-            <Metrics />
+            { /* <Metrics /> */ }
           </div>
         </div>
       </div>
