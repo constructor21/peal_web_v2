@@ -12,12 +12,36 @@ const Navbar = (props) => {
   const links = auth.uid ? <NavbarLinks /> : <SignInPageLinks />;
 
   return (
-    <nav className="nav-wrapper grey darken-3">
-      <div className="container">
-        <Link to='/dashboard' className="brand-logo">Peal Display</Link>
+
+    <div>
+
+
+    <div className="navbar-fixed">
+      <nav className="nav-wrapper grey darken-3">
+        <div className="container">
+
+          <Link to='/dashboard' className="brand-logo">Peal Display</Link>
+
+
+          <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i className="material-icons">menu</i>
+          </a>
+          <ul className="right hide-on-med-and-down">
+            {/*<li><a href="#">Home</a></li>*/}
+            {links}
+          </ul>
+
+        </div>
+
+      </nav>
+    </div>
+
+      <ul class="sidenav" id="mobile-links">
         {links}
-      </div>
-    </nav>
+      </ul>
+
+    </div>
+
   )
 }
 
