@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
-import './DeleteCampaign.css'
+
+
+
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -69,10 +74,13 @@ class DeleteCampaign extends Component {
 
   handleCloseWithYesPressed = () => {
     console.log("user initiated delete campaign action");
+    this.props.deleteCampaign(this.props.documentId);
+    console.log(this.props.documentId);
     this.setState({ open: false });
   };
 
   render() {
+    // console.log(this.props.documentId); // set state and use that for the yes button?
     return (
 
       <div>

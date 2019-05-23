@@ -1,7 +1,10 @@
 import React from 'react'
+
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+
+import { deleteCampaign } from '../../store/actions/campaignActions'
 
 import { Redirect } from 'react-router-dom'
 
@@ -10,8 +13,6 @@ import moment from 'moment'
 import DeleteCampaign from './DeleteCampaign'
 
 import './CampaignDetails.css'
-
-
 
 
 const CampaignDetails = (props) => {
@@ -39,7 +40,9 @@ const CampaignDetails = (props) => {
 
         </div>
 
-        <DeleteCampaign />
+        {/*Pass the id of the specific document you want to delete*/}
+        <DeleteCampaign documentId={campaign.firebaseAuthId} deleteCampaign={props.deleteCampaign} />
+
 
       </div>
     )
@@ -67,9 +70,16 @@ const CampaignDetails = (props) => {
     }
   }
 
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      // accepts an individual campaign that we are passing to the dispatch function an action creator
+      deleteCampaign: (documentId) => dispatch(deleteCampaign(documentId))
+    }
+  }
+
 // connect and firestore connect are two higher order compoents. We are composing them together.
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([{
     collection: 'campaigns'
   }])

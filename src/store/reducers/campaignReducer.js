@@ -7,11 +7,17 @@ const initState = {
 
 const campaignReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'CREATE_PROJECT_SUCCESS':
-      console.log('create project success');
+    case 'CREATE_CAMPAIGN_SUCCESS':
+      console.log('create campaign success');
       return state;
-    case 'CREATE_PROJECT_ERROR':
-      console.log('create project error');
+    case 'CREATE_CAMPAIGN_ERROR':
+      console.log('create campaign error');
+      return state;
+    case 'DELETE_CAMPAIGN_SUCCESS':
+      console.log('delete campaign success');
+      return state;
+    case 'DELETE_CAMPAIGN_ERROR':
+      console.log('delete campaign error');
       return state;
     default:
       return state;

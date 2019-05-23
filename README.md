@@ -54,21 +54,22 @@ Rules are matches to specific code paths. You can different rules for different 
 
 TODO:
 
-Delete Campaign option in the project details component --> popup: Are you sure you want to delete this campaign?
-SideNav is sometimes not opening ... you can't trust Jquery ... use the old code to activate it but still keep material style 
+Delete Campaign Firestore action
+SideNav is sometimes not opening ... you can't trust Jquery ... use the old code to activate it but still keep material style
 Make the web icon logo the peal logo (favicon.ico)
 Center drag and drop button
 Make the drag and drop content appear on the screen [gestalt video player]
 Make the repo private
-Create a dev branch, master branch and google maps branch
 Have Aaron fork the repo
-
-
-
-
-
 Add security rules
+Host the website
+
+
+
+
+
+
 Cloud functions for map additions [Locations Tab: USA Map -> Google Maps zoom in]
   Guard the locations route
 Metrics Dashboard
-Budget part to link to the calendar
+Budget & Calendar

@@ -17,7 +17,18 @@ export const createCampaign = (campaign) => {
       // resume the dispatch
       dispatch({ type: 'CREATE_CAMPAIGN_SUCCESS', campaign });
     }).catch(err => {
-      dispatch({ type: 'CREATE_PROJECT_ERROR' }, err);
+      dispatch({ type: 'CREATE_CAMPAIGN_ERROR' }, err);
+    });
+  }
+};
+
+export const deleteCampaign = (documentId) =>  {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    const firestore = getFirestore();
+    firestore.collection('campaigns').doc(documentId).delete().then(() => {
+      dispatch({ type: 'DELETE_CAMPAIGN_SUCCESS', documentId });
+    }).catch(err => {
+      dispatch({ type: 'DELETE_CAMPAIGN_ERROR' }, err);
     });
   }
 };
