@@ -7,6 +7,11 @@ import { Redirect } from 'react-router-dom'
 
 import moment from 'moment'
 
+import DeleteCampaign from './DeleteCampaign'
+
+import './CampaignDetails.css'
+
+
 
 
 const CampaignDetails = (props) => {
@@ -22,19 +27,20 @@ const CampaignDetails = (props) => {
     return (
       <div className="container section project-details">
         <div className="card z-depth-0">
+
           <div className="card-content">
             <span className="card-title">{campaign.title}</span>
-            {
-              /*
-              <p>{campaign.content}</p>
-              */
-            }
-
           </div>
+
+
           <div className="card-action grey lighten-4 grey-text">
             <div>{moment(campaign.createdAt.toDate()).calendar()}</div>
           </div>
+
         </div>
+
+        <DeleteCampaign />
+
       </div>
     )
   } else {
