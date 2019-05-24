@@ -5,8 +5,9 @@ import { createCampaign } from '../../store/actions/campaignActions'
 
 import { Redirect } from 'react-router-dom'
 
-// import NewVideoPage from "../NewCampaignVideo/NewCampaignVideo";
-// import NewBudgetPage from "../NewCampaignBudget/NewCampaignBudget";
+import ContentContainer from "../mediaUpload/ContentContainer";
+
+import './CreateCampaign.css';
 
 class CreateCampaign extends Component {
   state = {
@@ -48,16 +49,16 @@ class CreateCampaign extends Component {
 
       <div>
 
-        <h5 className="grey-text text-darken-3 center-align">Create a New Campaign in 3 Simple Steps</h5>
+        <h5 className="grey-text text-darken-3 center-align">Create a New Campaign in 2 Simple Steps</h5>
 
         <div className="container">
-          <form className="white">
+
+          <form className="white bottom-padding-override">
             <h6 className="grey-text text-darken-3">Step 1:</h6>
             <span> _____ </span>
+            <ContentContainer />
           </form>
-        </div>
 
-        <div className="container">
           <form className="white" onSubmit={this.handleSubmit}>
             <h6 className="grey-text text-darken-3">Step 2:</h6>
             <span> _____ </span>
@@ -69,13 +70,7 @@ class CreateCampaign extends Component {
               <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString()  )}>Create Campaign</button>
             </div>
           </form>
-        </div>
 
-        <div className="container">
-          <form className="white">
-            <h6 className="grey-text text-darken-3">Step 3:</h6>
-            <span> _____ </span>
-          </form>
         </div>
 
       </div>

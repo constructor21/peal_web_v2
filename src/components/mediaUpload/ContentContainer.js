@@ -1,9 +1,6 @@
 import React from 'react';
 import FileDrop from 'react-file-drop';
-import { Box, Container, Heading, TextField } from 'gestalt';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import { Box } from 'gestalt';
 import 'gestalt/dist/gestalt.css';
 import './react-file-drop.css'
 
@@ -11,23 +8,29 @@ import styled from "styled-components";
 
 import OutlinedButtons from './UploadButton';
 
-const ComponentTitle = styled.div`
-    text-size: 20px;
-    max-width: 600px;
-    color: rgba(0, 0, 0, 1);
-    marginTop: 2px;
-    padding-bottom: 1px;
-    border-bottom: 1px solid rgba(0, 0, 0, 1);
-`;
+import MaterialTextField from '@material-ui/core/TextField';
 
-var styles = { border: '1px dashed black', height: 500, width: 325, color: "black" };
+var styles = { border: '1px dashed blue', height: 500, width: 325, color: "black" };
 
 
 class ContentContainer extends React.Component {
+
+  constructor(props) {
+      super(props);
+
+      this.state = {
+          mediaFileName: ''
+      };
+
+    }
+
     handleDrop = (files, event) => {
-        console.log(files.length);
-        //files
-        console.log(files, event);
+        //console.log(files.length);
+        //console.log(files, event);
+        console.log(files[0].name);
+        this.setState({
+          mediaFileName: files[0].name
+        })
     }
 
     onDragOver = (event) => {
@@ -54,6 +57,18 @@ class ContentContainer extends React.Component {
                         <OutlinedButtons />
                         </FileDrop>
                     </div>
+
+                    <MaterialTextField
+                      id="standard-name"
+                      label="Click The Upload Button"
+                      placeholder="file name will be displayed here"
+                      value={this.state.mediaFileName}
+                      margin="normal"
+                      style = {{width: 300}}
+                  />
+
+
+
                 </Box>
             </Box>
         );
