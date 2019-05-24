@@ -5,8 +5,8 @@ import { createCampaign } from '../../store/actions/campaignActions'
 
 import { Redirect } from 'react-router-dom'
 
-import NewVideoPage from "../NewCampaignVideo/NewCampaignVideo";
-import NewBudgetPage from "../NewCampaignBudget/NewCampaignBudget";
+// import NewVideoPage from "../NewCampaignVideo/NewCampaignVideo";
+// import NewBudgetPage from "../NewCampaignBudget/NewCampaignBudget";
 
 class CreateCampaign extends Component {
   state = {
@@ -45,27 +45,39 @@ class CreateCampaign extends Component {
     if (!auth.uid) return <Redirect to='/' />
 
     return (
-      <div className="container">
 
-        {
-        /*
-        <NewBudgetPage />
+      <div>
 
-        <NewVideoPage />
-        */
-        }
+        <h5 className="grey-text text-darken-3 center-align">Create a New Campaign in 3 Simple Steps</h5>
 
+        <div className="container">
+          <form className="white">
+            <h6 className="grey-text text-darken-3">Step 1:</h6>
+            <span> _____ </span>
+          </form>
+        </div>
 
-        <form className="white" onSubmit={this.handleSubmit}>
-          <h5 className="grey-text text-darken-3">Create a New Campaign</h5>
-          <div className="input-field">
-            <input type="text" id='title' onChange={this.handleChange} />
-            <label htmlFor="title">Campaign Title</label>
-          </div>
-          <div className="input-field">
-            <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString()  )}>Create Campaign</button>
-          </div>
-        </form>
+        <div className="container">
+          <form className="white" onSubmit={this.handleSubmit}>
+            <h6 className="grey-text text-darken-3">Step 2:</h6>
+            <span> _____ </span>
+            <div className="input-field">
+              <input type="text" id='title' onChange={this.handleChange} />
+              <label htmlFor="title">Campaign Title</label>
+            </div>
+            <div className="input-field">
+              <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString()  )}>Create Campaign</button>
+            </div>
+          </form>
+        </div>
+
+        <div className="container">
+          <form className="white">
+            <h6 className="grey-text text-darken-3">Step 3:</h6>
+            <span> _____ </span>
+          </form>
+        </div>
+
       </div>
     )
   }
