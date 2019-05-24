@@ -58,9 +58,9 @@ SideNav is sometimes not opening ... you can't trust Jquery ... use the old code
 Delete Campaign Firestore action
 Save media content to firebase
 
-Make the web icon logo the peal logo (favicon.ico)
+
 Order the campaigns
-Stripe Integration 
+Stripe Integration
 
 Make the repo private
 Add security rules
