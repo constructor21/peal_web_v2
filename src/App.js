@@ -7,6 +7,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import CampaignDetails from './components/campaigns/CampaignDetails';
 import SignIn from './components/auth/SignIn'
 import CreateCampaign from './components/campaigns/CreateCampaign';
+import BillingCenter from './components/billingCenter/BillingCenter';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
               <Route path='/campaign/:id' component={CampaignDetails} />
               <Route path='/dashboard' component={Dashboard} />
               <Route path='/create' component={CreateCampaign} />
+              <Route path='/billing' component={BillingCenter} />
             </Switch>
           </div>
 

@@ -60,7 +60,7 @@ Save media content to firebase
 
 Make the web icon logo the peal logo (favicon.ico)
 Order the campaigns
-Add a billing link in navbar: Stripe Integration 
+Stripe Integration 
 
 Make the repo private
 Add security rules

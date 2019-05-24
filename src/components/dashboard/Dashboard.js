@@ -35,7 +35,7 @@ class Dashboard extends Component {
 // mapStateToProps is this function always by convention
 const mapStateToProps = (state) => {
   // accessing the state of the redux store
-  console.log(state);
+  // console.log(state);
   return {
     // decides which props get passed from the store to this component
       // the first campaigns is just what you named this object
