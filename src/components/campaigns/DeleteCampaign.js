@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-
+import { Redirect } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
@@ -60,6 +60,7 @@ class DeleteCampaign extends Component {
 
   state = {
     open: false,
+    campaignDeleted: false
   };
 
   handleClickOpen = () => {
@@ -74,13 +75,20 @@ class DeleteCampaign extends Component {
 
   handleCloseWithYesPressed = () => {
     console.log("user initiated delete campaign action");
-    this.props.deleteCampaign(this.props.documentId);
-    console.log(this.props.documentId);
     this.setState({ open: false });
+    this.props.deleteCampaign(this.props.documentId);
+    this.setState({
+      campaignDeleted: true,
+    });
+    
   };
 
   render() {
     // console.log(this.props.documentId); // set state and use that for the yes button?
+    if (this.state.campaignDeleted === true) {
+      return <Redirect to='/dashboard' />
+    }
+
     return (
 
       <div>

@@ -59,6 +59,8 @@ SideNav is sometimes not opening ... you can't trust Jquery ... use the old code
 Make the web icon logo the peal logo (favicon.ico)
 Center drag and drop button
 Make the drag and drop content appear on the screen [gestalt video player]
+Order the campaigns 
+Stripe
 Make the repo private
 Have Aaron fork the repo
 Add security rules

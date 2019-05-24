@@ -63,7 +63,7 @@ class CreateCampaign extends Component {
             <label htmlFor="title">Campaign Title</label>
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1" onClick={() => this.buildFirestore(auth.uid)}>Create Campaign</button>
+            <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString()  )}>Create Campaign</button>
           </div>
         </form>
       </div>
