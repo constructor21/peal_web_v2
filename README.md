@@ -54,13 +54,12 @@ Rules are matches to specific code paths. You can different rules for different 
 
 TODO:
 
-SideNav is sometimes not opening ... you can't trust Jquery ... use the old code to activate it but still keep material style
-Delete Campaign Firestore action
-Save media content to firebase
+SideNav is sometimes not opening ... you can't trust Jquery ... use the old code to activate it but still keep material styling
+Save media content to firebase (google)
 
 
 Order the campaigns
-Billing page
+Billing page + when they click 'create campaign if they haven't added card info then an error message needs to pop up'
 
 Make the repo private
 Add security rules
