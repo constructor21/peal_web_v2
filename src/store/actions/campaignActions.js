@@ -23,46 +23,40 @@ export const createCampaign = (campaign) => {
 };
 
 
-
-
-function parseDocument(doc){
-  return doc.firebaseAuthId;
-};
-
 // you need to make the firebase auth id a random number
 export const deleteCampaign = (documentId) =>  {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
 
     const firestore = getFirestore();
-    var hashMap = {}
+
+    var myMap = new Map();
 
     firestore.collection('campaigns').get().then((snapshot) => {
       snapshot.docs.forEach(doc => {
-        // console.log(doc.data())  // this is simply an object... have a seperate method that pulls out the firebaseAuthId
+        // console.log(doc.data().firebaseAuthId)  // this is simply an object... have a seperate method that pulls out the firebaseAuthId
         // console.log(doc.id)
+        myMap.set(doc.data().firebaseAuthId, doc.id);
 
         // 1. build a hashmap with firebaseAuthId as key, doc.id as value
-        hashMap[parseDocument(doc.data())] = doc.id
+        // 2. Delete the appropiate document 
       })
-    })
+    }).then(() => {
+      console.log(myMap);
+      for (var [key, value] of myMap.entries()) {
+        console.log(key + ' = ' + value);
 
-    console.log(hashMap);
+        if(key === documentId) {
 
-    // 2. loop through the hashmap and if the campaign.firebaseAuthId == the key ....... delete the value
-    const entries = Object.entries(hashMap)
-    console.log(entries) // this is an empty array 
+          firestore.collection('campaigns').doc(myMap.get(documentId)).delete().then(() => {
+            dispatch({ type: 'DELETE_CAMPAIGN_SUCCESS', documentId });
+          }).catch(err => {
+            dispatch({ type: 'DELETE_CAMPAIGN_ERROR' }, err);
+          });
 
-    for (var campaignId in hashMap) {
-      console.log(campaignId);
-      if(campaignId === documentId) {
-        firestore.collection('campaigns').doc(hashMap[documentId]).delete().then(() => {
-          dispatch({ type: 'DELETE_CAMPAIGN_SUCCESS', documentId });
-        }).catch(err => {
-          dispatch({ type: 'DELETE_CAMPAIGN_ERROR' }, err);
-        });
+        }
 
       }
-    }
+    })
 
   }
 };

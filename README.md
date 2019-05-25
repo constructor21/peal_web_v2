@@ -60,7 +60,7 @@ Save media content to firebase
 
 
 Order the campaigns
-Stripe Integration
+Billing page
 
 Make the repo private
 Add security rules
@@ -69,9 +69,5 @@ Host the website
 
 
 
-
-
-Cloud functions for map additions [Locations Tab: USA Map -> Google Maps zoom in]
-  Guard the locations route
+Guard the locations route
 Metrics Dashboard
-Budget & Calendar [in the billing link]

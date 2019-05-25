@@ -80,7 +80,7 @@ class DeleteCampaign extends Component {
     this.setState({
       campaignDeleted: true,
     });
-    
+    return <Redirect to='/dashboard' /> 
   };
 
   render() {
