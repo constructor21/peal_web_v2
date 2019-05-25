@@ -20,7 +20,7 @@ class StripeContainer extends Component {
 
         <div className="container">
 
-          <form className="#e0e0e0 grey lighten-2">
+          <form className="white">
 
             <div className="input-field">
               <button className="btn pink lighten-1" onClick={this.back}> Back </button>

@@ -14,7 +14,7 @@ export class BusinessDetails extends Component {
 
           <div className="container">
 
-            <form className="#e0e0e0 grey lighten-2">
+            <form className="white">
 
               <div className="input-field">
                 <h6> Address </h6>

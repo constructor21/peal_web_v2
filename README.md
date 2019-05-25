@@ -57,11 +57,14 @@ TODO:
 Welcome message if no campaigns have been created yet
 
 SideNav is sometimes not opening ... you can't trust Jquery ... use the old code to activate it but still keep material styling
+
 Save media content to firestore (google)
 
-
 Order the campaigns
+
 Billing page + when they click 'create campaign if they haven't added card info then an error message needs to pop up'
+  The billing address sends a cloud function so that when they sign in it shows them all the displays in their area on the locations tab
+  <p> If they haven't entered info before it needs to have a welcome message </p>
 
 Add calendar back
   convert material to materialize
@@ -70,19 +73,13 @@ Add calendar back
 Add Stripe Back
   isolate the css
 
-The sucess page should be the notifications panel from the tutorial
-  Need to be able to add and delete payments
+The success page should be the notifications panel from the tutorial
+  Need to be able to add, delete, change payments
 
 Make the repo private
 Add security rules
 Host the website
 
-
-<p> If they haven't entered info before it needs to have a welcome message </p>
-<p> Add Stripe here: They need to enter their company name, address & payment info </p>
-<p> If they've already entered it then needs to show a panel with their payment history and ability to add / remove cards </p>
-
-<p> The billing address sends a cloud function so that when they sign in it shows them all the displays in their area on the locations tab</p>
 
 
 Guard the locations route
