@@ -64,13 +64,16 @@ Order the campaigns
 
 Billing page + when they click 'create campaign if they haven't added card info then an error message needs to pop up'
   The billing address sends a cloud function so that when they sign in it shows them all the displays in their area on the locations tab
-  <p> If they haven't entered info before it needs to have a welcome message </p>
+  If they haven't entered info before it needs to have a welcome message
+  process the form in the confirm component
 
-Fix Calendar height 
+
+Fix Calendar height
   proper calculations based on subsciption model
 
 Add Stripe Back
   isolate the css
+  Don't have the double text pop up
 
 The success page should be the notifications panel from the tutorial
   Need to be able to add, delete, change payments
@@ -80,6 +83,10 @@ Add security rules
 Host the website
 
 
-
 Guard the locations route
+  Zoom into area around your company address 
+
 Metrics Dashboard
+  Number of displays up
+  Estimated reach
+  Remaining length of current campaigns

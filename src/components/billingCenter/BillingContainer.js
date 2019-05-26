@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import BusinessDetails from './BusinessDetails';
 import StripeContainer from './StripeContainer';
+import Confirm from './Confirm';
 
 class BillingContainer extends Component {
 
@@ -39,8 +40,8 @@ class BillingContainer extends Component {
 
     const { step } = this.state;
 
-    const { paymentInfoAdded, companyName, address, email, city, zipCode } = this.state;
-    const values = { paymentInfoAdded, companyName, address, email, city, zipCode };
+    const { address, city, zipCode } = this.state;
+    const values = { address, city, zipCode };
 
 
 
@@ -63,9 +64,13 @@ class BillingContainer extends Component {
             />
           );
         case 3:
-          return (
-            <h3> Confirm </h3>
-          );
+        return (
+          <Confirm
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            values={values}
+          />
+        );
         case 4:
           return (
             <h3> Success </h3>

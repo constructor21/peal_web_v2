@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class Success extends Component {
   continue = e => {
@@ -16,12 +15,7 @@ export class Success extends Component {
 
   render() {
     return (
-      <MuiThemeProvider>
-        <React.Fragment>
-          <h1>Thank You For Your Submission</h1>
-          <p>You will get an email with further instructions</p>
-        </React.Fragment>
-      </MuiThemeProvider>
+      <p> Success </p> 
     );
   }
 }

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { List, ListItem } from 'material-ui/List';
-import RaisedButton from 'material-ui/RaisedButton';
 
 export class Confirm extends Component {
   continue = e => {
     e.preventDefault();
-    // PROCESS FORM //
+    // PROCESS FORM in firestore right here //
     this.props.nextStep();
   };
 
@@ -17,42 +14,37 @@ export class Confirm extends Component {
 
   render() {
     const {
-      values: { firstName, lastName, email, occupation, city, bio }
+      values: { address, city, zipCode }
     } = this.props;
     return (
-      <MuiThemeProvider>
-        <React.Fragment>
-          <List>
-            <ListItem primaryText="First Name" secondaryText={firstName} />
-            <ListItem primaryText="Last Name" secondaryText={lastName} />
-            <ListItem primaryText="Email" secondaryText={email} />
-            <ListItem primaryText="Occupation" secondaryText={occupation} />
-            <ListItem primaryText="City" secondaryText={city} />
-            <ListItem primaryText="Bio" secondaryText={bio} />
-          </List>
-          <br />
-          <RaisedButton
-            label="Confirm & Continue"
-            primary={true}
-            style={styles.button}
-            onClick={this.continue}
-          />
-          <RaisedButton
-            label="Back"
-            primary={false}
-            style={styles.button}
-            onClick={this.back}
-          />
-        </React.Fragment>
-      </MuiThemeProvider>
+
+      <div className="container">
+
+        <ul class="collection">
+          <li class="collection-item">{address}</li>
+          <li class="collection-item">{city}</li>
+          <li class="collection-item">{zipCode}</li>
+        </ul>
+
+        <form className="white">
+
+          <div className="input-field">
+            <button className="btn pink lighten-1" onClick={this.back}> Back </button>
+            <span> | </span>
+            <button className="btn pink lighten-1" onClick={this.continue}> Confirm & Continue </button>
+          </div>
+
+          <div className="input-field">
+
+          </div>
+
+        </form>
+
+      </div>
+
     );
   }
 }
 
-const styles = {
-  button: {
-    margin: 15
-  }
-};
 
 export default Confirm;
