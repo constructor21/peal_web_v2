@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import NavbarLinks from './NavbarLinks'
 import SignInPageLinks from './SignInPageLinks'
 import { connect } from 'react-redux'
+import DrawerToggleButton from './sideDrawer/DrawerToggleButton';
 
 const Navbar = (props) => {
   // destructure the props to get the auth property
@@ -15,30 +16,27 @@ const Navbar = (props) => {
 
     <div>
 
+      <div className="navbar-fixed">
+        <nav className="nav-wrapper grey darken-3">
+          <div className="container">
 
-    <div className="navbar-fixed">
-      <nav className="nav-wrapper grey darken-3">
-        <div className="container">
+            <Link to='/dashboard' className="brand-logo">Peal Display</Link>
 
-          <Link to='/dashboard' className="brand-logo">Peal Display</Link>
+            <a href="#" className="sidenav-trigger" data-target="mobile-links">
+              <div className="toolbar__toggle-button">
+                <DrawerToggleButton click={props.drawerClickHandler} />
+              </div>
+            </a>
+            <ul className="right hide-on-med-and-down">
+              {links}
+            </ul>
 
+          </div>
 
-          <a href="#" className="sidenav-trigger" data-target="mobile-links">
-            <i className="material-icons">menu</i>
-          </a>
-          <ul className="right hide-on-med-and-down">
-            {/*<li><a href="#">Home</a></li>*/}
-            {links}
-          </ul>
+        </nav>
 
-        </div>
+      </div>
 
-      </nav>
-    </div>
-
-      <ul className="sidenav" id="mobile-links">
-        {links}
-      </ul>
 
     </div>
 

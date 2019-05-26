@@ -54,8 +54,12 @@ Rules are matches to specific code paths. You can different rules for different 
 
 Tasks
 
-1. Welcome message if no campaigns have been created yet
 2. SideNav is sometimes not opening, you can't trust Jquery, use the old code to activate it but still keep material styling
+10. Don't have the double text pop up in billing
+
+
+
+1. Welcome message if no campaigns have been created yet
 3. Save media content to firestore
 4. Order the campaigns
 5. Cloud function to take the company address and have a spot on the map for it auto-zoomed into
@@ -67,11 +71,10 @@ Tasks
       Estimated reach
       Remaining length of current campaigns
 8. Fix calendar cell height [it's the cells not the box]
-9. Add Stripe back, isolate the css
-10. Don't have the double text pop up in billing
+9. Add Stripe back, isolate the css --> have a better looking summary page
 11. The success page should show the a panel for add, delete and change payment method
 12. Remove the component when sucessful upload or gestalt video uploader or react drop zone ?
 13. Make the repo private
 14. Add security rules
 15. Host the website
-16. Data architecture 
+16. Data architecture
