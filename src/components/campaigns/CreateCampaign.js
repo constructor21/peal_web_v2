@@ -9,6 +9,8 @@ import ContentContainer from "../mediaUpload/ContentContainer";
 
 import './CreateCampaign.css';
 
+import RunBetweenDates from "../campaignBudget/CampaignBudget";
+
 class CreateCampaign extends Component {
   state = {
     title: '',
@@ -49,7 +51,7 @@ class CreateCampaign extends Component {
 
       <div>
 
-        <h5 className="grey-text text-darken-3 center-align">Create a New Campaign in 2 Simple Steps</h5>
+        <h5 className="grey-text text-darken-3 center-align">Create a New Campaign in 3 Simple Steps</h5>
 
         <div className="container">
 
@@ -59,8 +61,10 @@ class CreateCampaign extends Component {
             <ContentContainer />
           </form>
 
+          <RunBetweenDates />
+
           <form className="white" onSubmit={this.handleSubmit}>
-            <h6 className="grey-text text-darken-3">Step 2:</h6>
+            <h6 className="grey-text text-darken-3">Step 3:</h6>
             <span> _____ </span>
             <div className="input-field">
               <input type="text" id='title' onChange={this.handleChange} />
