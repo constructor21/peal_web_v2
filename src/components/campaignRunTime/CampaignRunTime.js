@@ -22,8 +22,6 @@ import isInclusivelyAfterDay from 'react-dates/src/utils/isInclusivelyAfterDay';
 
 import RunBetweenDates from '../campaignBudget/CampaignBudget';
 
-import './DatePicker.css';
-
 const Block = styled.div`
     display: inline-block;
     vertical-align: top;

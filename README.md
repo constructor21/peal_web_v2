@@ -52,41 +52,26 @@ Rules are matches to specific code paths. You can different rules for different 
 
 
 
-TODO:
+Tasks
 
-Welcome message if no campaigns have been created yet
-
-SideNav is sometimes not opening ... you can't trust Jquery ... use the old code to activate it but still keep material styling
-
-Save media content to firestore (google)
-
-Order the campaigns
-
-Billing page + when they click 'create campaign if they haven't added card info then an error message needs to pop up'
-  The billing address sends a cloud function so that when they sign in it shows them all the displays in their area on the locations tab
-  If they haven't entered info before it needs to have a welcome message
-  process the form in the confirm component
-
-
-Fix Calendar height
-  proper calculations based on subsciption model
-
-Add Stripe Back
-  isolate the css
-  Don't have the double text pop up
-
-The success page should be the notifications panel from the tutorial
-  Need to be able to add, delete, change payments
-
-Make the repo private
-Add security rules
-Host the website
-
-
-Guard the locations route
-  Zoom into area around your company address 
-
-Metrics Dashboard
-  Number of displays up
-  Estimated reach
-  Remaining length of current campaigns
+1. Welcome message if no campaigns have been created yet
+2. SideNav is sometimes not opening, you can't trust Jquery, use the old code to activate it but still keep material styling
+3. Save media content to firestore
+4. Order the campaigns
+5. Cloud function to take the company address and have a spot on the map for it auto-zoomed into
+6. If a user hasn't entered entered anything into billing before then their needs to be a welcome message
+7. Locations tab --> google maps ... metrics dashboard that populates different info based on display marker clicked
+    - guard the route
+    - Metrics:
+      Number of displays up
+      Estimated reach
+      Remaining length of current campaigns
+8. Fix calendar cell height [it's the cells not the box]
+9. Add Stripe back, isolate the css
+10. Don't have the double text pop up in billing
+11. The success page should show the a panel for add, delete and change payment method
+12. Remove the component when sucessful upload or gestalt video uploader or react drop zone ?
+13. Make the repo private
+14. Add security rules
+15. Host the website
+16. Data architecture 
