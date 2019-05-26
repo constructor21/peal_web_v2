@@ -66,8 +66,7 @@ Billing page + when they click 'create campaign if they haven't added card info 
   The billing address sends a cloud function so that when they sign in it shows them all the displays in their area on the locations tab
   <p> If they haven't entered info before it needs to have a welcome message </p>
 
-Add calendar back
-  convert material to materialize
+Fix Calendar height 
   proper calculations based on subsciption model
 
 Add Stripe Back

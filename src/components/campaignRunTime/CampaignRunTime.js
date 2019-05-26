@@ -22,7 +22,7 @@ import isInclusivelyAfterDay from 'react-dates/src/utils/isInclusivelyAfterDay';
 
 import RunBetweenDates from '../campaignBudget/CampaignBudget';
 
-
+import './DatePicker.css';
 
 const Block = styled.div`
     display: inline-block;
@@ -216,7 +216,7 @@ class NewRunTimePage extends React.Component {
         return (
 
             <Box align="center"  >
-                <div style={{ height: '100%', width: 900 }}>
+
 
                     <DayPickerRangeController
                         {...props}
@@ -228,17 +228,17 @@ class NewRunTimePage extends React.Component {
                         numberOfMonths={1}
                     />
 
-                    <Block style={{ marginTop: 20, marginRight: 30 }}>
+                    <Block style={{ marginTop: 60, marginRight: 30 }}>
                         <Label> Start Date </Label>
                         <Date> {startDateString} </Date>
                     </Block>
 
-                    <Block style={{ marginTop: 20 }}>
+                    <Block style={{ marginTop: 60 }}>
                         <Label> End Date </Label>
                         <Date> {endDateString} </Date>
                     </Block>
 
-                </div>
+
 
             </Box>
 

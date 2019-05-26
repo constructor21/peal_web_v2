@@ -40,6 +40,8 @@ import {
 
 import DayPicker from 'react-dates/src/components/DayPicker';
 
+import './DatePicker.css';
+
 const propTypes = forbidExtraProps({
   startDate: momentPropTypes.momentObj,
   endDate: momentPropTypes.momentObj,
