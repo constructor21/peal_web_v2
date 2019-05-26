@@ -240,15 +240,7 @@ class NewRunTimePage extends React.Component {
 
                 </div>
 
-
-
-
-
             </Box>
-
-
-
-
 
         );
     }
