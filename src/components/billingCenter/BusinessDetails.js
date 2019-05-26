@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+import TextField from '@material-ui/core/TextField';
+import './BusinessDetails.css';
+
+// TODO: Find a clear way to create space 
+
 export class BusinessDetails extends Component {
 
   continue = e => {
@@ -16,23 +21,37 @@ export class BusinessDetails extends Component {
 
             <form className="white">
 
-              <div className="input-field">
-                <h6> Address </h6>
-                <input id='title' onChange={handleChange('address')} />
-                <label htmlFor="title">{values.address}</label>
+              <h6> Address </h6>
+              <TextField
+                onChange={handleChange('address')}
+                defaultValue={values.address}
+              />
+
+              {/* Litterally just using this to create space because you can't override materialize css spacing */}
+              <div class="row">
+              <div class="input-field col s12">
+                <label></label>
+              </div>
               </div>
 
-              <div className="input-field">
-                <h6> City </h6>
-                <input id='title' onChange={handleChange('city')} />
-                <label htmlFor="title">{values.city}</label>
+              <h6> City </h6>
+              <TextField
+                onChange={handleChange('city')}
+                defaultValue={values.city}
+              />
+
+              {/* Litterally just using this to create space because you can't override materialize css spacing */}
+              <div class="row">
+              <div class="input-field col s12">
+                <label></label>
+              </div>
               </div>
 
-              <div className="input-field">
-                <h6> Zip Code </h6>
-                <input id='title' onChange={handleChange('zipCode')} />
-                <label htmlFor="title">{values.zipCode}</label>
-              </div>
+              <h6> Zip Code </h6>
+              <TextField
+                onChange={handleChange('zipCode')}
+                defaultValue={values.zipCode}
+              />
 
               <div className="input-field">
                 <button className="btn pink lighten-1" onClick={this.continue}> Continue </button>

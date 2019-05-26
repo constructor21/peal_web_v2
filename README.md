@@ -52,14 +52,21 @@ Rules are matches to specific code paths. You can different rules for different 
 
 
 
+Fix all TODOs post-launch
+
+
+
+
 Tasks
 
-2. SideNav is sometimes not opening, you can't trust Jquery, use the old code to activate it but still keep material styling
-10. Don't have the double text pop up in billing
+afternoon standup
+  - added sidenav
+  - welcome message
+  - double text fixed
 
 
 
-1. Welcome message if no campaigns have been created yet
+
 3. Save media content to firestore
 4. Order the campaigns
 5. Cloud function to take the company address and have a spot on the map for it auto-zoomed into
