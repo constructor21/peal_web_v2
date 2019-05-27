@@ -25,6 +25,7 @@ class Example extends React.Component {
     super(props);
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleResetClick = this.handleResetClick.bind(this);
+    this.handleConfirmClick = this.handleConfirmClick.bind(this);
     this.state = this.getInitialState();
   }
   getInitialState() {
@@ -33,44 +34,74 @@ class Example extends React.Component {
       to: undefined,
     };
   }
+
+  // set this to be in the global redux store after running a function to parse this data
   handleDayClick(day) {
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
-    console.log(range); // set this to be in the global redux store 
+    // console.log(range.from);
+    const fromDateToSave = range.from != undefined ? range.from : " ";
+    console.log(fromDateToSave);
+
+    // you can convert to strings if needed
+      // const start = JSON.stringify(fromDateToSave);
+      // console.log(start.substring(0,11));
+
+    // console.log(typeof fromDateToSave); ... an object not a string you can substring
+    // console.log(range.to);
+    const toDateToSave = range.to != undefined ? range.to : " ";
+    console.log(toDateToSave);
   }
+
   handleResetClick() {
+    console.log("remove from redux store");
     this.setState(this.getInitialState());
+  }
+
+  handleConfirmClick= (e) => {
+    e.preventDefault();
+    console.log("save to redux store");
   }
 
   render() {
     const { from, to } = this.state;
     const modifiers = { start: from, end: to };
     return (
-      <div className="RangeExample">
-        <p>
-          {!from && !to && 'Please select the first day.'}
-          {from && !to && 'Please select the last day.'}
-          {from &&
-            to &&
-            `Selected from ${from.toLocaleDateString()} to
-                ${to.toLocaleDateString()}`}{' '}
-          {from &&
-            to && (
-              <button className="link" onClick={this.handleResetClick}>
-                Reset
-              </button>
-            )}
-        </p>
 
-        <DayPicker
-          className="Selectable"
-          numberOfMonths={this.props.numberOfMonths}
-          selectedDays={[from, { from, to }]}
-          modifiers={modifiers}
-          onDayClick={this.handleDayClick}
-        />
+      <div>
+        <div className="RangeExample">
+          <p>
+            {!from && !to && 'Please select the first day.'}
+            {from && !to && 'Please select the last day.'}
+            {from &&
+              to &&
+              `Selected from ${from.toLocaleDateString()} to
+                  ${to.toLocaleDateString()}`}{' '}
+            {from &&
+              to && (
+                <button className="link" onClick={this.handleResetClick}>
+                  Reset
+                </button>
+              )}
+          </p>
 
-      </div>
+
+          <DayPicker
+            className="Selectable"
+            numberOfMonths={this.props.numberOfMonths}
+            selectedDays={[from, { from, to }]}
+            modifiers={modifiers}
+            onDayClick={this.handleDayClick}
+          />
+
+          </div>
+
+          <button className="link" id="confirmBtnSpacing" onClick={this.handleConfirmClick}>
+            Confirm
+          </button>
+
+        </div>
+
     );
   }
 }

@@ -35,6 +35,7 @@ const CampaignDetails = (props) => {
 
 
           <div className="card-action grey lighten-4 grey-text">
+            <p> Created: </p>
             <div>{moment(campaign.createdAt.toDate()).calendar()}</div>
           </div>
 

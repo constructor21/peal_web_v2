@@ -1,7 +1,7 @@
+
 const initState = {
   campaigns: [
-    {id: 1, title: 'yeezes'},
-    {id: 2, title: 'nike pegasus'}
+
   ]
 }
 
