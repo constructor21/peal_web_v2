@@ -26,8 +26,12 @@ class Example extends React.Component {
     this.handleDayClick = this.handleDayClick.bind(this);
     this.handleResetClick = this.handleResetClick.bind(this);
     this.handleConfirmClick = this.handleConfirmClick.bind(this);
-    this.state = this.getInitialState();
+    this.state = {
+      from: undefined,
+      to: undefined,
+    }
   }
+
   getInitialState() {
     return {
       from: undefined,
@@ -35,13 +39,10 @@ class Example extends React.Component {
     };
   }
 
-  // set this to be in the global redux store after running a function to parse this data
   handleDayClick(day) {
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
     // console.log(range.from);
-    const fromDateToSave = range.from != undefined ? range.from : " ";
-    console.log(fromDateToSave);
 
     // you can convert to strings if needed
       // const start = JSON.stringify(fromDateToSave);
@@ -49,8 +50,7 @@ class Example extends React.Component {
 
     // console.log(typeof fromDateToSave); ... an object not a string you can substring
     // console.log(range.to);
-    const toDateToSave = range.to != undefined ? range.to : " ";
-    console.log(toDateToSave);
+
   }
 
   handleResetClick() {
@@ -60,6 +60,10 @@ class Example extends React.Component {
 
   handleConfirmClick= (e) => {
     e.preventDefault();
+    const fromDateToSave = this.state.from != undefined ? this.state.from : " ";
+    console.log(fromDateToSave);
+    const toDateToSave = this.state.to != undefined ? this.state.to : " ";
+    console.log(toDateToSave);
     console.log("save to redux store");
   }
 

@@ -92,6 +92,4 @@ https://jsfiddle.net/ywain/k288pxqa/
 15. Host the website
 16. Data architecture
 
-Length of campaign should be in the campaign details... TODO: show how many days left 
-
 When you click create campaign everything needs to be saved to firebase

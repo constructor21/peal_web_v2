@@ -14,6 +14,7 @@ import DeleteCampaign from './DeleteCampaign'
 
 import './CampaignDetails.css'
 
+// TODO: show how many days are left in the campaign
 
 const CampaignDetails = (props) => {
   // console.log(props);

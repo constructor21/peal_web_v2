@@ -33,7 +33,7 @@ class UploadButton extends Component {
     handleChange = e => {
       if (e.target.files[0]) {
         const image = e.target.files[0];
-        this.setState(() => ({image})); // save to the gloabl redux store 
+        this.setState(() => ({image})); // save to the gloabl redux store
       }
     }
 
