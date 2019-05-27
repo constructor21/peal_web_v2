@@ -59,13 +59,9 @@ Fix all TODOs post-launch
 
 Tasks
 
-afternoon standup
-  - added sidenav
-  - welcome message
-  - double text fixed
 
 Where is his stripe backend? --> assumed used Node, did you use Express as middleware?
-No checkout 
+No checkout
 Are you charging that card something or just saving the data?
 
 
@@ -80,11 +76,13 @@ Are you charging that card something or just saving the data?
       Number of displays up
       Estimated reach
       Remaining length of current campaigns
-8. Fix calendar cell height [it's the cells not the box]
 9. Add Stripe back, isolate the css --> have a better looking summary page
 11. The success page should show the a panel for add, delete and change payment method
-12. Remove the component when sucessful upload or gestalt video uploader or react drop zone ?
 13. Make the repo private
 14. Add security rules
 15. Host the website
 16. Data architecture
+
+Length of campaign should be in the campaign details
+
+When you click create campaign everything needs to be saved to firebase 

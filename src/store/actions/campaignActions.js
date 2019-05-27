@@ -38,7 +38,7 @@ export const deleteCampaign = (documentId) =>  {
         myMap.set(doc.data().firebaseAuthId, doc.id);
 
         // 1. build a hashmap with firebaseAuthId as key, doc.id as value
-        // 2. Delete the appropiate document 
+        // 2. Delete the appropiate document
       })
     }).then(() => {
       console.log(myMap);

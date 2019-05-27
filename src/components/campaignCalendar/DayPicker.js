@@ -3,7 +3,21 @@ import Helmet from 'react-helmet';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
-export default class Example extends React.Component {
+import './DayPicker.css';
+
+import { Box, Text } from 'gestalt';
+import styled from "styled-components";
+
+const Block = styled.div`
+    display: inline-block;
+    vertical-align: center;
+`;
+
+// TODO: add in edge cases for each month length (i.e. February being 28 days)
+  // currently charging $98 for every 30 days
+  // if less than 30 days then do number of days x $3.25
+
+class Example extends React.Component {
   static defaultProps = {
     numberOfMonths: 1,
   };
@@ -17,6 +31,7 @@ export default class Example extends React.Component {
     return {
       from: undefined,
       to: undefined,
+      budget: 0,
     };
   }
   handleDayClick(day) {
@@ -45,6 +60,7 @@ export default class Example extends React.Component {
               </button>
             )}
         </p>
+
         <DayPicker
           className="Selectable"
           numberOfMonths={this.props.numberOfMonths}
@@ -52,26 +68,20 @@ export default class Example extends React.Component {
           modifiers={modifiers}
           onDayClick={this.handleDayClick}
         />
-        <Helmet>
-          <style>{`
-  .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
-    background-color: #f0f8ff !important;
-    color: #4a90e2;
-  }
-  .Selectable .DayPicker-Day {
-    border-radius: 0 !important;
-  }
-  .Selectable .DayPicker-Day--start {
-    border-top-left-radius: 50% !important;
-    border-bottom-left-radius: 50% !important;
-  }
-  .Selectable .DayPicker-Day--end {
-    border-top-right-radius: 50% !important;
-    border-bottom-right-radius: 50% !important;
-  }
-`}</style>
-        </Helmet>
+
+        {
+        /*
+        <Box>
+            <Block>
+                <Text> Total Expense: ${this.state.budget}</Text >
+            </Block>
+        </Box>
+        */
+        }
+
       </div>
     );
   }
 }
+
+export default Example;

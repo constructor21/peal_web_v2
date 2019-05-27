@@ -118,7 +118,7 @@ class RunBetweenDates extends Component {
     render() {
         const { classes } = this.props;
         return (
-          
+
             <Box alignItems="center" >
                 <Box paddingY={2}>
                     <NewRunTimePage ref="childDates" />

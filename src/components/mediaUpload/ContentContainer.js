@@ -12,6 +12,7 @@ import MaterialTextField from '@material-ui/core/TextField';
 
 var styles = { border: '1px dashed blue', height: 500, width: 325, color: "black" };
 
+// TODO: gestalt video uploader or react drop zone
 
 class ContentContainer extends React.Component {
 
