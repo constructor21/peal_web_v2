@@ -31,16 +31,17 @@ class Example extends React.Component {
     return {
       from: undefined,
       to: undefined,
-      budget: 0,
     };
   }
   handleDayClick(day) {
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
+    console.log(range); // set this to be in the global redux store 
   }
   handleResetClick() {
     this.setState(this.getInitialState());
   }
+
   render() {
     const { from, to } = this.state;
     const modifiers = { start: from, end: to };
@@ -68,16 +69,6 @@ class Example extends React.Component {
           modifiers={modifiers}
           onDayClick={this.handleDayClick}
         />
-
-        {
-        /*
-        <Box>
-            <Block>
-                <Text> Total Expense: ${this.state.budget}</Text >
-            </Block>
-        </Box>
-        */
-        }
 
       </div>
     );

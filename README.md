@@ -64,6 +64,15 @@ Where is his stripe backend? --> assumed used Node, did you use Express as middl
 No checkout
 Are you charging that card something or just saving the data?
 
+Helpful stripe videos:
+https://www.youtube.com/watch?v=dEahSdI7p7M
+https://www.youtube.com/watch?v=rFmZtobVB1k
+https://www.youtube.com/watch?v=lkA4rmo7W6k
+https://www.youtube.com/watch?v=QT3_zT97_1g
+
+Links:
+https://jsfiddle.net/ywain/o2n3js2r/
+https://jsfiddle.net/ywain/k288pxqa/
 
 
 3. Save media content to firestore
@@ -83,6 +92,6 @@ Are you charging that card something or just saving the data?
 15. Host the website
 16. Data architecture
 
-Length of campaign should be in the campaign details
+Length of campaign should be in the campaign details... TODO: show how many days left 
 
-When you click create campaign everything needs to be saved to firebase 
+When you click create campaign everything needs to be saved to firebase
