@@ -118,17 +118,13 @@ class RunBetweenDates extends Component {
     render() {
         const { classes } = this.props;
         return (
+          
             <Box alignItems="center" >
-
                 <Box paddingY={2}>
                     <NewRunTimePage ref="childDates" />
                 </Box>
-
             <Box>
 
-                  <div className="left">
-                    <Text> Daily Limit: </Text >
-                  </div>
 
                   <div className="container">
                     <form className="white">
@@ -144,9 +140,9 @@ class RunBetweenDates extends Component {
 
             </Box>
 
-                <Box alignItems="end">
+                <Box>
                     <Block>
-                        <Text> Total Budget: </Text >
+                        <Text> Total Expense: </Text >
                     </Block>
                     <Block>
                         <Text> ${this.state.budget} </Text>

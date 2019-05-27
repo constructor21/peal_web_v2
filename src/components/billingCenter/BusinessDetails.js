@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
 import TextField from '@material-ui/core/TextField';
-import './BusinessDetails.css';
 
-// TODO: Find a clear way to create space 
+// TODO: Find a clear way to create space
 
 export class BusinessDetails extends Component {
 

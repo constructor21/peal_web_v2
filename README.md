@@ -64,6 +64,9 @@ afternoon standup
   - welcome message
   - double text fixed
 
+Where is his stripe backend? --> assumed used Node, did you use Express as middleware?
+No checkout 
+Are you charging that card something or just saving the data?
 
 
 

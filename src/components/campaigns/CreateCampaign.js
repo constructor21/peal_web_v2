@@ -11,6 +11,9 @@ import './CreateCampaign.css';
 
 import RunBetweenDates from "../campaignBudget/CampaignBudget";
 
+import Example from '../campaignCalendar/DayPicker';
+
+
 class CreateCampaign extends Component {
   state = {
     title: '',
@@ -61,7 +64,13 @@ class CreateCampaign extends Component {
             <ContentContainer />
           </form>
 
+          {
+          /*
           <RunBetweenDates />
+          */
+          }
+
+          <Example />
 
           <form className="white" onSubmit={this.handleSubmit}>
             <h6 className="grey-text text-darken-3">Step 3:</h6>
