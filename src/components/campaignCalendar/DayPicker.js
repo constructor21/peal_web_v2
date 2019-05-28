@@ -8,6 +8,8 @@ import './DayPicker.css';
 import { Box, Text } from 'gestalt';
 import styled from "styled-components";
 
+import { connect } from 'react-redux'
+
 const Block = styled.div`
     display: inline-block;
     vertical-align: center;
@@ -70,6 +72,13 @@ class Example extends React.Component {
   render() {
     const { from, to } = this.state;
     const modifiers = { start: from, end: to };
+
+    const { day } = this.props;
+
+    console.log("__")
+    console.log(day.days); // this works!
+    console.log("__")
+
     return (
 
       <div>
@@ -110,4 +119,13 @@ class Example extends React.Component {
   }
 }
 
-export default Example;
+// the word to the left of the semi-colon can be called whatever you want
+// state is referencing the redux store, the dot notation is used to access a specific key from the object being returned
+
+function mapStateToProps(state, ownProps) {
+  return {
+    day: state.day,
+  }
+}
+
+export default connect(mapStateToProps)(Example);
