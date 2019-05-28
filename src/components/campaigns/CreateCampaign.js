@@ -16,8 +16,8 @@ class CreateCampaign extends Component {
   state = {
     title: '',
     mediaContent: '',
-    startDate: '',
-    endDate: '',
+    campaignLength: this.props.day,
+    // campaignLength: [],
     firebaseAuthId: ''
   }
 
@@ -45,6 +45,9 @@ class CreateCampaign extends Component {
   render() {
 
     const { auth } = this.props;
+
+    const { day } = this.props;
+
 
     if (!auth.uid) return <Redirect to='/' />
 
@@ -90,8 +93,10 @@ class CreateCampaign extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.day); // this is updated at the same time as the redux store
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    day: state.day
   }
 }
 
