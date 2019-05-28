@@ -1,19 +1,17 @@
-const initState = {
-  days: [
 
-  ]
-}
-
-const dayPickerReducer = (state=initState, action) => {
+const dayPickerReducer = (state=[], action) => {
 
   switch(action.type) {
 
     case 'ADD':
       return [...state, action.payload]
+      console.log("state");
+      console.log(state);
 
     case 'REMOVE':
-      const newState = [];
-      return newState
+      state = [];
+      console.log(state);
+      return state;
 
     default:
       return state

@@ -15,9 +15,6 @@ const Block = styled.div`
     vertical-align: center;
 `;
 
-// TODO: add in edge cases for each month length (i.e. February being 28 days)
-  // currently charging $98 for every 30 days
-  // if less than 30 days then do number of days x $3.25
 
 class Example extends React.Component {
   static defaultProps = {
@@ -31,6 +28,7 @@ class Example extends React.Component {
     this.state = {
       from: undefined,
       to: undefined,
+      dates: [],
     }
   }
 
@@ -38,6 +36,7 @@ class Example extends React.Component {
     return {
       from: undefined,
       to: undefined,
+      dates: [],
     };
   }
 
@@ -46,18 +45,13 @@ class Example extends React.Component {
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
 
-    console.log("****");
-    console.log(this.state);
-    console.log("****");
-
-    // console.log(range.from);
-
-    // you can convert to strings if needed
-      // const start = JSON.stringify(fromDateToSave);
-      // console.log(start.substring(0,11));
-
-    // console.log(typeof fromDateToSave); ... an object not a string you can substring
-    // console.log(range.to);
+    //console.log("this is the day:")
+    //console.log(day);
+    //console.log("this is the day as a string")
+    const stringDay = JSON.stringify(day);
+    //console.log(stringDay.substring(1,11));
+    this.state.dates.push(stringDay.substring(1,11));
+    console.log(this.state.dates);
 
   }
 
@@ -69,24 +63,22 @@ class Example extends React.Component {
 
   handleConfirmClick= (e) => {
     e.preventDefault();
-    const fromDateToSave = this.state.from != undefined ? this.state.from : " ";
-    console.log(fromDateToSave);
-    const toDateToSave = this.state.to != undefined ? this.state.to : " ";
-    console.log(toDateToSave);
+    // const fromDateToSave = this.state.from != undefined ? this.state.from : " ";
+    // console.log(fromDateToSave);
+    // const toDateToSave = this.state.to != undefined ? this.state.to : " ";
+    // console.log(toDateToSave);
+
+    console.log(this.state.dates); // (2) ["2019-05-29", "2019-05-31"]
     console.log("save to redux store");
-    this.props.add(fromDateToSave);
-    this.props.add(toDateToSave);
+
+    this.props.add(this.state.dates[0]);
+    this.props.add(this.state.dates[1]);
   }
 
   render() {
     const { from, to } = this.state;
     const modifiers = { start: from, end: to };
 
-    const { day } = this.props;
-
-    console.log("..........")
-    console.log(day.days); 
-    console.log("..........")
 
     return (
 

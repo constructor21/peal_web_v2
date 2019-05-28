@@ -73,8 +73,8 @@ Links:
 https://jsfiddle.net/ywain/k288pxqa/
 
 
-1. Save media content to redux store
-2. Save dates to redux store
+1. Save media content to redux store [figure out the progress bar and video difference]
+2. Save dates to redux store [be able to delete the dates as well]
 3. When you click the create campaign button add the media content and date to the campaign as well as title
 4. Complete stripe integration and billing manager flow
 
