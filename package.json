@@ -5,6 +5,8 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^4.0.0",
+    "@types/react-stripe-elements": "^1.1.10",
+    "@types/stripe": "^6.26.3",
     "firebase": "^6.0.2",
     "gestalt": "^0.97.0",
     "moment": "^2.24.0",
@@ -18,10 +20,13 @@
     "react-redux-firebase": "^2.2.4",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
+    "react-stripe-elements": "^3.0.0",
     "redux": "^4.0.1",
     "redux-firestore": "^0.7.3",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.2.0"
+    "stripe": "^7.1.0",
+    "styled-components": "^4.2.0",
+    "typescript": "^3.4.5"
   },
   "scripts": {
     "start": "react-scripts start",

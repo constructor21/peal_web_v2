@@ -12,6 +12,10 @@ npm install styled-components --save
 
 npm i react-file-drop
 
+npm i typescript
+
+npm install --save react-stripe-elements @types/react-stripe-elements stripe @types/stripe
+
 
 Materialize CSS
 -responsive CSS framework

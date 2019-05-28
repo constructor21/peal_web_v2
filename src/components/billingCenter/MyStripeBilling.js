@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { StripeProvider, Elements } from 'react-stripe-elements';
+import CardForm from './MyStoreCheckout'
 
 class MyStripeBilling extends Component {
 
@@ -10,9 +12,11 @@ class MyStripeBilling extends Component {
 
     render() {
       return (
-        <div>
-          <h1> Add Stripe in here </h1>
-        </div>
+        <StripeProvider apiKey="pk_live_gFrLSXXasviFmiRkfRybWXAL">
+          <Elements>
+            <CardForm />
+          </Elements>
+        </StripeProvider>
       )
     }
 
