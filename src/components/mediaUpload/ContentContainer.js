@@ -20,7 +20,10 @@ class ContentContainer extends React.Component {
       super(props);
 
       this.state = {
-          mediaFileName: ''
+          mediaFileName: '',
+          image: null,
+          url: '',
+          progress: 0
       };
 
     }
@@ -28,10 +31,14 @@ class ContentContainer extends React.Component {
     handleDrop = (files, event) => {
         //console.log(files.length);
         //console.log(files, event);
-        console.log(files[0].name);
+        const image = files[0];
+        console.log(image);
         this.setState({
           mediaFileName: files[0].name
         })
+
+        this.setState(() => ({image})); // save to the gloabl redux store
+
     }
 
     onDragOver = (event) => {
@@ -57,8 +64,9 @@ class ContentContainer extends React.Component {
                             OR
                         <OutlinedButtons />
                         </FileDrop>
-                    </div>
 
+                    </div>
+                    
                     <MaterialTextField
                       id="standard-name"
                       label="Click The Upload Button"

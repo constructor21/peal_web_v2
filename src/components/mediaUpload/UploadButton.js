@@ -33,6 +33,9 @@ class UploadButton extends Component {
     handleChange = e => {
       if (e.target.files[0]) {
         const image = e.target.files[0];
+        console.log("_______");
+        console.log(image);
+        console.log("_______");
         this.setState(() => ({image})); // save to the gloabl redux store
       }
     }
@@ -73,12 +76,14 @@ class UploadButton extends Component {
               id="outlined-button-file"
               multiple
               type="file"
+              onChange={this.handleChange}
             />
             <label htmlFor="outlined-button-file">
               <Button variant="outlined" component="span" className={classes.button}>
                 Upload From Computer
               </Button>
             </label>
+            <progress value={this.state.progress} max="100"/>
           </div>
 
     );

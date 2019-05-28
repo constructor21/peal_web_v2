@@ -42,8 +42,14 @@ class Example extends React.Component {
   }
 
   handleDayClick(day) {
+
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
+
+    console.log("****");
+    console.log(this.state);
+    console.log("****");
+
     // console.log(range.from);
 
     // you can convert to strings if needed
@@ -57,6 +63,7 @@ class Example extends React.Component {
 
   handleResetClick() {
     console.log("remove from redux store");
+    this.props.remove();
     this.setState(this.getInitialState());
   }
 
@@ -67,6 +74,8 @@ class Example extends React.Component {
     const toDateToSave = this.state.to != undefined ? this.state.to : " ";
     console.log(toDateToSave);
     console.log("save to redux store");
+    this.props.add(fromDateToSave);
+    this.props.add(toDateToSave);
   }
 
   render() {
@@ -75,9 +84,9 @@ class Example extends React.Component {
 
     const { day } = this.props;
 
-    console.log("__")
-    console.log(day.days); // this works!
-    console.log("__")
+    console.log("..........")
+    console.log(day.days); 
+    console.log("..........")
 
     return (
 
@@ -128,4 +137,15 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps)(Example);
+function mapDispatchToProps(dispatch) {
+  return {
+    add: (value) => {
+      dispatch({ type: 'ADD', payload: value })
+    },
+    remove: () => {
+      dispatch({ type: 'REMOVE' })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Example);
