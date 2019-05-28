@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 
 // TODO: Find a clear way to create space
-// TODO: Add validation to each field 
+// TODO: Add validation to each field
 
 export class BusinessDetails extends Component {
 
@@ -27,7 +27,7 @@ export class BusinessDetails extends Component {
                 defaultValue={values.address}
               />
 
-              {/* Litterally just using this to create space because you can't override materialize css spacing */}
+              {/* Literally just using this to create space because you can't override materialize css spacing */}
               <div class="row">
               <div class="input-field col s12">
                 <label></label>
@@ -40,7 +40,7 @@ export class BusinessDetails extends Component {
                 defaultValue={values.city}
               />
 
-              {/* Litterally just using this to create space because you can't override materialize css spacing */}
+              {/* Literally just using this to create space because you can't override materialize css spacing */}
               <div class="row">
               <div class="input-field col s12">
                 <label></label>

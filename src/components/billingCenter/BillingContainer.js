@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import BusinessDetails from './BusinessDetails';
 import StripeContainer from './StripeContainer';
 import Confirm from './Confirm';
+import Success from './Success';
 
 class BillingContainer extends Component {
 
@@ -73,7 +74,7 @@ class BillingContainer extends Component {
         );
         case 4:
           return (
-            <h3> Success </h3>
+            <Success/>
           )
       }
 

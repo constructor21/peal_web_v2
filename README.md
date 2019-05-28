@@ -56,11 +56,6 @@ Rules are matches to specific code paths. You can different rules for different 
 
 
 
-Fix all TODOs post-launch
-
-
-
-
 Tasks
 
 
@@ -78,21 +73,25 @@ Links:
 https://jsfiddle.net/ywain/k288pxqa/
 
 
-3. Save media content to firestore
-4. Order the campaigns
-5. Cloud function to take the company address and have a spot on the map for it auto-zoomed into
-6. If a user hasn't entered entered anything into billing before then their needs to be a welcome message
+1. Save media content to redux store
+2. Save dates to redux store
+3. When you click the create campaign button add the media content and date to the campaign as well as title
+4. Complete stripe integration and billing manager flow
+
+
+
+
+5. Order the campaigns
+6. Cloud function to take the company address and have a spot on the map for it auto-zoomed into
 7. Locations tab --> google maps ... metrics dashboard that populates different info based on display marker clicked
     - guard the route
     - Metrics:
       Number of displays up
       Estimated reach
       Remaining length of current campaigns
-9. Add Stripe info to the summary page
-11. The success page should show the a panel for add, delete and change payment method
-13. Make the repo private
-14. Add security rules
-15. Host the website
-16. Data architecture
 
-When you click create campaign everything needs to be saved to firebase
+
+8. Make the repo private
+9. Add security rules
+10. Host the website
+11. Data architecture

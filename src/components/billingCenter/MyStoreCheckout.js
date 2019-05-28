@@ -49,6 +49,10 @@ const createOptions = (fontSize, padding) => {
     };
 };
 
+// You could put the back and continue button here?
+
+// force user to nickname the card?
+
 class CardForm extends Component {
 
   constructor(props) {

@@ -22,7 +22,7 @@ export const signIn = (credentials) => {
       dispatch({ type: 'LOGIN_ERROR', err });
     });
 
-    // TODO: rewatch video 28 & 29 and do implement that signup process right here if you see if needed later on 
+    // TODO: consider using the signup resp obeject or a similar process to make document id and base campaign id the same
   }
 }
 
