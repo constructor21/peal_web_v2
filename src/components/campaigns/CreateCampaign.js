@@ -17,7 +17,6 @@ class CreateCampaign extends Component {
     title: '',
     mediaContent: '',
     campaignLength: this.props.day,
-    // campaignLength: [],
     firebaseAuthId: ''
   }
 

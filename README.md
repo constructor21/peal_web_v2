@@ -73,26 +73,42 @@ Links:
 https://jsfiddle.net/ywain/k288pxqa/
 
 
-1. Save media content to redux store [figure out the progress bar and video difference]
-3. When you click the create campaign button add the media content and date to the campaign as well as title
-4. Complete stripe integration and billing manager flow
+Standup --> dates saved to redux and added to campaign when you click create campaign
 
 
-5. Order the campaigns
-6. Cloud function to take the company address and have a spot on the map for it auto-zoomed into
-7. Locations tab --> google maps ... metrics dashboard that populates different info based on display marker clicked
+1. Figure out a way to map store content to the specific campaign
+      Need to save it to redux so you can do the same when dragging [only works from upload btn right now]
+      That component only accepts image uploads (won't allow you to select a video) (line 76 of UploadButton.js)
+
+2. When you click the create campaign button delete all media aside from the last one uploaded to handle prev refreshes?
+
+3. Complete stripe integration and billing manager flow
+
+
+
+4. Make the repo private
+5. Add security rules
+6. Host the website
+
+
+
+
+
+
+
+Footer is messed up again .... Fix post-launch .... then the other TODOs
+    ... delete the old calendar code
+Order the campaigns post launch as well
+
+Cloud function to take the company address and have a spot on the map for it auto-zoomed into
+
+Locations tab --> google maps ... metrics dashboard that populates different info based on display marker clicked
     - guard the route
     - Metrics:
       Number of displays up
       Estimated reach
       Remaining length of current campaigns
 
+Explore proper data architecture post-launch
 
-8. Make the repo private
-9. Add security rules
-10. Host the website
-11. Data architecture
-
-
-
-Footer is messed up again ....
+Validation that every field is filled out when press create campaign

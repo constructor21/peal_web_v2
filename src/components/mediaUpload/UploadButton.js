@@ -13,6 +13,7 @@ const styles = theme => ({
   },
 });
 
+// TODO: hide btn on click
 
 class UploadButton extends Component {
 
@@ -40,8 +41,9 @@ class UploadButton extends Component {
       }
     }
 
-    // you need to call this in the create campaign component
-    handleUpload = () => {
+    // you need to call this in the create campaign action file
+    handleUpload = (e) => {
+      e.preventDefault();
       // images is the bucket name
       const {image} = this.state;
       const uploadTask = storage.ref(`images/${image.name}`).put(image);
@@ -84,6 +86,7 @@ class UploadButton extends Component {
               </Button>
             </label>
             <progress value={this.state.progress} max="100"/>
+            <button onClick={this.handleUpload}> Confirm </button>
           </div>
 
     );

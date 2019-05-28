@@ -20,7 +20,7 @@ class ContentContainer extends Component {
       super(props);
 
       this.state = {
-          mediaFileName: '',
+          mediaFileName: '',  // TODO: if this empty (since only works on drag) need to pull from the redux store
           image: null,
           url: '',
           progress: 0
@@ -69,7 +69,7 @@ class ContentContainer extends Component {
 
                     <MaterialTextField
                       id="standard-name"
-                      label="Click The Upload Button"
+                      label="Click Confirm to Begin Download After Uploading"
                       placeholder="file name will be displayed here"
                       value={this.state.mediaFileName}
                       margin="normal"
