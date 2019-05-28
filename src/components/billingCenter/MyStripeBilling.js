@@ -14,7 +14,7 @@ class MyStripeBilling extends Component {
       return (
         <StripeProvider apiKey="pk_live_gFrLSXXasviFmiRkfRybWXAL">
           <Elements>
-            <CardForm />
+            <CardForm fontSize='14px' />
           </Elements>
         </StripeProvider>
       )
