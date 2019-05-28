@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 
 // TODO: Find a clear way to create space
+// TODO: Add validation to each field 
 
 export class BusinessDetails extends Component {
 

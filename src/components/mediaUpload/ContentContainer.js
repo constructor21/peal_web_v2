@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FileDrop from 'react-file-drop';
 import { Box } from 'gestalt';
 import 'gestalt/dist/gestalt.css';
@@ -14,7 +14,7 @@ var styles = { border: '1px dashed blue', height: 500, width: 325, color: "black
 
 // TODO: gestalt video uploader or react drop zone
 
-class ContentContainer extends React.Component {
+class ContentContainer extends Component {
 
   constructor(props) {
       super(props);
@@ -66,7 +66,7 @@ class ContentContainer extends React.Component {
                         </FileDrop>
 
                     </div>
-                    
+
                     <MaterialTextField
                       id="standard-name"
                       label="Click The Upload Button"

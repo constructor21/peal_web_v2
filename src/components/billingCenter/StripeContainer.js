@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import MyStripeBilling from './MyStripeBilling';
+
 class StripeContainer extends Component {
 
   continue = e => {
@@ -14,9 +16,10 @@ class StripeContainer extends Component {
 
   render() {
     return (
+      
       <div>
 
-        // TODO: Put Stripe here
+        <MyStripeBilling />
 
         <div className="container">
 
