@@ -75,7 +75,6 @@ https://www.youtube.com/watch?v=lkA4rmo7W6k
 https://www.youtube.com/watch?v=QT3_zT97_1g
 
 Links:
-https://jsfiddle.net/ywain/o2n3js2r/
 https://jsfiddle.net/ywain/k288pxqa/
 
 
@@ -89,7 +88,7 @@ https://jsfiddle.net/ywain/k288pxqa/
       Number of displays up
       Estimated reach
       Remaining length of current campaigns
-9. Add Stripe back, isolate the css --> have a better looking summary page
+9. Add Stripe info to the summary page
 11. The success page should show the a panel for add, delete and change payment method
 13. Make the repo private
 14. Add security rules

@@ -16,14 +16,14 @@ class StripeContainer extends Component {
 
   render() {
     return (
-      
-      <div>
 
-        <MyStripeBilling />
+      <div>
 
         <div className="container">
 
           <form className="white">
+
+            <MyStripeBilling />
 
             <div className="input-field">
               <button className="btn pink lighten-1" onClick={this.back}> Back </button>

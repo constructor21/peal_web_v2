@@ -62,11 +62,9 @@ class CardForm extends Component {
   render() {
     return (
       <Box alignItems="center" >
-            <Box>
 
-            <Box alignItems="end">
               <Block>
-                  <form onSubmit={this.handleSubmit} className="stripeForm">
+                  <form onSubmit={this.handleSubmit} className="stripeForm bottom-padding-override">
                       <label className="stripeLabel">
                           Credit Card Details
                           <CardElement
@@ -79,13 +77,7 @@ class CardForm extends Component {
                       </label>
                   </form>
                 </Block>
-              </Box>
 
-                <Block>
-                  <button>SAVE</button>
-                </Block>
-
-              </Box>
       </Box>
     )
   }
