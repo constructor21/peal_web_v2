@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+
+import { connect } from 'react-redux'
 import {storage} from '../../config/fbConfig';
 
 const styles = theme => ({
@@ -21,9 +23,10 @@ class UploadButton extends Component {
       super(props);
 
       this.state = {
-        image: null,
+        media: null,
         url: '',
-        progress: 0
+        progress: 0,
+        userId: this.props.auth
       }
 
       this.handleChange = this.handleChange.bind(this);
@@ -33,20 +36,22 @@ class UploadButton extends Component {
 
     handleChange = e => {
       if (e.target.files[0]) {
-        const image = e.target.files[0];
+        const media = e.target.files[0];
         console.log("_______");
-        console.log(image);
+        console.log(media);
         console.log("_______");
-        this.setState(() => ({image})); // save to the gloabl redux store
+        this.setState(() => ({media})); // save to the gloabl redux store
       }
     }
 
-    // you need to call this in the create campaign action file
+
     handleUpload = (e) => {
       e.preventDefault();
-      // images is the bucket name
-      const {image} = this.state;
-      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      // userId is the bucket name is the bucket name
+      const userId = this.state.userId.uid;
+      console.log(userId);
+      const {media} = this.state;
+      const uploadTask = storage.ref(`${userId}/${media.name}`).put(media);
       // state changed is the defualt event listener
       uploadTask.on('state_changed',
       (snapshot) => {
@@ -60,7 +65,7 @@ class UploadButton extends Component {
       },
       () => {
           // complete function ....
-          storage.ref('images').child(image.name).getDownloadURL().then(url => {
+          storage.ref(`${userId}`).child(media.name).getDownloadURL().then(url => {
               console.log(url);
               this.setState({url});
           })
@@ -68,7 +73,11 @@ class UploadButton extends Component {
     }
 
   render() {
+
     const { classes } = this.props;
+
+    const { auth } = this.props;
+
     return (
 
           <div>
@@ -97,4 +106,10 @@ UploadButton.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(UploadButton);
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  }
+}
+
+export default connect(mapStateToProps)(withStyles(styles)(UploadButton));

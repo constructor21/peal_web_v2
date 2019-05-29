@@ -73,14 +73,18 @@ Links:
 https://jsfiddle.net/ywain/k288pxqa/
 
 
-Standup --> dates saved to redux and added to campaign when you click create campaign
 
 
 1. Figure out a way to map store content to the specific campaign
       Need to save it to redux so you can do the same when dragging [only works from upload btn right now]
-      That component only accepts image uploads (won't allow you to select a video) (line 76 of UploadButton.js)
+      Differientiate between image and video on the upload method
 
-2. When you click the create campaign button delete all media aside from the last one uploaded to handle prev refreshes?
+      lower case the file name first
+      .mp4 .mov   
+      .png .jpg .jpeg
+
+
+      name of the media needs to be saved to redux ... have that as a field in the create campaign state
 
 3. Complete stripe integration and billing manager flow
 
@@ -93,10 +97,9 @@ Standup --> dates saved to redux and added to campaign when you click create cam
 
 
 
+Fix post-launch + all the TODOs
 
-
-
-Footer is messed up again .... Fix post-launch .... then the other TODOs
+Footer is messed up again ....
     ... delete the old calendar code
 Order the campaigns post launch as well
 
@@ -112,3 +115,6 @@ Locations tab --> google maps ... metrics dashboard that populates different inf
 Explore proper data architecture post-launch
 
 Validation that every field is filled out when press create campaign
+
+When you click the create campaign button delete all media aside from the last one uploaded to handle prev refreshes?
+  Or make an undo button??

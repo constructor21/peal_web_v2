@@ -15,7 +15,7 @@ import Example from '../campaignCalendar/DayPicker';
 class CreateCampaign extends Component {
   state = {
     title: '',
-    mediaContent: '',
+    mediaName: '',
     campaignLength: this.props.day,
     firebaseAuthId: ''
   }
