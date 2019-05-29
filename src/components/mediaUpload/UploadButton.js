@@ -52,6 +52,7 @@ class UploadButton extends Component {
       console.log("---");
       for (var i = 0; i != validFileExtensions.length; i++) {
         if(mediaName.toLowerCase().includes(validFileExtensions[i])) {
+          this.props.addMediaName(mediaName.toLowerCase());
           return true;
         }
       }
@@ -127,7 +128,18 @@ UploadButton.propTypes = {
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
+    creativeName: state.creativeName
   }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(UploadButton));
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+    addMediaName: (value) => {
+      dispatch({ type: 'ADD_MEDIA_NAME', payload: value })
+    }
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UploadButton));

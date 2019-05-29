@@ -77,9 +77,7 @@ https://jsfiddle.net/ywain/k288pxqa/
 
 1. Figure out a way to map store content to the specific campaign
       Need to save it to redux so you can do the same when dragging [only works from upload btn right now]
-      Differientiate between image and video on the upload method
 
-      lower case the file name first
 
 
       name of the media needs to be saved to redux ... have that as a field in the create campaign state
