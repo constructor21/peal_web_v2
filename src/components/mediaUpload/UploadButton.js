@@ -73,7 +73,7 @@ class UploadButton extends Component {
 
           <div>
             <input
-              accept="image/*"
+              accept="image/*, video/*"
               className={classes.input}
               id="outlined-button-file"
               multiple
