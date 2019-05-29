@@ -15,7 +15,7 @@ const styles = theme => ({
   },
 });
 
-// TODO: hide btn on click
+// TODO: hide btn on click or have an undo button
 
 class UploadButton extends Component {
 
@@ -31,6 +31,7 @@ class UploadButton extends Component {
 
       this.handleChange = this.handleChange.bind(this);
       this.handleUpload = this.handleUpload.bind(this);
+      this.formValidation = this.formValidation.bind(this);
 
     }
 
@@ -44,13 +45,30 @@ class UploadButton extends Component {
       }
     }
 
+    formValidation = (mediaName) => {
+      const validFileExtensions = ['.mp4', '.mov', '.png', '.jpg', '.jpeg'];
+      console.log("---");
+      console.log(mediaName.toLowerCase());
+      console.log("---");
+      for (var i = 0; i != validFileExtensions.length; i++) {
+        if(mediaName.toLowerCase().includes(validFileExtensions[i])) {
+          return true;
+        }
+      }
+      return false;
+    }
 
     handleUpload = (e) => {
       e.preventDefault();
       // userId is the bucket name is the bucket name
       const userId = this.state.userId.uid;
-      console.log(userId);
+      // console.log(userId);
       const {media} = this.state;
+
+      if(!this.formValidation(media.name)) {
+        return;
+      }
+
       const uploadTask = storage.ref(`${userId}/${media.name}`).put(media);
       // state changed is the defualt event listener
       uploadTask.on('state_changed',

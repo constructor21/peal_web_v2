@@ -80,8 +80,6 @@ https://jsfiddle.net/ywain/k288pxqa/
       Differientiate between image and video on the upload method
 
       lower case the file name first
-      .mp4 .mov   
-      .png .jpg .jpeg
 
 
       name of the media needs to be saved to redux ... have that as a field in the create campaign state
