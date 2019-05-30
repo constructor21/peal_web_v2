@@ -11,7 +11,7 @@ import './CreateCampaign.css';
 
 import Example from '../campaignCalendar/DayPicker';
 
-
+// maybe remove this.props?
 class CreateCampaign extends Component {
   state = {
     title: '',
@@ -27,7 +27,7 @@ class CreateCampaign extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    console.log(this.state); // check this!
     this.props.createCampaign(this.state);
     this.props.history.push('/dashboard');
   }
@@ -48,8 +48,6 @@ class CreateCampaign extends Component {
     const { day } = this.props;
 
     const { creativeName } = this.props;
-
-
 
 
     if (!auth.uid) return <Redirect to='/' />

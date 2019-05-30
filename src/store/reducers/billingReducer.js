@@ -11,7 +11,17 @@ const initState = {
 }
 
 const billingReducer = (state = initState, action) => {
-  return state
+
+  switch (action.type) {
+
+    case 'SAVE_LOCATION_INFO':
+      console.log('save location info success!', action.locationArray);
+      return state;
+    default:
+      return state;
+
+  }
+
 }
 
 export default billingReducer

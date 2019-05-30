@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import { Redirect, NavLink } from 'react-router-dom'
 
+import { connect } from 'react-redux'
+import { saveLocationInfo } from '../../store/actions/billingActions'
+
 class Confirm extends Component {
+
+  state = {
+    // locationInfo: [ this.props.address, this.props.city, this.props.zipCode]
+    locationInfo: [this.props.values.address, this.props.values.city, this.props.values.zipCode]
+  }
 
   confirm = (e) => {
     e.preventDefault();
     console.log("confirm button pressed");
     // PROCESS FORM in firestore right here //
     console.log("saved action to state");
+    this.props.saveLocationInfo(this.state);
     console.log("store the location info in firstore");
 
   };
@@ -18,9 +27,11 @@ class Confirm extends Component {
   };
 
   render() {
-    const {
-      values: { address, city, zipCode }
-    } = this.props;
+
+    const { values: { address, city, zipCode } } = this.props;
+    // const tempArray = [ address, city, zipCode ];
+    // console.log(tempArray);
+
     return (
 
       <div className="container">
@@ -51,5 +62,21 @@ class Confirm extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  console.log("---");
+  console.log(state.billing.locationInfo);
+  console.log("----");
+  return {
+    locationInfo: state.billing.locationInfo,
+  }
+}
 
-export default Confirm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // accepts an individual campaign that we are passing to the dispatch function an action creator
+    saveLocationInfo: (locationInfo) => dispatch(saveLocationInfo(locationInfo))
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Confirm);

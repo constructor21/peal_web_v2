@@ -9,10 +9,9 @@ import BillingContainer from './BillingContainer';
 class BillingCenter extends Component {
 
   state = {
-    paymentInfoAdded: false,
+
   };
 
-// some if statement that accesses state ... if clicked confirmed then show Sucess page, if not then the billing component
   render() {
 
     const { auth } = this.props;

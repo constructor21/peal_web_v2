@@ -74,6 +74,8 @@ Are you charging that card something or just saving the data?
 
 
 Cloud function to get the doc id and run through the list of all meida files and replace their names??
+OR
+Just have a .then promise to do so at the point of campaign creation 
 
 
 
