@@ -15,7 +15,7 @@ import Example from '../campaignCalendar/DayPicker';
 class CreateCampaign extends Component {
   state = {
     title: '',
-    mediaName: '',
+    mediaTitle: this.props.creativeName,
     campaignLength: this.props.day,
     firebaseAuthId: ''
   }
@@ -46,6 +46,8 @@ class CreateCampaign extends Component {
     const { auth } = this.props;
 
     const { day } = this.props;
+
+    const { creativeName } = this.props;
 
 
     if (!auth.uid) return <Redirect to='/' />
@@ -92,10 +94,15 @@ class CreateCampaign extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log("*****");
   console.log(state.day); // this is updated at the same time as the redux store
+  console.log("*****");
+  console.log(state.creativeName);
+  console.log("*****");
   return {
     auth: state.firebase.auth,
-    day: state.day
+    day: state.day,
+    creativeName: state.creativeName
   }
 }
 

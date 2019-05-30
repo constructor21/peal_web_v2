@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { Redirect, NavLink } from 'react-router-dom'
 
-export class Confirm extends Component {
-  continue = e => {
+class Confirm extends Component {
+
+  confirm = (e) => {
     e.preventDefault();
+    console.log("confirm button pressed");
     // PROCESS FORM in firestore right here //
-    this.props.nextStep();
+    console.log("saved action to state");
+    console.log("store the location info in firstore");
+
   };
 
   back = e => {
@@ -31,7 +36,7 @@ export class Confirm extends Component {
           <div className="input-field">
             <button className="btn pink lighten-1" onClick={this.back}> Back </button>
             <span> | </span>
-            <button className="btn pink lighten-1" onClick={this.continue}> Confirm & Continue </button>
+            <button className="btn pink lighten-1" onClick={this.confirm}> <NavLink to='/create'> Confirm </NavLink></button>
           </div>
 
           <div className="input-field">

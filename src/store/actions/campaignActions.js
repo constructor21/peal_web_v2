@@ -23,7 +23,6 @@ export const createCampaign = (campaign) => {
 };
 
 
-// you need to make the firebase auth id a random number
 export const deleteCampaign = (documentId) =>  {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
 

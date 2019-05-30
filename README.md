@@ -63,26 +63,17 @@ Where is his stripe backend? --> assumed used Node, did you use Express as middl
 No checkout
 Are you charging that card something or just saving the data?
 
-Helpful stripe videos:
-https://www.youtube.com/watch?v=dEahSdI7p7M
-https://www.youtube.com/watch?v=rFmZtobVB1k
-https://www.youtube.com/watch?v=lkA4rmo7W6k
-https://www.youtube.com/watch?v=QT3_zT97_1g
-
-Links:
-https://jsfiddle.net/ywain/k288pxqa/
-
 
 
 
 1. Figure out a way to map store content to the specific campaign
+
       Need to save it to redux so you can do the same when dragging [only works from upload btn right now]
 
-
-
-      name of the media needs to be saved to redux ... have that as a field in the create campaign state
-
 3. Complete stripe integration and billing manager flow
+
+
+Cloud function to get the doc id and run through the list of all meida files and replace their names??
 
 
 
