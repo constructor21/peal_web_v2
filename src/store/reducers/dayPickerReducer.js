@@ -1,4 +1,5 @@
 
+
 const dayPickerReducer = (state=[], action) => {
 
   switch(action.type) {

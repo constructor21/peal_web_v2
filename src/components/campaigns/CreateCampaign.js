@@ -50,6 +50,8 @@ class CreateCampaign extends Component {
     const { creativeName } = this.props;
 
 
+
+
     if (!auth.uid) return <Redirect to='/' />
 
     return (
@@ -93,6 +95,7 @@ class CreateCampaign extends Component {
   }
 }
 
+// this maps the redux store state to the props of this component
 const mapStateToProps = (state) => {
   console.log("*****");
   console.log(state.day); // this is updated at the same time as the redux store
@@ -102,12 +105,11 @@ const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
     day: state.day,
-    creativeName: state.creativeName
+    creativeName: state.creativeName.creativeName
   }
 }
 
 // connect is a funciton which returns a higher order component
-
 // now we can access createCampaign on the props object
 const mapDispatchToProps = (dispatch) => {
   return {
