@@ -73,9 +73,9 @@ Are you charging that card something or just saving the data?
 3. Complete stripe integration and billing manager flow
 
 
-Cloud function to get the doc id and run through the list of all meida files and replace their names??
+Cloud function to get the doc id and run through the list of all media files and replace their names??
 OR
-Just have a .then promise to do so at the point of campaign creation 
+Just have a .then promise to do so at the point of campaign creation
 
 
 
@@ -107,3 +107,5 @@ Validation that every field is filled out when press create campaign
 
 When you click the create campaign button delete all media aside from the last one uploaded to handle prev refreshes?
   Or make an undo button??
+
+Add a cancel subscription botton in the billing center --> if they want to cancel have a pop up that says don't cancel, 50% off for the next two months

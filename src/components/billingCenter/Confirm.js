@@ -7,7 +7,6 @@ import { saveLocationInfo } from '../../store/actions/billingActions'
 class Confirm extends Component {
 
   state = {
-    // locationInfo: [ this.props.address, this.props.city, this.props.zipCode]
     locationInfo: [this.props.values.address, this.props.values.city, this.props.values.zipCode]
   }
 
@@ -29,8 +28,6 @@ class Confirm extends Component {
   render() {
 
     const { values: { address, city, zipCode } } = this.props;
-    // const tempArray = [ address, city, zipCode ];
-    // console.log(tempArray);
 
     return (
 
@@ -62,6 +59,8 @@ class Confirm extends Component {
   }
 }
 
+// This may be causing a conflict ... maybe you don't need this since you are setting the state yourself
+  // notice the campaign title is not set this way in the createCampaign file!!!!
 const mapStateToProps = (state) => {
   console.log("---");
   console.log(state.billing.locationInfo);

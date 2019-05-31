@@ -29,12 +29,14 @@ class CreateCampaign extends Component {
     e.preventDefault();
     console.log(this.state); // check this!
     this.props.createCampaign(this.state);
+    // right here call a function to loop through storage files and replace the name with the campaign id
+      // this means need to loop through the campaign stuff similar to the delete method?
+        // make it a campaign action!
     this.props.history.push('/dashboard');
   }
 
   buildFirestore = (id) => {
     console.log(id);
-    // Here is where you can map a firestore campaign ID to the user
     this.setState({
       firebaseAuthId: id
     })
