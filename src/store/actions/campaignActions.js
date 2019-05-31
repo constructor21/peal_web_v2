@@ -7,7 +7,16 @@ export const createCampaign = (campaign) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     // make async call to database (because it takes some time to do that means it returns a promise)
     const firestore = getFirestore();
-    // instead of campaigns you can put     campaign.title     because this.state = campaign
+
+    console.log("alternative approach start");
+
+    var dates = campaign.mediaTitle
+    console.log(dates); // blank
+    var title = campaign.campaignLength
+    console.log(title); // blank
+
+    console.log("alternative approach end");
+
     var authId = campaign.firebaseAuthId;
     firestore.collection('campaigns').add({
       ...campaign,

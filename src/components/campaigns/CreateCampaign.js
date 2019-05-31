@@ -35,10 +35,12 @@ class CreateCampaign extends Component {
     this.props.history.push('/dashboard');
   }
 
-  buildFirestore = (id) => {
+  buildFirestore = (id, day) => {
     console.log(id);
+    console.log(".................................", day);
     this.setState({
-      firebaseAuthId: id
+      firebaseAuthId: id,
+      campaignLength: day
     })
   }
 
@@ -84,7 +86,7 @@ class CreateCampaign extends Component {
               <label htmlFor="title">Campaign Title</label>
             </div>
             <div className="input-field">
-              <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString()  )}>Create Campaign</button>
+              <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString(), {day}  )}>Create Campaign</button>
             </div>
           </form>
 
@@ -97,11 +99,11 @@ class CreateCampaign extends Component {
 
 // this maps the redux store state to the props of this component
 const mapStateToProps = (state) => {
-  console.log("*****");
+  console.log("////");
   console.log(state.day); // this is updated at the same time as the redux store
-  console.log("*****");
+  console.log("/////");
   console.log(state.creativeName);
-  console.log("*****");
+  console.log("/////");
   return {
     auth: state.firebase.auth,
     day: state.day,
