@@ -41,31 +41,31 @@ class ContentContainer extends Component {
       console.log("---");
       for (var i = 0; i != validFileExtensions.length; i++) {
         if(mediaName.toLowerCase().includes(validFileExtensions[i])) {
-          this.props.addMediaName(mediaName.toLowerCase());
+          //this.props.addMediaName(mediaName.toLowerCase());
           return true;
         }
       }
       return false;
     }
 
-    handleUpload = (e) => {
-      e.preventDefault();
+    handleUpload = () => {
 
       console.log("I want to upload!");
-
-
-      /*
 
       // userId is the bucket name is the bucket name
       const userId = this.state.userId.uid;
       // console.log(userId);
       const {media} = this.state;
 
-      if(!this.formValidation(media.name)) {
+      //console.log(media);
+
+      // console.log(media.media);
+
+      if(!this.formValidation(media.media.name)) {
         return;
       }
 
-      const uploadTask = storage.ref(`${userId}/${media.name}`).put(media);
+      const uploadTask = storage.ref(`${userId}/${media.media.name}`).put(media.media);
       // state changed is the defualt event listener
       uploadTask.on('state_changed',
       (snapshot) => {
@@ -79,14 +79,11 @@ class ContentContainer extends Component {
       },
       () => {
           // complete function ....
-          storage.ref(`${userId}`).child(media.name).getDownloadURL().then(url => {
+          storage.ref(`${userId}`).child(media.media.name).getDownloadURL().then(url => {
               console.log(url);
               this.setState({url});
           })
       });
-
-      */
-
 
     }
 
@@ -104,11 +101,15 @@ class ContentContainer extends Component {
             media: {media}
           },
           function() {
-            console.log("setState completed", this.state)
+              console.log("setState completed", this.state)
             // this.handleUpload();
           }
 
         );
+
+        setTimeout(() => {
+          this.handleUpload();
+        },200)
 
     }
 
