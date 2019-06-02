@@ -16,6 +16,8 @@ npm i typescript
 
 npm install --save react-stripe-elements @types/react-stripe-elements stripe @types/stripe
 
+sudo npm install -g firebase-tools
+
 
 Materialize CSS
 -responsive CSS framework
