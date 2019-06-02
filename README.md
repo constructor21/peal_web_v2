@@ -58,13 +58,17 @@ Rules are matches to specific code paths. You can different rules for different 
 
 
 
+
+
+
+
+
+
+
 Tasks
 
-
-
 1. Make the repo private
-2. Add security rules
-3. Host the website
+2. Host the website
 
 
 
