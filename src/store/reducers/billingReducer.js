@@ -12,7 +12,7 @@ const billingReducer = (state = initState, action) => {
       console.log('save location info success!', action.locationArray);
       state.confirmBtnPressed = true
       return state;
-    case 'SAVE_LOCATION_INFO':
+    case 'SAVE_LOCATION_ERROR':
       console.log('save location info error...');
       return state;
     default:

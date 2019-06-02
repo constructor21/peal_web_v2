@@ -8,7 +8,9 @@ const mediaReducer = (state=initState, action) => {
   switch(action.type) {
 
     case 'ADD_MEDIA_NAME':
-      return state.creativeName+=action.payload
+      console.log("trying to add creative name");
+      state.creativeName+=action.payload
+      return state;
 
     default:
       return state

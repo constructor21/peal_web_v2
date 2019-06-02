@@ -36,6 +36,24 @@ export const createCampaign = (campaign) => {
         for (var [key, value] of myMap.entries()) {
           if(key === authId) {
             console.log("perform handle upload with the file name being the doc.id (value of myMap)")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           }
         }
 
