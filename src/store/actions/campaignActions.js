@@ -7,6 +7,7 @@ export const createCampaign = (campaign) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     // make async call to database (because it takes some time to do that means it returns a promise)
     const firestore = getFirestore();
+    var myMap = new Map();
 
     console.log("alternative approach start");
 
@@ -23,6 +24,25 @@ export const createCampaign = (campaign) => {
       authorId: authId,
       createdAt: new Date()
     }).then(() => {
+      console.log('Sucessfully chained a promise without breaking functionality!');
+      // you need to do the upload function right here ...
+
+      firestore.collection('campaigns').get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+          myMap.set(doc.data().firebaseAuthId, doc.id);
+        })
+      }).then(() => {
+
+        for (var [key, value] of myMap.entries()) {
+          if(key === authId) {
+            console.log("perform handle upload with the file name being the doc.id (value of myMap)")
+          }
+        }
+
+      })
+
+
+    }).then(() => {
       // resume the dispatch
       dispatch({ type: 'CREATE_CAMPAIGN_SUCCESS', campaign });
     }).catch(err => {
@@ -30,6 +50,7 @@ export const createCampaign = (campaign) => {
     });
   }
 };
+
 
 
 export const deleteCampaign = (documentId) =>  {
