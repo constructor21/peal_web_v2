@@ -41,7 +41,7 @@ class UploadButton extends Component {
         console.log("_______");
         console.log(media);
         console.log("_______");
-        this.setState(() => ({media})); // save to the gloabl redux store
+        this.setState(() => ({media})); 
       }
     }
 

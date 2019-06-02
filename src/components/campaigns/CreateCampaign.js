@@ -35,8 +35,9 @@ class CreateCampaign extends Component {
     this.props.history.push('/dashboard');
   }
 
-  buildFirestore = (id, day) => {
+  buildFirestore = (id, day, creativeName) => {
     console.log(id);
+    console.log(creativeName);
     console.log(".................................", day);
     this.setState({
       firebaseAuthId: id,
@@ -86,7 +87,7 @@ class CreateCampaign extends Component {
               <label htmlFor="title">Campaign Title</label>
             </div>
             <div className="input-field">
-              <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString(), {day}  )}>Create Campaign</button>
+              <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString(), {day}, {creativeName}  )}>Create Campaign</button>
             </div>
           </form>
 
@@ -107,7 +108,7 @@ const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
     day: state.day,
-    creativeName: state.creativeName.creativeName
+    creativeName: state.creativeName
   }
 }
 

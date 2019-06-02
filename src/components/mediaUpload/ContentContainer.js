@@ -10,6 +10,9 @@ import OutlinedButtons from './UploadButton';
 
 import MaterialTextField from '@material-ui/core/TextField';
 
+import { connect } from 'react-redux'
+import {storage} from '../../config/fbConfig';
+
 var styles = { border: '1px dashed blue', height: 500, width: 325, color: "black" };
 
 // TODO: gestalt video uploader or react drop zone
@@ -20,28 +23,98 @@ class ContentContainer extends Component {
       super(props);
 
       this.state = {
-          mediaFileName: '',  // TODO: if this empty (since only works on drag) need to pull from the redux store
-          image: null,
-          url: '',
-          progress: 0
+        media: null,
+        url: '',
+        progress: 0,
+        userId: this.props.auth
       };
+
+      this.handleUpload = this.handleUpload.bind(this);
+      this.formValidation = this.formValidation.bind(this);
 
     }
 
+    formValidation = (mediaName) => {
+      const validFileExtensions = ['.mp4', '.mov', '.png', '.jpg', '.jpeg'];
+      console.log("---");
+      console.log(mediaName.toLowerCase());
+      console.log("---");
+      for (var i = 0; i != validFileExtensions.length; i++) {
+        if(mediaName.toLowerCase().includes(validFileExtensions[i])) {
+          this.props.addMediaName(mediaName.toLowerCase());
+          return true;
+        }
+      }
+      return false;
+    }
+
+    handleUpload = (e) => {
+      e.preventDefault();
+
+      console.log("I want to upload!");
+
+
+      /*
+
+      // userId is the bucket name is the bucket name
+      const userId = this.state.userId.uid;
+      // console.log(userId);
+      const {media} = this.state;
+
+      if(!this.formValidation(media.name)) {
+        return;
+      }
+
+      const uploadTask = storage.ref(`${userId}/${media.name}`).put(media);
+      // state changed is the defualt event listener
+      uploadTask.on('state_changed',
+      (snapshot) => {
+        // progrss function ....
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        this.setState({progress});
+      },
+      (error) => {
+           // error function ....
+        console.log(error);
+      },
+      () => {
+          // complete function ....
+          storage.ref(`${userId}`).child(media.name).getDownloadURL().then(url => {
+              console.log(url);
+              this.setState({url});
+          })
+      });
+
+      */
+
+
+    }
+
+    // TODO: make confirm button go away after this has been called
+
+    // you can't call handle upload right away because it takes time for the state to be set
+      // setState() has an optional callback parameter that you can use for this.
     handleDrop = (files, event) => {
         //console.log(files.length);
         //console.log(files, event);
-        const image = files[0];
-        console.log(image);
-        this.setState({
-          mediaFileName: files[0].name
-        })
+        const media = files[0];
+        console.log(media);
+        this.setState(
+          {
+            media: {media}
+          },
+          function() {
+            console.log("setState completed", this.state)
+            // this.handleUpload();
+          }
 
-        this.setState(() => ({image})); // save to the gloabl redux store
+        );
 
     }
 
     onDragOver = (event) => {
+
+      // console.log(this.state);
 
     }
 
@@ -50,6 +123,9 @@ class ContentContainer extends Component {
     }
 
     render() {
+
+        const { auth } = this.props;
+
         return (
             <Box align="center" width={600}>
                 <Box width={600} marginBottom={1} marginTop={6}>
@@ -84,4 +160,10 @@ class ContentContainer extends Component {
     }
 }
 
-export default ContentContainer;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(ContentContainer);

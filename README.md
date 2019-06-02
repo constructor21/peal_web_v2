@@ -59,29 +59,10 @@ Rules are matches to specific code paths. You can different rules for different 
 Tasks
 
 
-Where is his stripe backend? --> assumed used Node, did you use Express as middleware?
-No checkout
-Are you charging that card something or just saving the data?
 
-
-
-
-1. Figure out a way to map store content to the specific campaign
-
-      Need to save it to redux so you can do the same when dragging [only works from upload btn right now]
-
-3. Complete stripe integration and billing manager flow
-
-
-Cloud function to get the doc id and run through the list of all media files and replace their names??
-OR
-Just have a .then promise to do so at the point of campaign creation
-
-
-
-4. Make the repo private
-5. Add security rules
-6. Host the website
+1. Make the repo private
+2. Add security rules
+3. Host the website
 
 
 
