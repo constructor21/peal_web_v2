@@ -67,9 +67,10 @@ class UploadButton extends Component {
       const {media} = this.state;
 
       console.log("****");
-      console.log(media); // this is the acutal file, save to redux state
-      this.props.addMediaFile({media});
+      console.log({media}); // this is the acutal file, save to redux state
       console.log("****");
+      this.props.addMediaFile({media});
+
 
 
       /*
