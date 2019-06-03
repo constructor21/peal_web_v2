@@ -20,7 +20,7 @@ export const createCampaign = (campaign) => {
     var authId = campaign.firebaseAuthId;
 
     var storageFolderName = campaign.authId
-    var theRealData = campaign.mediaTitle.mediaFile
+    var theRealData = campaign.mediaFile
 
     firestore.collection('campaigns').add({
       ...campaign,

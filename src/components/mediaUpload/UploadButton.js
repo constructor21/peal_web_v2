@@ -52,7 +52,7 @@ class UploadButton extends Component {
       console.log("---");
       for (var i = 0; i != validFileExtensions.length; i++) {
         if(mediaName.toLowerCase().includes(validFileExtensions[i])) {
-          this.props.addMediaName(mediaName.toLowerCase());
+          this.props.addMediaName(mediaName.toLowerCase()); // this is what adds the creative name to the state !!!
           return true;
         }
       }
@@ -68,7 +68,7 @@ class UploadButton extends Component {
 
       console.log("****");
       console.log(media); // this is the acutal file, save to redux state
-      this.props.addMediaFile(media);
+      this.props.addMediaFile({media});
       console.log("****");
 
 

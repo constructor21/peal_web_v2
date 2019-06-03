@@ -1,6 +1,5 @@
 const initState = {
-  creativeName: "",
-  mediaFile: null
+  creativeName: ""
 }
 
 
@@ -11,14 +10,7 @@ const mediaReducer = (state=initState, action) => {
     case 'ADD_MEDIA_NAME':
       console.log("trying to add creative name");
       state.creativeName+=action.payload
-      // return state;
-
-    case 'SAVE_MEDIA_FILE':
-      console.log("inside the save media file reducer");
-      state.mediaFile = action.payload
-      console.log(state.mediaFile);
-      console.log("exiting the save media file reducer");
-      // return state;
+      return state;
 
     default:
       return state

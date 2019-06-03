@@ -11,7 +11,7 @@ import './CreateCampaign.css';
 
 import Example from '../campaignCalendar/DayPicker';
 
-// maybe remove this.props?
+
 class CreateCampaign extends Component {
   state = {
     title: '',
@@ -110,13 +110,13 @@ const mapStateToProps = (state) => {
   console.log("/////");
   console.log(state.creativeName);
   console.log("/////");
-  console.log(state.mediaFile);
+  console.log(state.mediaFileName.mediaFile);
   console.log("/////");
   return {
     auth: state.firebase.auth,
     day: state.day,
     creativeName: state.creativeName,
-    mediaFile: state.mediaFile
+    mediaFile: state.mediaFileName.mediaFile
   }
 }
 
