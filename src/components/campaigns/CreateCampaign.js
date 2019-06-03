@@ -18,7 +18,7 @@ class CreateCampaign extends Component {
     mediaTitle: this.props.creativeName,
     campaignLength: this.props.day,
     firebaseAuthId: '',
-    mediaFile: this.props.mediaFile,
+    mediaFile: this.props.mediaFile,   // this.props.mediaFile.mediaFile crashes the page
     authId: this.props.auth.uid
   }
 
@@ -31,7 +31,7 @@ class CreateCampaign extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log("handle submit function called");
-    console.log(this.state); // check this --> the media file is null here 
+    console.log(this.state); // check this --> the media file is null here
     console.log("the above line is what you are passing into the create campaign function");
     this.props.createCampaign(this.state);
     // right here call a function to loop through storage files and replace the name with the campaign id
@@ -59,7 +59,11 @@ class CreateCampaign extends Component {
 
     const { creativeName } = this.props;
 
-    const { mediaFile } = this.props;
+    const { mediaFile } = this.props;  // mediaFile is a property of this.mediaFile.mediaFile crashes the page
+
+    console.log("inside the props");
+    console.log( { mediaFile } );
+    console.log("close media props");
 
 
     if (!auth.uid) return <Redirect to='/' />
@@ -104,6 +108,13 @@ class CreateCampaign extends Component {
     )
   }
 }
+
+
+/*
+Thoughts
+  - ownProps argument
+  - name everything mediaFile
+*/
 
 // this maps the redux store state to the props of this component
 const mapStateToProps = (state) => {
