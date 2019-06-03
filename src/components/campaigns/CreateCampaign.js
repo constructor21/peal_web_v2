@@ -30,7 +30,9 @@ class CreateCampaign extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state); // check this!
+    console.log("handle submit function called");
+    console.log(this.state); // check this --> the media file is null here 
+    console.log("the above line is what you are passing into the create campaign function");
     this.props.createCampaign(this.state);
     // right here call a function to loop through storage files and replace the name with the campaign id
       // this means need to loop through the campaign stuff similar to the delete method?
@@ -39,9 +41,9 @@ class CreateCampaign extends Component {
   }
 
   buildFirestore = (id, day, creativeName) => {
-    console.log(id);
-    console.log(creativeName);
-    console.log(".................................", day);
+    // console.log(id);
+    // console.log(creativeName);
+    // console.log(".................................", day);
     this.setState({
       firebaseAuthId: id,
       campaignLength: day

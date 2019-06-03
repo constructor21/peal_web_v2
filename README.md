@@ -67,17 +67,18 @@ Rules are matches to specific code paths. You can different rules for different 
 
 Tasks
 
+Jean -> upload media & billing center front end
+Aaron -> Stripe backend & billing flow front end 
+
 1. Make the repo private
 2. Host the website
-
-
 
 
 Fix post-launch + all the TODOs
 
 Footer is messed up again ....
     ... delete the old calendar code
-Order the campaigns post launch as well
+Order the campaigns
 
 Cloud function to take the company address and have a spot on the map for it auto-zoomed into
 
@@ -88,11 +89,10 @@ Locations tab --> google maps ... metrics dashboard that populates different inf
       Estimated reach
       Remaining length of current campaigns
 
-Explore proper data architecture post-launch
+Explore further data architecture [from the original picture on the small whiteboard]
 
-Validation that every field is filled out when press create campaign
+Validation that every field is filled out when press create campaign & confirm billing info
 
-When you click the create campaign button delete all media aside from the last one uploaded to handle prev refreshes?
-  Or make an undo button??
+Add a cancel subscription button in the billing center --> if they want to cancel have a pop up that says don't cancel, 50% off for the next two months ... button options [save money] [confirm cancelation]
 
-Add a cancel subscription botton in the billing center --> if they want to cancel have a pop up that says don't cancel, 50% off for the next two months
+Preview image or video [react drop zone &/or gestalt]

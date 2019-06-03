@@ -23,6 +23,7 @@ export const createCampaign = (campaign) => {
     var theRealData = campaign.mediaFile
 
     console.log("the real data is...")
+    console.log(campaign.mediaFile);  // hopefully this isn't null as well!!
     console.log(theRealData);
     console.log("the real data is...")
 
