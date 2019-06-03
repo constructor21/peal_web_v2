@@ -17,7 +17,9 @@ class CreateCampaign extends Component {
     title: '',
     mediaTitle: this.props.creativeName,
     campaignLength: this.props.day,
-    firebaseAuthId: ''
+    firebaseAuthId: '',
+    mediaFile: this.props.mediaFile,
+    authId: this.props.auth.uid
   }
 
   handleChange = (e) => {
@@ -25,6 +27,7 @@ class CreateCampaign extends Component {
       [e.target.id]: e.target.value
     })
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state); // check this!
@@ -53,6 +56,8 @@ class CreateCampaign extends Component {
     const { day } = this.props;
 
     const { creativeName } = this.props;
+
+    const { mediaFile } = this.props;
 
 
     if (!auth.uid) return <Redirect to='/' />
@@ -105,10 +110,13 @@ const mapStateToProps = (state) => {
   console.log("/////");
   console.log(state.creativeName);
   console.log("/////");
+  console.log(state.mediaFile);
+  console.log("/////");
   return {
     auth: state.firebase.auth,
     day: state.day,
-    creativeName: state.creativeName
+    creativeName: state.creativeName,
+    mediaFile: state.mediaFile
   }
 }
 

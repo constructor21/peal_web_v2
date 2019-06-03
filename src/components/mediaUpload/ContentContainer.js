@@ -115,7 +115,7 @@ class ContentContainer extends Component {
 
     onDragOver = (event) => {
 
-      // console.log(this.state);
+      console.log(this.state.media);
 
     }
 

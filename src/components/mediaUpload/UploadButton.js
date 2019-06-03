@@ -39,7 +39,7 @@ class UploadButton extends Component {
       if (e.target.files[0]) {
         const media = e.target.files[0];
         console.log("_______");
-        console.log(media);
+        console.log(media); // this is the acutal file
         console.log("_______");
         this.setState(() => ({media}));
       }
@@ -66,6 +66,14 @@ class UploadButton extends Component {
       // console.log(userId);
       const {media} = this.state;
 
+      console.log("****");
+      console.log(media); // this is the acutal file, save to redux state
+      this.props.addMediaFile(media);
+      console.log("****");
+
+
+      /*
+
       if(!this.formValidation(media.name)) {
         return;
       }
@@ -89,6 +97,12 @@ class UploadButton extends Component {
               this.setState({url});
           })
       });
+
+
+      */
+
+
+
     }
 
   render() {
@@ -137,6 +151,9 @@ const mapDispatchToProps = (dispatch) => {
 
     addMediaName: (value) => {
       dispatch({ type: 'ADD_MEDIA_NAME', payload: value })
+    },
+    addMediaFile: (value) => {
+      dispatch({ type: 'SAVE_MEDIA_FILE', payload: value })
     }
 
   }

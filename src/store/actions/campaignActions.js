@@ -1,4 +1,7 @@
 
+import {storage} from '../../config/fbConfig';
+
+
 // normally an action returns an object but because of thunk we can return a function
 // dispatch: method that dispatches an action to the reducer
 // by returning a function instead of an action that is how we are halting things to make the async call
@@ -7,18 +10,18 @@ export const createCampaign = (campaign) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     // make async call to database (because it takes some time to do that means it returns a promise)
     const firestore = getFirestore();
+
     var myMap = new Map();
 
-    console.log("alternative approach start");
-
-    var dates = campaign.mediaTitle
-    console.log(dates); // blank
-    var title = campaign.campaignLength
-    console.log(title); // blank
-
-    console.log("alternative approach end");
+    console.log("this is the state....")
+    console.log(campaign);
+    console.log("....")
 
     var authId = campaign.firebaseAuthId;
+
+    var storageFolderName = campaign.authId
+    var theRealData = campaign.mediaTitle.mediaFile
+
     firestore.collection('campaigns').add({
       ...campaign,
       authorId: authId,
@@ -36,24 +39,33 @@ export const createCampaign = (campaign) => {
         for (var [key, value] of myMap.entries()) {
           if(key === authId) {
             console.log("perform handle upload with the file name being the doc.id (value of myMap)")
+            var fileWithinFolderName = myMap.value
+
+
+
+            const uploadTask = storage.ref(`${storageFolderName}/${fileWithinFolderName}`).put(theRealData);
+            // state changed is the defualt event listener
+            uploadTask.on('state_changed',
+            (snapshot) => {
+              // progrss function ....
+              // const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+              // this.setState({progress});
+            },
+            (error) => {
+                 // error function ....
+              console.log(error);
+            },
+            () => {
+                // complete function ....
+                storage.ref(`${storageFolderName}`).child(fileWithinFolderName).getDownloadURL().then(url => {
+                    console.log(url);
+                    this.setState({url});
+                })
+            });
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
           }
         }
 
