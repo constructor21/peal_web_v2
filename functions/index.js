@@ -10,6 +10,8 @@ admin.initializeApp(functions.config().firebase);
 
 // https://cloud.google.com/storage/docs/listing-objects#storage-list-objects-nodejs
 // https://cloud.google.com/storage/docs/renaming-copying-moving-objects#storage-rename-object-nodejs
+// https://cloud.google.com/nodejs/docs/reference/storage/1.3.x/Bucket
+// https://stackoverflow.com/questions/45820400/firebase-functions-change-filename-for-uploaded-file-in-storage
 
 
 async function replaceMediaNamesWithCampaignId(campaignId) {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CampaignList from '../campaigns/CampaignList';
-import Metrics from './Metrics';
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase' // connects a component to a firestore collection
 import { compose } from 'redux'
@@ -30,7 +29,6 @@ class Dashboard extends Component {
             <CampaignList campaigns={campaigns} />
           </div>
           <div className="col s12 m5 offset-m1">
-            { /* <Metrics /> */ }
           </div>
         </div>
       </div>
@@ -54,6 +52,6 @@ const mapStateToProps = (state) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'campaigns' }
+    { collection: 'campaigns', orderBy: ['createdAt', 'desc'] }
   ])
 )(Dashboard)
