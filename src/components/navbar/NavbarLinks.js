@@ -10,7 +10,8 @@ const NavbarLinks = (props) => {
         <li><NavLink to='/dashboard'> Home </NavLink></li>
         <li><NavLink to='/create'> Create Campaign </NavLink></li>
         <li><NavLink to='/billing'> Billing </NavLink></li>
-        <li><a onClick={props.signOut}>Log Out</a></li>
+        <li><NavLink to='/locations'> Locations </NavLink></li>
+        <li><a onClick={props.signOut}>Sign Out</a></li>
       </ul>
     </div>
   )

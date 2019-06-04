@@ -18,6 +18,8 @@ npm install --save react-stripe-elements @types/react-stripe-elements stripe @ty
 
 sudo npm install -g firebase-tools
 
+npm install react-google-maps
+
 
 Materialize CSS
 -responsive CSS framework
@@ -63,12 +65,13 @@ Rules are matches to specific code paths. You can different rules for different 
 
 
 
-
-
 Tasks
 
-Jean -> upload media & billing center front end
-Aaron -> Stripe backend & billing flow front end 
+Jean -> billing center front end
+Aaron -> Stripe backend
+
+
+Change delete method to match the creation logic
 
 1. Make the repo private
 2. Host the website
@@ -76,8 +79,8 @@ Aaron -> Stripe backend & billing flow front end
 
 Fix post-launch + all the TODOs
 
-Footer is messed up again ....
-    ... delete the old calendar code
+Footer is messed up again .... especially for maps!
+Delete the old calendar code + index.js unused cloud functions in the functions folder
 Order the campaigns
 
 Cloud function to take the company address and have a spot on the map for it auto-zoomed into

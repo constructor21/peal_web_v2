@@ -10,6 +10,7 @@ import CampaignDetails from './components/campaigns/CampaignDetails';
 import SignIn from './components/auth/SignIn'
 import CreateCampaign from './components/campaigns/CreateCampaign';
 import BillingCenter from './components/billingCenter/BillingCenter';
+import Map from './components/locations/Map';
 
 class App extends Component {
 
@@ -58,6 +59,7 @@ class App extends Component {
               <Route path='/dashboard' component={Dashboard} />
               <Route path='/create' component={CreateCampaign} />
               <Route path='/billing' component={BillingCenter} />
+              <Route path='/locations' component={Map} />
             </Switch>
           </div>
 

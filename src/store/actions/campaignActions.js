@@ -10,17 +10,14 @@ export const createCampaign = (campaign) => {
     // make async call to database (because it takes some time to do that means it returns a promise)
     const firestore = getFirestore();
 
-    var myMap = new Map();
-
     var authId = campaign.firebaseAuthId;
-
     var storageFolderName = campaign.authId
     var theRealData = campaign.mediaFile.media
 
-    var getUniqueId = firestore.collection("campaigns-test").doc();
+    var getUniqueId = firestore.collection("campaigns").doc();
     console.log(getUniqueId.id);
 
-    firestore.collection('campaigns-test').doc(getUniqueId.id).set({
+    firestore.collection('campaigns').doc(getUniqueId.id).set({
       title: campaign.title,
       mediaTitle: campaign.mediaTitle,
       campaignLength: campaign.campaignLength,
