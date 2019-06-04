@@ -8,8 +8,8 @@ const mediaFileReducer = (state=initState, action) => {
 
     case 'SAVE_MEDIA_FILE':
       console.log("inside the save media file reducer");
-      state.mediaFile = action.payload
-      console.log(state.mediaFile);
+      state = action.payload
+      console.log(state);
       console.log("exiting the save media file reducer");
       return state;
 

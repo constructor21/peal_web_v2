@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   firebase: firebaseReducer,
   day: dayPickerReducer,
   creativeName: mediaReducer,
-  mediaFileName: mediaFileReducer,
+  mediaFile: mediaFileReducer,
   billing: billingReducer
 });
 

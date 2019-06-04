@@ -18,7 +18,7 @@ class CreateCampaign extends Component {
     mediaTitle: this.props.creativeName,
     campaignLength: this.props.day,
     firebaseAuthId: '',
-    mediaFile: this.props.mediaFile,   // this.props.mediaFile.mediaFile crashes the page
+    mediaFile: this.props.mediaFile,
     authId: this.props.auth.uid
   }
 
@@ -40,13 +40,14 @@ class CreateCampaign extends Component {
     this.props.history.push('/dashboard');
   }
 
-  buildFirestore = (id, day, creativeName) => {
+  buildFirestore = (id, day, creativeName, mediaFile) => {
     // console.log(id);
     // console.log(creativeName);
     // console.log(".................................", day);
     this.setState({
       firebaseAuthId: id,
-      campaignLength: day
+      campaignLength: day,
+      mediaFile: mediaFile
     })
   }
 
@@ -59,10 +60,10 @@ class CreateCampaign extends Component {
 
     const { creativeName } = this.props;
 
-    const { mediaFile } = this.props;  // mediaFile is a property of this.mediaFile.mediaFile crashes the page
+    const mediaFile = this.props.mediaFile;  
 
     console.log("inside the props");
-    console.log( { mediaFile } );
+    console.log( mediaFile );
     console.log("close media props");
 
 
@@ -98,7 +99,7 @@ class CreateCampaign extends Component {
               <label htmlFor="title">Campaign Title</label>
             </div>
             <div className="input-field">
-              <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString(), {day}, {creativeName}  )}>Create Campaign</button>
+              <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString(), {day}, {creativeName}, mediaFile  )}>Create Campaign</button>
             </div>
           </form>
 
@@ -123,13 +124,13 @@ const mapStateToProps = (state) => {
   console.log("/////");
   console.log(state.creativeName);
   console.log("/////");
-  console.log(state.mediaFileName.mediaFile);
+  console.log(state.mediaFile);
   console.log("/////");
   return {
     auth: state.firebase.auth,
     day: state.day,
     creativeName: state.creativeName,
-    mediaFile: state.mediaFileName.mediaFile
+    mediaFile: state.mediaFile
   }
 }
 

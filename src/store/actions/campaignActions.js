@@ -20,12 +20,15 @@ export const createCampaign = (campaign) => {
     var authId = campaign.firebaseAuthId;
 
     var storageFolderName = campaign.authId
-    var theRealData = campaign.mediaFile
+    var theRealData = campaign.mediaFile.media
 
     console.log("the real data is...")
-    console.log(campaign.mediaFile);  // hopefully this isn't null as well!!
+    console.log(campaign.mediaFile.media);
+    console.log("...")
     console.log(theRealData);
-    console.log("the real data is...")
+    console.log("...")
+
+
 
     firestore.collection('campaigns').add({
       ...campaign,
@@ -46,7 +49,8 @@ export const createCampaign = (campaign) => {
             console.log("perform handle upload with the file name being the doc.id (value of myMap)")
             var fileWithinFolderName = myMap.value
 
-            const uploadTask = storage.ref(`${storageFolderName}/${fileWithinFolderName}`).put(`${theRealData}`);
+
+            const uploadTask = storage.ref(`${storageFolderName}/${fileWithinFolderName}`).put(theRealData);
             // state changed is the defualt event listener
             uploadTask.on('state_changed',
             (snapshot) => {
