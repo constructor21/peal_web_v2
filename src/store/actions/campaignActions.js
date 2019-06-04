@@ -20,6 +20,7 @@ export const createCampaign = (campaign) => {
     var authId = campaign.firebaseAuthId;
 
     var storageFolderName = campaign.authId
+    var fileWithinFolderName = "campaign.authId"
     var theRealData = campaign.mediaFile.media
 
     console.log("the real data is...")
@@ -29,9 +30,132 @@ export const createCampaign = (campaign) => {
     console.log("...")
 
 
+//===========works=====================
+    // const uploadTask = storage.ref(`${storageFolderName}/${fileWithinFolderName}`).put(theRealData);
+    // // state changed is the defualt event listener
+    // uploadTask.on('state_changed',
+    // (snapshot) => {
+    //   // progrss function ....
+    //   // const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+    //   // this.setState({progress});
+    // },
+    // (error) => {
+    //      // error function ....
+    //   console.log(error);
+    // },
+    // () => {
+    //
+    // });
 
+    //============================================
+
+    //==============WORKS==================
+
+    /*
+    title: '',
+    mediaTitle: this.props.creativeName,
+    campaignLength: this.props.day,
+    firebaseAuthId: '',
+    mediaFile: this.props.mediaFile,
+    authId: this.props.auth.uid
+    */
+    /*
+    firestore.collection('aarons-campaigns').add({
+      //aaron:"the truth"
+      //...campaign,
+      title: campaign.title,
+      mediaTitle: campaign.mediaTitle,
+      campaignLength: campaign.campaignLength,
+      firebaseAuthId: campaign.firebaseAuthId,
+      authId: campaign.authId,
+      authorId: authId,
+      createdAt: new Date()
+    })
+    */
+    //============WORKS==========================
+
+    /*
+    firestore.collection('aarons-campaigns2').add({
+      //aaron:"the truth"
+      //...campaign,
+      title: campaign.title,
+      mediaTitle: campaign.mediaTitle,
+      campaignLength: campaign.campaignLength,
+      firebaseAuthId: campaign.firebaseAuthId,
+      authId: campaign.authId,
+      authorId: authId,
+      createdAt: new Date()
+    }).then(() => {
+      console.log('Sucessfully chained a promise without breaking functionality!');
+      // you need to do the upload function right here ...
+      console.log("test34567890");
+      firestore.collection('aarons-campaigns2').get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+          console.log(doc.data().firebaseAuthId, doc.id);
+          myMap.set(doc.data().firebaseAuthId, doc.id);
+          console.log(myMap);
+        })
+        })
+      });
+      */
+    //===============================
+
+    //Get user id from firebase auth
+    var user = "3yug76eg398he33riu";
+
+
+    var getUniqueId = firestore.collection("campaigns-jean").doc();
+    console.log(getUniqueId.id);
+
+    firestore.collection('campaigns-jean').doc(getUniqueId.id).set({
+      //aaron:"the truth"
+      //...campaign,
+      title: campaign.title,
+      mediaTitle: campaign.mediaTitle,
+      campaignLength: campaign.campaignLength,
+      firebaseAuthId: campaign.firebaseAuthId,
+      authId: campaign.authId,
+      authorId: authId,
+      createdAt: new Date()
+    }).then(() => {
+
+      const uploadTask = storage.ref(`${storageFolderName}/${getUniqueId.id}`).put(theRealData);
+      // state changed is the defualt event listener
+      uploadTask.on('state_changed',
+      (snapshot) => {
+        // progrss function ....
+        // const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        // this.setState({progress});
+      },
+      (error) => {
+           // error function ....
+        console.log(error);
+      },
+      () => {
+
+      });
+
+    });
+
+    /*
+    firestore.collection('CampaignsFuture').document().add({
+      //aaron:"the truth"
+      //...campaign,
+      title: campaign.title,
+      mediaTitle: campaign.mediaTitle,
+      campaignLength: campaign.campaignLength,
+      firebaseAuthId: campaign.firebaseAuthId,
+      authId: campaign.authId,
+      authorId: authId,
+      createdAt: new Date()
+    }).
+    */
+    console.log("nothing else is important");
+/*
     firestore.collection('campaigns').add({
-      ...campaign,
+      //aaron:"the truth"
+      //...campaign,
+
       authorId: authId,
       createdAt: new Date()
     }).then(() => {
@@ -42,15 +166,17 @@ export const createCampaign = (campaign) => {
         snapshot.docs.forEach(doc => {
           myMap.set(doc.data().firebaseAuthId, doc.id);
         })
+
       }).then(() => {
 
         for (var [key, value] of myMap.entries()) {
-          if(key === authId) {
+          console.log("lskajflk;asfjklas;fjkl;sa")
+          // if(key == authId) {
             console.log("perform handle upload with the file name being the doc.id (value of myMap)")
             var fileWithinFolderName = myMap.value
 
-
-            const uploadTask = storage.ref(`${storageFolderName}/${fileWithinFolderName}`).put(theRealData);
+//`${storageFolderName}/${fileWithinFolderName}`
+            const uploadTask = storage.ref("1234").put(theRealData);
             // state changed is the defualt event listener
             uploadTask.on('state_changed',
             (snapshot) => {
@@ -64,16 +190,16 @@ export const createCampaign = (campaign) => {
             },
             () => {
                 // complete function ....
-                storage.ref(`${storageFolderName}`).child(fileWithinFolderName).getDownloadURL().then(url => {
-                    console.log(url);
-                    this.setState({url});
-                })
+                // storage.ref(`${storageFolderName}`).child(fileWithinFolderName).getDownloadURL().then(url => {
+                //     console.log(url);
+                //     this.setState({url});
+                // })
             });
 
 
 
 
-          }
+          // }
         }
 
       })
@@ -85,7 +211,9 @@ export const createCampaign = (campaign) => {
     }).catch(err => {
       dispatch({ type: 'CREATE_CAMPAIGN_ERROR' }, err);
     });
+    */
   }
+
 };
 
 
