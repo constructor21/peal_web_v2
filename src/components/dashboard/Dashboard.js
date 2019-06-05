@@ -16,6 +16,7 @@ class Dashboard extends Component {
     const { campaigns, auth } = this.props;
     if (!auth.uid) return <Redirect to='/' />
     console.log({campaigns}.campaigns); // you can't take the length property because request to firestore takes time
+
     // TODO: only place welcome message if campaigns empty
 
     return (

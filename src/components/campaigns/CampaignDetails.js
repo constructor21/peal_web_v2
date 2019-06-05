@@ -16,6 +16,23 @@ import './CampaignDetails.css'
 
 // TODO: show how many days are left in the campaign
 
+function calculateDiff(startYear, startMonth, startDay, endYear, endMonth, endDay) {
+  console.log("hello");
+  var begin = new Date(startYear, startMonth, startDay);
+  console.log(begin);
+  // Wed Jul 17 2019 00:00:00 GMT-0700 (Pacific Daylight Time)
+  var end = new Date(endYear, endMonth, endDay);
+  console.log(end);
+
+  var timeDiff = Math.abs(end.getTime() - begin.getTime());
+  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+  console.log(diffDays);
+  var result = diffDays.toString() + " days";
+  // console.log(result);
+  return result;
+}
+
 const CampaignDetails = (props) => {
   // console.log(props);
   // const id = props.match.params.id;
@@ -26,7 +43,25 @@ const CampaignDetails = (props) => {
 
 
   if (campaign) {
+
+    console.log("*****") // ["2019-06-17", "2019-06-29"] // year, month, day
+
+    var startDate = campaign.campaignLength.day[0]
+    var endDate = campaign.campaignLength.day[1]
+
+    var startYear = startDate.substring(0,4);
+    var startMonth = startDate.substring(5,7);
+    var startDay = startDate.substring(8,10);
+    var endYear = endDate.substring(0,4);
+    var endMonth = endDate.substring(5,7);
+    var endDay =  endDate.substring(8,10);
+
+    var result = calculateDiff(startYear, startMonth, startDay, endYear, endMonth, endDay);
+
+    console.log("*****")
+
     return (
+
       <div className="container section project-details">
         <div className="card z-depth-0">
 
@@ -36,8 +71,13 @@ const CampaignDetails = (props) => {
 
 
           <div className="card-action grey lighten-4 grey-text">
-            <p> Created: </p>
-            <div>{moment(campaign.createdAt.toDate()).calendar()}</div>
+            <p> Created:
+              <div>{moment(campaign.createdAt.toDate()).calendar()}</div>
+            </p>
+            <p className="grey-text"> Time Remaining:
+              <div> {result} </div>
+            </p>
+
           </div>
 
         </div>
