@@ -15,7 +15,6 @@ import {storage} from '../../config/fbConfig';
 
 var styles = { border: '1px dashed blue', height: 500, width: 325, color: "black" };
 
-// TODO: gestalt video uploader or react drop zone
 
 class ContentContainer extends Component {
 
@@ -41,7 +40,7 @@ class ContentContainer extends Component {
       console.log("---");
       for (var i = 0; i != validFileExtensions.length; i++) {
         if(mediaName.toLowerCase().includes(validFileExtensions[i])) {
-          //this.props.addMediaName(mediaName.toLowerCase());
+          this.props.addMediaName(mediaName.toLowerCase());
           return true;
         }
       }
@@ -53,19 +52,24 @@ class ContentContainer extends Component {
       console.log("I want to upload!");
 
       // userId is the bucket name is the bucket name
-      const userId = this.state.userId.uid;
+      // const userId = this.state.userId.uid;
       // console.log(userId);
+      //console.log(media);
+      // console.log(media.media);
+
       const {media} = this.state;
 
-      //console.log(media);
+      console.log("---this is the meida");
+      console.log(media);
+      console.log("---");
 
-      // console.log(media.media);
 
       if(!this.formValidation(media.media.name)) {
         return;
       }
 
-
+      // console.log("getting here"); works
+      this.props.addMediaFile(media); // {media} is throwing an error // media.media is throwing an error 
 
     }
 
@@ -83,12 +87,12 @@ class ContentContainer extends Component {
           },
           function() {
               console.log("setState completed", this.state)
-            // this.handleUpload();
           }
 
         );
 
         setTimeout(() => {
+          console.log("in timeout");
           this.handleUpload();
         },200)
 
@@ -96,7 +100,7 @@ class ContentContainer extends Component {
 
     onDragOver = (event) => {
 
-      console.log(this.state.media);
+      // console.log(this.state.media);
 
     }
 
@@ -125,17 +129,6 @@ class ContentContainer extends Component {
 
                     </div>
 
-                    <MaterialTextField
-                      id="standard-name"
-                      label="Click Confirm to Begin Download After Uploading"
-                      placeholder="file name will be displayed here"
-                      value={this.state.mediaFileName}
-                      margin="normal"
-                      style = {{width: 300}}
-                  />
-
-
-
                 </Box>
             </Box>
         );
@@ -144,8 +137,22 @@ class ContentContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    creativeName: state.creativeName
   }
 }
 
-export default connect(mapStateToProps)(ContentContainer);
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+    addMediaName: (value) => {
+      dispatch({ type: 'ADD_MEDIA_NAME', payload: value })
+    },
+    addMediaFile: (value) => {
+      dispatch({ type: 'SAVE_MEDIA_FILE', payload: value })
+    }
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContentContainer);

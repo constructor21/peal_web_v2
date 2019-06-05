@@ -14,6 +14,8 @@ export const createCampaign = (campaign) => {
     var storageFolderName = campaign.authId
     var theRealData = campaign.mediaFile.media
 
+    console.log("the real data is ", theRealData);  
+
     var getUniqueId = firestore.collection("campaigns").doc();
     console.log(getUniqueId.id);
 

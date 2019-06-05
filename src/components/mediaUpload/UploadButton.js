@@ -41,6 +41,9 @@ class UploadButton extends Component {
         // console.log(media); // this is the acutal file
         // console.log("_______");
         this.setState(() => ({media}));
+
+
+        console.log("in the change function!")
       }
     }
 

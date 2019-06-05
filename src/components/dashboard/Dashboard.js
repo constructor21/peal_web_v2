@@ -25,7 +25,7 @@ class Dashboard extends Component {
 
         <div className="welcomeMessageToggle">
           <h5> Welcome. </h5>
-          <h5> Make sure you're billing information is up to date and then click the create campaign tab to get started reaching more potential customers. </h5>
+          <h5> Get started by adding your billing information and then click the create campaign tab to begin reaching more potential customers. </h5>
         </div>
 
         <div className="dashboard container">
