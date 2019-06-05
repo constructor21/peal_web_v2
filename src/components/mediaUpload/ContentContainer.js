@@ -65,29 +65,10 @@ class ContentContainer extends Component {
         return;
       }
 
-      const uploadTask = storage.ref(`${userId}/${media.media.name}`).put(media.media);
-      // state changed is the defualt event listener
-      uploadTask.on('state_changed',
-      (snapshot) => {
-        // progrss function ....
-        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        this.setState({progress});
-      },
-      (error) => {
-           // error function ....
-        console.log(error);
-      },
-      () => {
-          // complete function ....
-          storage.ref(`${userId}`).child(media.media.name).getDownloadURL().then(url => {
-              console.log(url);
-              this.setState({url});
-          })
-      });
+
 
     }
 
-    // TODO: make confirm button go away after this has been called
 
     // you can't call handle upload right away because it takes time for the state to be set
       // setState() has an optional callback parameter that you can use for this.

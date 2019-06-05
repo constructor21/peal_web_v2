@@ -15,7 +15,6 @@ const styles = theme => ({
   },
 });
 
-// TODO: hide btn on click or have an undo button
 
 class UploadButton extends Component {
 
@@ -38,9 +37,9 @@ class UploadButton extends Component {
     handleChange = e => {
       if (e.target.files[0]) {
         const media = e.target.files[0];
-        console.log("_______");
-        console.log(media); // this is the acutal file
-        console.log("_______");
+        // console.log("_______");
+        // console.log(media); // this is the acutal file
+        // console.log("_______");
         this.setState(() => ({media}));
       }
     }
@@ -52,7 +51,7 @@ class UploadButton extends Component {
       console.log("---");
       for (var i = 0; i != validFileExtensions.length; i++) {
         if(mediaName.toLowerCase().includes(validFileExtensions[i])) {
-          this.props.addMediaName(mediaName.toLowerCase()); // this is what adds the creative name to the state !!!
+          this.props.addMediaName(mediaName.toLowerCase()); // this is what adds the creative name to the state !
           return true;
         }
       }
@@ -66,45 +65,16 @@ class UploadButton extends Component {
       // console.log(userId);
       const {media} = this.state;
 
-
-
-      console.log("****");
-      console.log({media}); // this is the acutal file, save to redux state
-      console.log("****");
-      this.props.addMediaFile({media});
-      // console.log(media) is the same thing 
-
-
-      /*
+      //console.log("****");
+      //console.log({media}); // this is the acutal file, save to redux state
+      //console.log("****");
 
       if(!this.formValidation(media.name)) {
         return;
       }
 
-      const uploadTask = storage.ref(`${userId}/${media.name}`).put(media);
-      // state changed is the defualt event listener
-      uploadTask.on('state_changed',
-      (snapshot) => {
-        // progrss function ....
-        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        this.setState({progress});
-      },
-      (error) => {
-           // error function ....
-        console.log(error);
-      },
-      () => {
-          // complete function ....
-          storage.ref(`${userId}`).child(media.name).getDownloadURL().then(url => {
-              console.log(url);
-              this.setState({url});
-          })
-      });
-
-
-      */
-
-
+      this.props.addMediaFile({media});
+      // console.log(media) is the same thing
 
     }
 
@@ -130,7 +100,6 @@ class UploadButton extends Component {
                 Upload From Computer
               </Button>
             </label>
-            <progress value={this.state.progress} max="100"/>
             <button onClick={this.handleUpload}> Confirm </button>
           </div>
 
