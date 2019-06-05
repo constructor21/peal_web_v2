@@ -5,6 +5,7 @@ import { firestoreConnect } from 'react-redux-firebase' // connects a component 
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 
+import './Dashboard.css'
 // 12 colums on small sized screens, 6 colums on medium sized sceens
 
 class Dashboard extends Component {
@@ -20,18 +21,23 @@ class Dashboard extends Component {
     // TODO: only place welcome message if campaigns empty
 
     return (
-      <div className="dashboard container">
-        <div>
+      <div>
+
+        <div className="welcomeMessageToggle">
           <h5> Welcome. </h5>
           <h5> Make sure you're billing information is up to date and then click the create campaign tab to get started reaching more potential customers. </h5>
         </div>
-        <div className="row">
-          <div className="col s12 m6">
-            <CampaignList campaigns={campaigns} />
-          </div>
-          <div className="col s12 m5 offset-m1">
+
+        <div className="dashboard container">
+          <div className="row">
+            <div className="col s12 m6">
+              <CampaignList campaigns={campaigns} />
+            </div>
+            <div className="col s12 m5 offset-m1">
+            </div>
           </div>
         </div>
+
       </div>
     )
   }

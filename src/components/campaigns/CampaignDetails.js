@@ -14,7 +14,6 @@ import DeleteCampaign from './DeleteCampaign'
 
 import './CampaignDetails.css'
 
-// TODO: show how many days are left in the campaign
 
 function calculateDiff(startYear, startMonth, startDay, endYear, endMonth, endDay) {
   console.log("hello");

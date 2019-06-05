@@ -1,3 +1,4 @@
+
 npm install --> npm start
 
 React specific ui framework:
@@ -70,7 +71,6 @@ Tasks
 Jean -> billing center front end
 Aaron -> Stripe backend
 
-
 Change delete method to match the creation logic
 
 1. Make the repo private
@@ -79,12 +79,12 @@ Change delete method to match the creation logic
 
 Fix post-launch + all the TODOs
 
-Footer is messed up again .... especially for maps!
+Footer is messed up again after adding Stripe
+Add the progress bar and form validation functionality back in
 Delete the old calendar code + index.js unused cloud functions in the functions folder
-Order the campaigns
-
 Cloud function to take the company address and have a spot on the map for it auto-zoomed into
 
+Show markers for all displays in the city
 Locations tab --> google maps ... metrics dashboard that populates different info based on display marker clicked
     - guard the route
     - Metrics:
@@ -95,7 +95,10 @@ Locations tab --> google maps ... metrics dashboard that populates different inf
 Explore further data architecture [from the original picture on the small whiteboard]
 
 Validation that every field is filled out when press create campaign & confirm billing info
+  The validation for the date picker is needed or the create campaign button will crash the page because the dates will be undefined the campaign details page 
 
 Add a cancel subscription button in the billing center --> if they want to cancel have a pop up that says don't cancel, 50% off for the next two months ... button options [save money] [confirm cancelation]
 
 Preview image or video [react drop zone &/or gestalt]
+
+Make the side drawer Peal colors
