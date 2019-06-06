@@ -34,19 +34,6 @@ class UploadButton extends Component {
 
     }
 
-    handleChange = e => {
-      if (e.target.files[0]) {
-        const media = e.target.files[0];
-        // console.log("_______");
-        // console.log(media); // this is the acutal file
-        // console.log("_______");
-        this.setState(() => ({media}));
-
-
-        console.log("in the change function!")
-      }
-    }
-
     formValidation = (mediaName) => {
       const validFileExtensions = ['.mp4', '.mov', '.png', '.jpg', '.jpeg'];
       console.log("---");
@@ -61,25 +48,57 @@ class UploadButton extends Component {
       return false;
     }
 
-    handleUpload = (e) => {
-      e.preventDefault();
+    handleUpload = () => {
       // userId is the bucket name is the bucket name
       const userId = this.state.userId.uid;
       // console.log(userId);
       const {media} = this.state;
 
-      //console.log("****");
-      //console.log({media}); // this is the acutal file, save to redux state
-      //console.log("****");
-
-      if(!this.formValidation(media.name)) {
+      if(!this.formValidation(media.media.name)) {
         return;
       }
 
-      this.props.addMediaFile({media});
-      // console.log(media) is the same thing
+      this.props.addMediaFile(media);
+      // console.log(media) is the same thing as {media}
 
     }
+
+
+    handleChange = e => {
+      if (e.target.files[0]) {
+        const media = e.target.files[0];
+        console.log("_______");
+        console.log(media); // this is the acutal file
+        console.log("_______");
+
+        console.log("safsa")
+        console.log({media}); // this is {media: File}
+        console.log("lskjfs")
+
+
+        // this.setState(() => ({media}));    // this works (but requires the confirmation button being pressed)
+
+        this.setState(
+          {
+            media: {media}
+          },
+          function() {
+              console.log("setState completed", this.state)
+          }
+
+        );
+
+        setTimeout(() => {
+          console.log("in timeout");
+          this.handleUpload();
+          // console.log("you can call handle upload now");
+        },200)
+
+
+
+      }
+    }
+
 
   render() {
 

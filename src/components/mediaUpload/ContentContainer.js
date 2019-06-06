@@ -69,7 +69,7 @@ class ContentContainer extends Component {
       }
 
       // console.log("getting here"); works
-      this.props.addMediaFile(media); // {media} is throwing an error // media.media is throwing an error 
+      this.props.addMediaFile(media); // {media} is throwing an error // media.media is throwing an error
 
     }
 
@@ -80,6 +80,7 @@ class ContentContainer extends Component {
         //console.log(files.length);
         //console.log(files, event);
         const media = files[0];
+        console.log("before set state");
         console.log(media);
         this.setState(
           {
