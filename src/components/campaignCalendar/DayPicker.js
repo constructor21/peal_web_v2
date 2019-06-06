@@ -53,6 +53,13 @@ class Example extends React.Component {
     this.state.dates.push(stringDay.substring(1,11));
     console.log(this.state.dates);
 
+    if(this.state.dates.length == 2) {
+      // console.log("you can call the confirm click button now");
+      console.log("save to redux store");
+      this.props.add(this.state.dates[0]);
+      this.props.add(this.state.dates[1]);
+    }
+
   }
 
   handleResetClick() {
@@ -70,7 +77,6 @@ class Example extends React.Component {
 
     console.log(this.state.dates); // (2) ["2019-05-29", "2019-05-31"]
     console.log("save to redux store");
-
     this.props.add(this.state.dates[0]);
     this.props.add(this.state.dates[1]);
   }
@@ -110,9 +116,13 @@ class Example extends React.Component {
 
           </div>
 
+          {
+          /*
           <button className="link" id="confirmBtnSpacing" onClick={this.handleConfirmClick}>
             Confirm
           </button>
+          */
+          }
 
         </div>
 

@@ -122,7 +122,6 @@ class UploadButton extends Component {
                 Upload From Computer
               </Button>
             </label>
-            <button onClick={this.handleUpload}> Confirm </button>
           </div>
 
     );
