@@ -1,3 +1,9 @@
+
+
+// TODO: check if this still works if you change to .ts file 
+
+
+
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 

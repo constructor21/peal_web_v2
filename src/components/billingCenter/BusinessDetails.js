@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-// TODO: Add validation to each field
+// TODO: Save to redux store so you can still have the confirmation page 
 
 export class BusinessDetails extends Component {
 

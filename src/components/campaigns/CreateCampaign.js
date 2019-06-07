@@ -19,7 +19,10 @@ class CreateCampaign extends Component {
     campaignLength: this.props.day,
     firebaseAuthId: '',
     mediaFile: this.props.mediaFile,
-    authId: this.props.auth.uid
+    authId: this.props.auth.uid,
+    mediaError: '',
+    dateError: '',
+    titleError: ''
   }
 
   handleChange = (e) => {
@@ -30,9 +33,30 @@ class CreateCampaign extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+
+    // Do the validation here
+
     console.log("handle submit function called");
     console.log(this.state); // check this --> the media file is null here
-    console.log("the above line is what you are passing into the create campaign function");
+    console.log("*****");
+
+    if(this.state.mediaFile.mediaFile == null){
+      console.log("no media was uploaded");
+    }
+
+    if(this.state.campaignLength.day.length == 0){
+      console.log("no dates were selected");
+    }
+
+    if(this.state.title == '') {
+      console.log("the media title is empty");
+    }
+
+
+
+
+
+
     this.props.createCampaign(this.state);
     // right here call a function to loop through storage files and replace the name with the campaign id
       // this means need to loop through the campaign stuff similar to the delete method?
@@ -41,13 +65,10 @@ class CreateCampaign extends Component {
   }
 
   buildFirestore = (id, day, creativeName, mediaFile) => {
-    
-    console.log(id);
-    console.log(creativeName);
-    console.log(day);
 
-    // do form validation right here
-
+    // console.log(id);
+    // console.log(creativeName);
+    // console.log(day);
 
     this.setState({
       firebaseAuthId: id,
@@ -111,6 +132,9 @@ class CreateCampaign extends Component {
             <div className="input-field">
 
               <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString(), {day}, {creativeName}, mediaFile  )}>Create Campaign</button>
+              <span class="helper-text" id="errorText">{this.state.mediaError}</span>
+              <span class="helper-text" id="errorText">{this.state.dateError}</span>
+              <span class="helper-text" id="errorText">{this.state.titleError}</span>
 
             </div>
           </form>
