@@ -51,7 +51,6 @@ class BillingContainer extends Component {
           return (
             <BusinessDetails
               nextStep={this.nextStep}
-              handleChange={this.handleChange}
               values={values}
             />
           );

@@ -41,15 +41,25 @@ class CreateCampaign extends Component {
   }
 
   buildFirestore = (id, day, creativeName, mediaFile) => {
-    // console.log(id);
-    // console.log(creativeName);
-    // console.log(".................................", day);
+    
+    console.log(id);
+    console.log(creativeName);
+    console.log(day);
+
+    // do form validation right here
+
+
     this.setState({
       firebaseAuthId: id,
       campaignLength: day,
       mediaFile: mediaFile
     })
+
+
+
+
   }
+
 
 
   render() {
@@ -60,7 +70,7 @@ class CreateCampaign extends Component {
 
     const { creativeName } = this.props;
 
-    const mediaFile = this.props.mediaFile;  
+    const mediaFile = this.props.mediaFile;
 
     console.log("inside the props");
     console.log( mediaFile );
@@ -99,11 +109,16 @@ class CreateCampaign extends Component {
               <label htmlFor="title">Campaign Title</label>
             </div>
             <div className="input-field">
+
               <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString(), {day}, {creativeName}, mediaFile  )}>Create Campaign</button>
+
             </div>
           </form>
 
+
         </div>
+
+
 
       </div>
     )
