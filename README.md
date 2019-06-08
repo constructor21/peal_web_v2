@@ -80,8 +80,6 @@ Change delete method to match the creation logic
 Fix post-launch + all the TODOs
 
 
-Delete the old calendar code + index.js unused cloud functions in the functions folder
-
 Show markers for all displays in the city
 Locations tab --> google maps ... metrics dashboard that populates different info based on display marker clicked
     - guard the route
@@ -91,8 +89,6 @@ Locations tab --> google maps ... metrics dashboard that populates different inf
       Remaining length of current campaigns
 
 Explore further data architecture [from the original picture on the small whiteboard]
-
-Validation that every field is filled out when press create campaign & confirm billing info
 
 Add a cancel subscription button in the billing center --> if they want to cancel have a pop up that says don't cancel, 50% off for the next two months ... button options [save money] [confirm cancelation]
 

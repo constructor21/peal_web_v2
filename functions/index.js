@@ -1,14 +1,16 @@
 
 
-// TODO: check if this still works if you change to .ts file 
+// TODO: check if this still works if you change to .ts file
+// TODO: use cloud functions to send mail chimp welcome emails
 
+// firebase deploy --only functions      -> everytime you add a new function
 
 
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 
 const {Storage} = require('@google-cloud/storage');
-const gcs = require('@google-cloud/storage')();
+// const gcs = require('@google-cloud/storage')();
 const os = require('os');
 const path = require('path');
 
@@ -22,6 +24,7 @@ admin.initializeApp(functions.config().firebase);
 
 async function replaceMediaNamesWithCampaignId(campaignId) {
 
+  /*
   const storage = new Storage();
   // const bucketName = campaignId;
 
@@ -31,6 +34,8 @@ async function replaceMediaNamesWithCampaignId(campaignId) {
   files.forEach(file => {
     console.log(file.name);  // this didn't work because the bucket name needs to be the auth id
   });
+  */
+
   console.log("cloud function ended");
 
   /* ... use a promise to get to the next await?
@@ -73,12 +78,6 @@ exports.campaignCreated = functions.firestore
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 
 
-// firebase deploy --only functions      -> everytime you add a new function
-
-
-
-
-
     // returns an endpoint (url) in the terminal (via a request).
     // When you ctrl + click it a response will be sent back "Hello Peal Users"
 
@@ -93,8 +92,6 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 
 /* This should renmae all the files in the bucket if they weren't in folders...
-
-
 
 
 // object is the default bucket ... that's the peal-web-v2-appspot.com !!!!
@@ -131,10 +128,4 @@ exports.testMethod = functions.storage.object().onChange(event => {
 });
 
 
-
-
-
 */
-
-
-// TODO: use cloud functions to send mail chimp welcome emails
