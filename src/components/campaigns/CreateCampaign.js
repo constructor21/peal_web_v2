@@ -33,79 +33,78 @@ class CreateCampaign extends Component {
 
   creationValidation = () => {
 
+    console.log("validate method called");
+
+    let isError = false;
+
+    const errors = {
+      mediaError: '',
+      dateError: '',
+      titleError: ''
+    };
+
+    if(this.state.mediaFile.mediaFile == null && this.state.mediaTitle.creativeName == ''){
+      // console.log("no media was uploaded");
+      isError = true;
+      errors.media = "no media was uploaded";
+
+    }
+
+    if(this.state.campaignLength.day.length == 0){
+      // console.log("no dates were selected");
+      isError = true;
+      errors.days = "no dates were selected";
+
+    }
+
+    if(this.state.title == '') {
+      // console.log("the media title is empty");
+      isError = true;
+      errors.name = "the media title is empty";
+    }
+
+    this.setState({
+      mediaError: errors.media,
+      dateError: errors.days,
+      titleError: errors.name
+    });
+
+    return isError;
+
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
 
-    // Do the validation here -> set the state of the error messages
+    // console.log("handle submit function called");
+    // console.log(this.state); // check this --> the media file is null here
+    // console.log("*****");
 
-    console.log("handle submit function called");
-    console.log(this.state); // check this --> the media file is null here
-    console.log("*****");
+    const err = this.creationValidation();
 
-    if(this.state.mediaFile.mediaFile == null){
-      console.log("no media was uploaded");
-      this.setState(
-        {
-        mediaError: "no media was uploaded"
-        },
-        function() {
-            console.log("setState completed", this.state)
-        }
-      );
-    }
+    // if there are no errors
+    if (!err) {
 
-    if(this.state.campaignLength.day.length == 0){
-      console.log("no dates were selected");
-      this.setState(
-        {
-        dateError: "no dates were selected"
-        },
-        function() {
-            console.log("setState completed", this.state)
-        }
-      );
-    }
+      // clear form
+      this.setState({
+        address: "",
+        addressError: "",
+        city: "",
+        cityError: "",
+        zipCode: "",
+        zipCodeError: ""
+      });
 
-    if(this.state.title == '') {
-      console.log("the media title is empty");
-      this.setState(
-        {
-        titleError: "the media title is empty"
-        },
-        function() {
-            console.log("setState completed", this.state)
-        }
-      );
-    }
-
-
-    if(this.state.mediaError != '' || this.state.dateError != '' || this.state.titleError != '') {
-      console.log("exit");
-      return;
-    } else {
-      console.log("don't exit");
-      console.log(this.state.mediaError);
-      console.log(this.state.dateError);
-      console.log(this.state.titleError);
-      console.log("_____");
-    }
-
-    console.log("reached campaign creation line of code");
-
-    console.log(this.state);
-
-    setTimeout(() => {
-      console.log("in timeout");
+      // create the campaign
       this.props.createCampaign(this.state);
-    },200)
+
+      this.props.history.push('/dashboard');
+
+    } else {
+      console.log("there's an error!")
+    }
 
 
-    // right here call a function to loop through storage files and replace the name with the campaign id
-      // this means need to loop through the campaign stuff similar to the delete method?
-        // make it a campaign action!
-    this.props.history.push('/dashboard');
   }
 
   buildFirestore = (id, day, creativeName, mediaFile) => {

@@ -79,9 +79,8 @@ Change delete method to match the creation logic
 
 Fix post-launch + all the TODOs
 
-Add the name validation functionality back in
+
 Delete the old calendar code + index.js unused cloud functions in the functions folder
-Cloud function to take the company address and have a spot on the map for it auto-zoomed into
 
 Show markers for all displays in the city
 Locations tab --> google maps ... metrics dashboard that populates different info based on display marker clicked
@@ -94,12 +93,7 @@ Locations tab --> google maps ... metrics dashboard that populates different inf
 Explore further data architecture [from the original picture on the small whiteboard]
 
 Validation that every field is filled out when press create campaign & confirm billing info
-  The validation for the date picker is needed or the create campaign button will crash the page because the dates will be undefined the campaign details page
-
-  The validation is the media file state is not null
 
 Add a cancel subscription button in the billing center --> if they want to cancel have a pop up that says don't cancel, 50% off for the next two months ... button options [save money] [confirm cancelation]
 
 Preview image or video [react drop zone &/or gestalt video uploader]
-
-Make the side drawer Peal colors
