@@ -61,8 +61,10 @@ Rules are matches to specific code paths. You can different rules for different 
 
 
 
-
-
+In functions folder
+  npm install @google-cloud/logging
+  npm i stripe
+  npm i @types/stripe
 
 
 

@@ -4,6 +4,7 @@ import MyStripeBilling from './MyStripeBilling';
 
 class StripeContainer extends Component {
 
+  // TODO: add validation to make sure the save button was clicked 
   continue = e => {
     e.preventDefault();
     this.props.nextStep();

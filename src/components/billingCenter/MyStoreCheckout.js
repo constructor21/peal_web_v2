@@ -49,9 +49,7 @@ const createOptions = (fontSize, padding) => {
     };
 };
 
-// You could put the back and continue button here?
 
-// force user to nickname the card?
 
 class CardForm extends Component {
 
@@ -65,24 +63,38 @@ class CardForm extends Component {
 
   render() {
     return (
-      <Box alignItems="center" >
 
-              <Block>
-                  <form onSubmit={this.handleSubmit} className="stripeForm bottom-padding-override">
-                      <label className="stripeLabel">
-                          Credit Card Details
-                          <CardElement
-                              onBlur={handleBlur}
-                              onChange={handleChange}
-                              onFocus={handleFocus}
-                              onReady={handleReady}
-                              {...createOptions(this.props.fontSize)}
-                          />
-                      </label>
-                  </form>
-                </Block>
+      <div>
 
-      </Box>
+        <Box alignItems="center" >
+
+                <Block>
+                    <form onSubmit={this.handleSubmit} className="stripeForm bottom-padding-override">
+                        <label className="stripeLabel">
+                            Credit Card Details
+                            <CardElement
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onReady={handleReady}
+                                {...createOptions(this.props.fontSize)}
+                            />
+                        </label>
+                    </form>
+                  </Block>
+        </Box>
+
+        <Box>
+
+            <Block>
+              <button className="stripeButton"> Save </button>
+            </Block>
+        </Box>
+
+
+      </div>
+
+
     )
   }
 
