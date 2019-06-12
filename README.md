@@ -79,14 +79,16 @@ Rules are matches to specific code paths. You can different rules for different 
     It’s just a simple POST request with the Token and charge details attached.
 
 
+error TS7006: Parameter 'err' implicitly has an 'any' type.
+solution: "noImplicitAny": false, in the the tsconfig.json
+
+
 In functions folder
   npm install @google-cloud/logging
   npm i @types/stripe
 
 
   npm install stripe --save
-
-
 
 
 firebase deploy --only functions
