@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+
 import { CardElement, injectStripe, ReactStripeElements } from 'react-stripe-elements';
 
 import './MyStripeBilling.css'
@@ -78,7 +81,32 @@ class CardForm extends Component {
     // The stripe prop is available inside the component due to the use of injectStripe
 
     if (this.props.stripe) {
-        console.log("we're in business"); // this runs 
+        console.log("we're in business"); // this runs
+
+        // game plan: turn the firebase calls into actions
+
+
+        // this.props.stripe
+        //         .createToken()
+        //         .then((payload) => {
+        //             console.log('[token]', payload);
+        //             this.props.firebase.firestore.collection('stripe_customers').doc(this.props.firebase.auth.currentUser.uid).collection('tokens').add({ token: payload.token.id });
+        //             return payload;
+        //         }).then((payload) => {
+        //             console.log('[passed token]', payload);
+        //         });
+
+        // promise
+
+        // const charge = { amount: 2, source: "M0m3ZlvIxfnchNeg" };
+        //     this.props.firebase.firestore.collection('stripe_customers')
+        //         .doc(this.props.firebase.auth.currentUser.uid)
+        //         .collection('charges')
+        //         .add({ amount: 100, source: "card_1EID7eEAFgdVOsNsb914GrcV" });
+
+
+
+
       } else {
           console.log("Stripe.js hasn't loaded yet.");
       }
@@ -126,4 +154,31 @@ class CardForm extends Component {
 
 }
 
-export default injectStripe(CardForm);
+const mapStateToProps = (state) => {
+
+  return {
+    auth: state.firebase.auth,
+  }
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  }
+}
+
+
+/*
+both the Redux HOC and the Stripe HOC want to configure things in the React context for the component,
+however, whichever component is the outermost "wins".
+Choice:
+  injectStripe(connect()(YourComponent))
+  or
+  connect()(injectStripe(YourComponent))
+If Redux's context is the "outer" HOC, then the Stripe-created HOC
+will lose track of the <Elements> components registered with it.
+*/
+
+
+export default injectStripe(connect(mapStateToProps)(CardForm));
