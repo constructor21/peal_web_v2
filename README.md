@@ -72,6 +72,7 @@ Rules are matches to specific code paths. You can different rules for different 
 
 
   used env variables to hide secret key >> firebase functions:config:set stripe.token="sk_live_1uVHS5zVSOSKQ8pdtRm6MO5n"
+                                                ^in the root directory
     recovered via -> firebase.config().stripe.token
 
     In order to make this HTTP request from our front-end, I’ve created a function called charge using the Fetch API.
@@ -80,13 +81,15 @@ Rules are matches to specific code paths. You can different rules for different 
 
 In functions folder
   npm install @google-cloud/logging
-  npm i stripe
   npm i @types/stripe
 
 
+  npm install stripe --save
 
 
 
+
+firebase deploy --only functions
 
 
 
