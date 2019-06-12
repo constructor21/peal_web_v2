@@ -24,7 +24,7 @@ class BillingCenter extends Component {
     console.log(confirmBtnPressed);
     console.log(locationInfo);
 
-    if (confirmBtnPressed) {
+    if (confirmBtnPressed) {        // this the example you should follow of conditional rendering 
       return (
         <div>
           <Success />

@@ -19,7 +19,10 @@ class CreateCampaign extends Component {
     campaignLength: this.props.day,
     firebaseAuthId: '',
     mediaFile: this.props.mediaFile,
-    authId: this.props.auth.uid
+    authId: this.props.auth.uid,
+    mediaError: '',
+    dateError: '',
+    titleError: ''
   }
 
   handleChange = (e) => {
@@ -28,28 +31,98 @@ class CreateCampaign extends Component {
     })
   }
 
+  creationValidation = () => {
+
+    console.log("validate method called");
+
+    let isError = false;
+
+    const errors = {
+      mediaError: '',
+      dateError: '',
+      titleError: ''
+    };
+
+    if(this.state.mediaFile.mediaFile == null && this.state.mediaTitle.creativeName == ''){
+      // console.log("no media was uploaded");
+      isError = true;
+      errors.media = "no media was uploaded";
+
+    }
+
+    if(this.state.campaignLength.day.length == 0){
+      // console.log("no dates were selected");
+      isError = true;
+      errors.days = "no dates were selected";
+
+    }
+
+    if(this.state.title == '') {
+      // console.log("the media title is empty");
+      isError = true;
+      errors.name = "the media title is empty";
+    }
+
+    this.setState({
+      mediaError: errors.media,
+      dateError: errors.days,
+      titleError: errors.name
+    });
+
+    return isError;
+
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("handle submit function called");
-    console.log(this.state); // check this --> the media file is null here
-    console.log("the above line is what you are passing into the create campaign function");
-    this.props.createCampaign(this.state);
-    // right here call a function to loop through storage files and replace the name with the campaign id
-      // this means need to loop through the campaign stuff similar to the delete method?
-        // make it a campaign action!
-    this.props.history.push('/dashboard');
+
+    // console.log("handle submit function called");
+    // console.log(this.state); // check this --> the media file is null here
+    // console.log("*****");
+
+    const err = this.creationValidation();
+
+    // if there are no errors
+    if (!err) {
+
+      // clear form
+      this.setState({
+        address: "",
+        addressError: "",
+        city: "",
+        cityError: "",
+        zipCode: "",
+        zipCodeError: ""
+      });
+
+      // create the campaign
+      this.props.createCampaign(this.state);
+
+      this.props.history.push('/dashboard');
+
+    } else {
+      console.log("there's an error!")
+    }
+
+
   }
 
   buildFirestore = (id, day, creativeName, mediaFile) => {
+
     // console.log(id);
     // console.log(creativeName);
-    // console.log(".................................", day);
+    // console.log(day);
+
     this.setState({
       firebaseAuthId: id,
       campaignLength: day,
       mediaFile: mediaFile
     })
+
+
+
   }
+
 
 
   render() {
@@ -60,7 +133,7 @@ class CreateCampaign extends Component {
 
     const { creativeName } = this.props;
 
-    const mediaFile = this.props.mediaFile;  
+    const mediaFile = this.props.mediaFile;
 
     console.log("inside the props");
     console.log( mediaFile );
@@ -99,11 +172,19 @@ class CreateCampaign extends Component {
               <label htmlFor="title">Campaign Title</label>
             </div>
             <div className="input-field">
+
               <button className="btn pink lighten-1" onClick={() => this.buildFirestore(  (Math.floor(Math.random() * 20000)).toString(), {day}, {creativeName}, mediaFile  )}>Create Campaign</button>
+              <span class="helper-text" id="errorText">{this.state.mediaError}</span>
+              <span class="helper-text" id="errorText">{this.state.dateError}</span>
+              <span class="helper-text" id="errorText">{this.state.titleError}</span>
+
             </div>
           </form>
 
+
         </div>
+
+
 
       </div>
     )

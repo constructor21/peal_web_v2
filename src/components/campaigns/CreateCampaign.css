@@ -1,3 +1,7 @@
 .bottom-padding-override {
   margin-bottom: 50px;
 }
+
+#errorText {
+  color: red;
+}

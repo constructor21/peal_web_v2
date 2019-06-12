@@ -24,6 +24,8 @@ import { withGoogleMap, GoogleMap } from 'react-google-maps';
 
 import './Map.css';
 
+import MetricsPanel from './MetricsPanel';
+
 class Map extends Component {
 
   constructor(props){
@@ -89,11 +91,15 @@ class Map extends Component {
 
         <div>
 
-          <h4 className="centerTitle"> Click on a display marker to see more information </h4>
+          <h5 className="centerTitle"> Click on a display marker to see more information </h5>
 
-          <div className="setMapPosition">
+
+          <MetricsPanel />
+
+
+          <div className="setMapPosition" id="map-box">
             <GoogleMapExample
-              containerElement={ <div style={{ height: `320px`, width: '400px' }} /> }
+              containerElement={ <div style={{ height: `400px`, width: '800px' }} /> }
               mapElement={ <div style={{ height: `100%` }} /> }
             />
           </div>

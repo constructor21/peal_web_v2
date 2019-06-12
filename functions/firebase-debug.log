@@ -1,0 +1,39 @@
+[debug] [2019-06-09T05:16:41.252Z] ----------------------------------------------------------------------
+[debug] [2019-06-09T05:16:41.254Z] Command:       /usr/local/bin/node /usr/local/bin/firebase functions:shell
+[debug] [2019-06-09T05:16:41.255Z] CLI Version:   6.10.0
+[debug] [2019-06-09T05:16:41.255Z] Platform:      darwin
+[debug] [2019-06-09T05:16:41.255Z] Node Version:  v10.15.0
+[debug] [2019-06-09T05:16:41.256Z] Time:          Sat Jun 08 2019 22:16:41 GMT-0700 (Pacific Daylight Time)
+[debug] [2019-06-09T05:16:41.256Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-09T05:16:41.268Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-09T05:16:41.268Z] > authorizing via signed-in user
+[debug] [2019-06-09T05:16:41.269Z] [iam] checking project peal-web-v2 for permissions ["firebase.projects.get"]
+[debug] [2019-06-09T05:16:41.271Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/peal-web-v2:testIamPermissions  
+
+[debug] [2019-06-09T05:16:41.599Z] <<< HTTP RESPONSE 200
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-06-09T05:16:41.614Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/peal-web-v2  
+ 
+[debug] [2019-06-09T05:16:41.885Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-09T05:16:41.885Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/382040736163:getServerAppConfig  
+ 
+[debug] [2019-06-09T05:16:42.400Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: Emulator started at http://localhost:5001
+[debug] [2019-06-09T05:16:42.414Z] [functions] Watching "/Users/jeanleconteii/peal_web_v2/functions" for Cloud Functions...
+[debug] [2019-06-09T05:16:42.784Z] DEBUG: Functions runtime initialized.
+[debug] [2019-06-09T05:16:42.784Z] DEBUG: Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-06-09T05:16:43.817Z] DEBUG: firebase-admin has been stubbed.
+[info] i  Your code has been provided a "firebase-admin" instance.
+[warn] ⚠  TypeError: Cannot read property 'token' of undefined
+    at Object.<anonymous> (/Users/jeanleconteii/peal_web_v2/functions/index.js:24:59)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:459:29
+    at Generator.next (<anonymous>)
+[warn] ⚠  Your function was killed because it raised an unhandled error.
