@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { compose } from 'redux'
+import { addStripeToken } from '../../store/actions/stripeActions'
 
 import { CardElement, injectStripe, ReactStripeElements } from 'react-stripe-elements';
 
@@ -67,7 +68,10 @@ class CardForm extends Component {
       super(props);
 
       this.state = {
-        complete: false
+        complete: false,
+        userAuthID: this.props.auth.uid
+        // TypeError: Cannot read property 'uid' of undefined -> when have in 'currentUser'
+        // TypeError: this.props.auth is not a function -> when try firebase.auth().currentUser.uid
       }
 
       this.submit = this.submit.bind(this);
@@ -86,25 +90,27 @@ class CardForm extends Component {
         // game plan: turn the firebase calls into actions
 
 
-        // this.props.stripe
-        //         .createToken()
-        //         .then((payload) => {
-        //             console.log('[token]', payload);
-        //             this.props.firebase.firestore.collection('stripe_customers').doc(this.props.firebase.auth.currentUser.uid).collection('tokens').add({ token: payload.token.id });
-        //             return payload;
-        //         }).then((payload) => {
-        //             console.log('[passed token]', payload);
-        //         });
+        this.props.stripe
+                .createToken()
+                .then((payload) => {
+                    console.log('[token]', payload);
+                    // this.props.firebase.firestore.collection('stripe_customers').doc(this.props.firebase.auth.currentUser.uid).collection('tokens').add({ token: payload.token.id });
+                    this.props.addStripeToken(this.state.userAuthID, payload.token.id);
+                    return payload;
+                }).then((payload) => {
+                    console.log('[passed token]', payload);
+                });
 
         // promise
 
-        // const charge = { amount: 2, source: "M0m3ZlvIxfnchNeg" };
+        // const charge = { amount: 2, source: "M0m3ZlvIxfnchNeg" }; -> this variable doesn't appear to be used anywhere
+
         //     this.props.firebase.firestore.collection('stripe_customers')
         //         .doc(this.props.firebase.auth.currentUser.uid)
         //         .collection('charges')
         //         .add({ amount: 100, source: "card_1EID7eEAFgdVOsNsb914GrcV" });
 
-
+        // ^get rid of the hardcoding
 
 
       } else {
@@ -113,6 +119,8 @@ class CardForm extends Component {
   }
 
   render() {
+
+    const { auth } = this.props;
 
     if (this.state.complete) return <h1>Card Information Saved</h1>;
 
@@ -164,7 +172,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    addStripeToken: (authId, token) => dispatch(addStripeToken(authId, token))
   }
 }
 
@@ -181,4 +189,4 @@ will lose track of the <Elements> components registered with it.
 */
 
 
-export default injectStripe(connect(mapStateToProps)(CardForm));
+export default injectStripe(connect(mapStateToProps, mapDispatchToProps)(CardForm));
