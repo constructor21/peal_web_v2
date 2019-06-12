@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { compose } from 'redux'
+
 import { addStripeToken } from '../../store/actions/stripeActions'
+import { createStripeCharge } from '../../store/actions/stripeActions'
 
 import { CardElement, injectStripe, ReactStripeElements } from 'react-stripe-elements';
 
@@ -85,10 +87,10 @@ class CardForm extends Component {
     // The stripe prop is available inside the component due to the use of injectStripe
 
     if (this.props.stripe) {
-        console.log("we're in business"); // this runs
+        console.log("we're in business");
 
-        // game plan: turn the firebase calls into actions
 
+        var card_id = ''
 
         this.props.stripe
                 .createToken()
@@ -99,19 +101,9 @@ class CardForm extends Component {
                     return payload;
                 }).then((payload) => {
                     console.log('[passed token]', payload);
+                    console.log('card id is...', payload.token.card.id)
+                    this.props.createStripeCharge(this.state.userAuthID, payload.token.card.id)
                 });
-
-        // promise
-
-        // const charge = { amount: 2, source: "M0m3ZlvIxfnchNeg" }; -> this variable doesn't appear to be used anywhere
-
-        //     this.props.firebase.firestore.collection('stripe_customers')
-        //         .doc(this.props.firebase.auth.currentUser.uid)
-        //         .collection('charges')
-        //         .add({ amount: 100, source: "card_1EID7eEAFgdVOsNsb914GrcV" });
-
-        // ^get rid of the hardcoding
-
 
       } else {
           console.log("Stripe.js hasn't loaded yet.");
@@ -172,7 +164,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addStripeToken: (authId, token) => dispatch(addStripeToken(authId, token))
+    addStripeToken: (authId, token) => dispatch(addStripeToken(authId, token)),
+    createStripeCharge: (authId, card) => dispatch(createStripeCharge(authId, card))
   }
 }
 
