@@ -49,19 +49,46 @@ const createOptions = (fontSize, padding) => {
     };
 };
 
+/*
+
+The CardElement includes inputs for all of the major card fields: the card number, the expiration date, and the CVC.
+
+*/
+
 
 
 class CardForm extends Component {
 
   constructor(props) {
+
       super(props);
 
       this.state = {
-
+        complete: false
       }
+
+      this.submit = this.submit.bind(this);
+  }
+
+  // clicking the Save button tokenizes the card information and sends it to your server
+  async submit(ev) {
+    ev.preventDefault();
+    console.log("user click submitted");
+    // The stripe prop is available inside the component due to the use of injectStripe
+    let {token} = await this.props.stripe.createToken({name: "Name"});
+    let response = await fetch("/charge", {
+      method: "POST",
+      headers: {"Content-Type": "text/plain"},
+      body: token.id
+    });
+
+    if (response.ok) this.setState({complete: true});
   }
 
   render() {
+
+    if (this.state.complete) return <h1>Card Information Saved</h1>;
+
     return (
 
       <div>
@@ -87,7 +114,7 @@ class CardForm extends Component {
         <Box>
 
             <Block>
-              <button className="stripeButton"> Save </button>
+              <button className="stripeButton" onClick={this.submit}> Save </button>
             </Block>
         </Box>
 

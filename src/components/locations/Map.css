@@ -1,10 +1,20 @@
 
 .setMapPosition {
   position:absolute;
-  top:50%;
+  top:42%;
   left:50%;
   padding:15px;
   -ms-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
+}
+
+
+.centerTitle {
+  padding-left: 20px;
+}
+
+#map-box {
+  background-color: purple;
+  margin-bottom: 50px;
 }

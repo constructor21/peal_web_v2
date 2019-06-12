@@ -40,6 +40,15 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <!--
+
+    This library is responsible for communicating with Stripe and performing tokenization.
+    It must be available in the page in order for react-stripe-elements to work correctly.
+    For PCI compliance purposes, you must load Stripe.js directly from Stripe’s servers at runtime—
+    you can’t install it from npm or bundle it into your application like a conventional dependency.
+
+    -->
+
     <script src="https://js.stripe.com/v3/"></script>
 
   </body>
