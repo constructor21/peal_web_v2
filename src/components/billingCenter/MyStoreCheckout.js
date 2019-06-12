@@ -72,17 +72,16 @@ class CardForm extends Component {
 
   // clicking the Save button tokenizes the card information and sends it to your server
   async submit(ev) {
+
     ev.preventDefault();
     console.log("user click submitted");
     // The stripe prop is available inside the component due to the use of injectStripe
-    let {token} = await this.props.stripe.createToken({name: "Name"});
-    let response = await fetch("/charge", {
-      method: "POST",
-      headers: {"Content-Type": "text/plain"},
-      body: token.id
-    });
 
-    if (response.ok) this.setState({complete: true});
+    if (this.props.stripe) {
+        console.log("we're in business"); // this runs 
+      } else {
+          console.log("Stripe.js hasn't loaded yet.");
+      }
   }
 
   render() {
