@@ -1,0 +1,61 @@
+{
+  "type": "PealDisplayCollection",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "stick-talk" }
+  },
+  "features": [
+    {
+      "type": "Display",
+      "properties": {
+        "DISPLAY_ID": 1,
+        "BUSINESS_NAME": "Baiano Pizzeria",
+        "CITY": "Berkeley",
+        "ADDRESS": "1916 Martin Luther King Jr Way, Berkeley, CA 94704"
+      },
+      "geometry": {
+        "type": "Location",
+        "coordinates": [37.872606, -122.273114]
+      }
+    },
+    {
+      "type": "Display",
+      "properties": {
+        "DISPLAY_ID": 2,
+        "BUSINESS_NAME": "Au Coquelet",
+        "CITY": "Berkeley",
+        "ADDRESS": "2000 University Ave, Berkeley, CA 94704"
+      },
+      "geometry": {
+        "type": "Location",
+        "coordinates": [37.871529, -122.270576]
+      }
+    },
+    {
+      "type": "Display",
+      "properties": {
+        "DISPLAY_ID": 3,
+        "BUSINESS_NAME": "Au Coquelet",
+        "CITY": "Berkeley",
+        "ADDRESS": "2000 University Ave, Berkeley, CA 94704"
+      },
+      "geometry": {
+        "type": "Location",
+        "coordinates": [37.871529, -122.270576]
+      }
+    },
+    {
+      "type": "Display",
+      "properties": {
+        "DISPLAY_ID": 4,
+        "BUSINESS_NAME": "Proper Fashion",
+        "CITY": "Oakland",
+        "ADDRESS": "1200 Clay St, Ste 120, Oakland, CA 94612"
+      },
+      "geometry": {
+        "type": "Location",
+        "coordinates": [37.803961, -122.274331]
+      }
+    }
+  ]
+}
