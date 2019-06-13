@@ -71,7 +71,7 @@ Rules are matches to specific code paths. You can different rules for different 
   What’s a Token? It’s a unique string that Stripe generates to refer to a user’s sensitive credit information.
 
 
-  used env variables to hide secret key >> firebase functions:config:set stripe.token="sk_test_JtOjT7CwPuj7qfI9jPqVV1Lv"
+  used env variables to hide secret key >> firebase functions:config:set stripe.token="sk_live_1uVHS5zVSOSKQ8pdtRm6MO5n"
                                                 ^in the root directory
     recovered via -> firebase.config().stripe.token
 
