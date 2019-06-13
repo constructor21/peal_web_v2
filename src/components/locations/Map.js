@@ -28,25 +28,15 @@ Locations game plan
     *have a marker for every display in their city
 
 
-      pop up click event on google maps marker javascript
-        https://developers.google.com/maps/documentation/javascript/examples/event-simple
-        https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
-      pop up click event on google maps marker react
-        https://stackoverflow.com/questions/51972661/how-to-apply-click-method-on-google-maps-markers-react-google-maps
-      custom google maps markers javascript
-        https://www.webucator.com/how-to/how-add-custom-icon-google-map.cfm
-        https://developers.google.com/maps/documentation/javascript/custom-markers
-        https://developers.google.com/maps/documentation/javascript/examples/marker-symbol-custom
-        https://stackoverflow.com/questions/10376617/how-do-you-create-a-marker-with-a-custom-icon-for-google-maps-api-v3
-      heatmap
-        https://developers.google.com/maps/documentation/javascript/earthquakes
-        https://developers.google.com/maps/documentation/javascript/firebase
+    see if this is useful --> https://developers.google.com/maps/documentation/javascript/firebase
+
+    the plug --> https://github.com/leighhalliday/google-maps-react-demo/blob/master/src/App.js
 
 */
 
 
 
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
@@ -63,18 +53,57 @@ import './Map.css';
 import MetricsPanel from './MetricsPanel';
 
 
+// TODO: loop through an array of locations to place all the markers on the map, a unique key is required
+    // TODO: Create your own JSON file of existing Peal Displays
+    /*
+      For the 'you are here' marker... just place that, don't have it come from an array.
+      Add that field manually for a user in firebase. Use the Peal Logo for that one instead of a standard marker
+    */
 function ReactMap() {
+
+  // this is the state
+  const [selectedDisplay, setSelectedDisplay] = useState(null);
+          // ^value          ^setter                      ^initial value is null
+
   return (
     <GoogleMap
       defaultZoom={10}
       defaultCenter = { { lat: 37.774929, lng: -122.419416 } }
+    >
+
+    <Marker
+      position={{
+        lat: 37.774929,
+        lng: -122.419416
+      }}
+      onClick={() => {
+        console.log("hi from peal!");
+      }}
     />
+
+    {/*conditional rendering logic to only show an info window if you clicked on a display*/}
+    {selectedDisplay && (
+        <InfoWindow
+          onCloseClick={() => {
+            setSelectedDisplay(null);
+          }}
+          position={{
+            lat: 37.774929,
+            lng: -122.419416
+          }}
+        >
+        </InfoWindow>
+      )}
+
+    </GoogleMap>
   );
 
 }
 
 const MapWrapped = withScriptjs(withGoogleMap(ReactMap));
 
+// need a class for Redux to work & hold state... call this function in the class??
+// TODO: make a .env.local file to hold the api key
 export default function Map() {
   return (
    <div style={{ width: "100vw", height: "100vh" }}>
