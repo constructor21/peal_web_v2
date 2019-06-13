@@ -121,8 +121,8 @@ const ContentContainer = () => {
 
   const isFileTooLarge = rejectedFiles.length > 0 && rejectedFiles[0].size > maxSize;
 
-  let isFileIncorrectDimensions = (passedFiles) => {
-    const file = passedFiles[0];
+  let isFileIncorrectDimensions = () => {
+    const file = acceptedFiles[0];
 
     if (file.type.startsWith("image")) {
       console.log("file is an image");
@@ -212,7 +212,7 @@ const ContentContainer = () => {
         {isDragReject && "File type not accepted, sorry!"}
         {isFileTooLarge && (
           <div className="text-danger mt-2">
-            File is too large.
+            File is too large. Max File Size is 5MB.
           </div>
         )}
         {rejectedFiles.length > 0 && !isFileTooLarge && (
@@ -220,8 +220,7 @@ const ContentContainer = () => {
             File type not accepted, sorry!
           </div>
         )}
-        {acceptedFiles.length > 0 &&  (
-          <FileDimensions {...acceptedFiles}>  </FileDimensions>
+        {acceptedFiles.length > 0 && this.isFileIncorrectDimensions() (
           
         )}
 
@@ -255,49 +254,74 @@ class FileDimensions extends Component {
     console.log("measuring file dimensions");
     creative.src = file.preview;
     
-    creative.onload = () => {
-      let reader = new FileReader()
-      reader.readAsDataURL(file)
-      reader.onload = () => {
+    return creative.onload = () => {
+    if (creative.width !== 1080 || creative.height !== 1920) {
+      console.log({
+        correctsize: false,
+        width: creative.width,
+        height: creative.height
+      });
+      //acceptedFiles[0] = null;
+      return false;
+    } else {
+      console.log({
+        correctsize: true,
+        width: creative.width,
+        height: creative.height
+      });
+      return true;
+    }
+  }
 
-        if (creative.width !== 1080 || creative.height !== 1920) {
-          console.log({
-            correctsize: false,
-            width: creative.width,
-            height: creative.height
-          });
+    // return creative.onload = () => {
+    //   let reader = new FileReader()
+    //   reader.readAsDataURL(file)
+    //   return reader.onload = () => {
 
-          return false;
-        } else {
-          console.log({
-            correctsize: true,
-            width: creative.width,
-            height: creative.height
-          });
+    //     if (creative.width !== 1080 || creative.height !== 1920) {
+    //       console.log({
+    //         correctsize: false,
+    //         width: creative.width,
+    //         height: creative.height
+    //       });
 
-          return true;
-        }
-      };
-    };
+    //       return false;
+    //     } else {
+    //       console.log({
+    //         correctsize: true,
+    //         width: creative.width,
+    //         height: creative.height
+    //       });
+
+    //       return true;
+    //     }
+    //   };
+    //};
   };
 
   render() {
     
-    if (this.dim()) {
-      console.log("gddd");
-      return (
-        <div className="text-danger mt-2">
-              File dimensions are correct, woohooo!
-        </div>
-      );
-    } else {
-      console.log("jjhhgg");
-      return (
-        <div className="text-danger mt-2">
-              File dimensions (height and width) issssss incorrect, sorry!
-        </div>
-      );
-     } 
+    // then((result) => {
+    let result = this.dim();
+      if (result) {
+        console.log("gddd", result);
+        return (
+          <div className="text-danger mt-2">
+                File dimensions are correct, woohooo!
+          </div>
+        );
+      } else {
+        console.log("jjhhgg", result);
+        return (
+          <div className="text-danger mt-2">
+                File dimensions (height and width) issssss incorrect, sorry!
+          </div>
+        );
+       } 
+      
+      
+
+    
   };
 }
 
