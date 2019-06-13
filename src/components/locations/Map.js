@@ -50,12 +50,45 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
-import { withGoogleMap, GoogleMap } from 'react-google-maps';
+import {
+  withGoogleMap,
+  withScriptjs,
+  GoogleMap,
+  Marker,
+  InfoWindow
+} from "react-google-maps";
 
 import './Map.css';
 
 import MetricsPanel from './MetricsPanel';
 
+
+function ReactMap() {
+  return (
+    <GoogleMap
+      defaultZoom={10}
+      defaultCenter = { { lat: 37.774929, lng: -122.419416 } }
+    />
+  );
+
+}
+
+const MapWrapped = withScriptjs(withGoogleMap(ReactMap));
+
+export default function Map() {
+  return (
+   <div style={{ width: "100vw", height: "100vh" }}>
+     <MapWrapped
+       googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCBggHcthnSSx33LABZX6DsNb1xrNxXd40&callback=initMap`}
+       loadingElement={ <div style={{ height: `400px`, width: '800px' }} /> }
+       containerElement={ <div style={{ height: `400px`, width: '800px' }} /> }
+       mapElement={<div style={{ height: `100%` }} />}
+     />
+   </div>
+ );
+}
+
+/*
 class Map extends Component {
 
   constructor(props){
@@ -84,20 +117,6 @@ class Map extends Component {
         >
         </GoogleMap>
      ));
-
-     /*
-
-     var myLatLng = {lat: 37.774929, lng: -122.419416};
-
-     var marker = new google.maps.Marker({
-        position: myLatlng,
-        title:"Hello World!"
-      });
-
-      marker.setMap(GoogleMapExample);
-
-      */
-
 
     return (
 
@@ -133,3 +152,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Map);
+*/

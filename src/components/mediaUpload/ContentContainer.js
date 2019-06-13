@@ -18,7 +18,7 @@ const ContentContainer = () => {
   });
 
   const isFileTooLarge = rejectedFiles.length > 0 && rejectedFiles[0].size > maxSize;
-  
+
   return (
     <div className="container text-center mt-5">
       <div {...getRootProps()}>
@@ -221,7 +221,7 @@ const ContentContainer = () => {
           </div>
         )}
         {acceptedFiles.length > 0 && this.isFileIncorrectDimensions() (
-          
+          <FileDimensions {...acceptedFiles}> </FileDimensions>
         )}
 
       </div>
@@ -237,7 +237,7 @@ export default ContentContainer;
 
 class FileDimensions extends Component {
 
-  
+
 
   dim = () => {
     console.log("proppps", this.props[0]);
@@ -253,7 +253,7 @@ class FileDimensions extends Component {
 
     console.log("measuring file dimensions");
     creative.src = file.preview;
-    
+
     return creative.onload = () => {
     if (creative.width !== 1080 || creative.height !== 1920) {
       console.log({
@@ -300,7 +300,7 @@ class FileDimensions extends Component {
   };
 
   render() {
-    
+
     // then((result) => {
     let result = this.dim();
       if (result) {
@@ -317,11 +317,11 @@ class FileDimensions extends Component {
                 File dimensions (height and width) issssss incorrect, sorry!
           </div>
         );
-       } 
-      
-      
+       }
 
-    
+
+
+
   };
 }
 
