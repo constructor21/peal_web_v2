@@ -17,6 +17,35 @@ For the map element, I wanted to fill the container, so I went with 100%.
 */
 
 
+/*
+
+Locations game plan
+
+    *If user hasn't entered billing info then show a message asking them to do so
+    *If they have then pull their company address from the redux store
+    *create a function that turns an address into longitude and latidute so it centers the map on it and place
+      a custom 'you' marker
+    *have a marker for every display in their city
+
+
+      pop up click event on google maps marker javascript
+        https://developers.google.com/maps/documentation/javascript/examples/event-simple
+        https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
+      pop up click event on google maps marker react
+        https://stackoverflow.com/questions/51972661/how-to-apply-click-method-on-google-maps-markers-react-google-maps
+      custom google maps markers javascript
+        https://www.webucator.com/how-to/how-add-custom-icon-google-map.cfm
+        https://developers.google.com/maps/documentation/javascript/custom-markers
+        https://developers.google.com/maps/documentation/javascript/examples/marker-symbol-custom
+        https://stackoverflow.com/questions/10376617/how-do-you-create-a-marker-with-a-custom-icon-for-google-maps-api-v3
+      heatmap
+        https://developers.google.com/maps/documentation/javascript/earthquakes
+        https://developers.google.com/maps/documentation/javascript/firebase
+
+*/
+
+
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -33,44 +62,15 @@ class Map extends Component {
     super(props);
 
     this.state = {
+
+      currentLocation: {
+        lat: 0,
+        lng: 0
+      }
+
     };
 
   }
-
-  /*
-
-  Locations game plan
-
-      *If user hasn't entered billing info then show a message asking them to do so
-      *If they have then pull their company address from the redux store
-      *create a function that turns an address into longitude and latidute so it centers the map on it and place
-        a custom 'you' marker
-      *have a marker for every display in their city
-
-
-      Google search & YouTube search:
-        google maps place marker on address javascript
-          https://developers.google.com/maps/documentation/javascript/examples/marker-simple
-          https://developers.google.com/maps/documentation/javascript/markers
-        react place marker on google map
-          https://stackoverflow.com/questions/41405343/adding-marker-to-google-maps-in-google-map-react
-          https://blog.vanila.io/writing-a-google-maps-react-component-fae411588a91
-        pop up click event on google maps marker javascript
-          https://developers.google.com/maps/documentation/javascript/examples/event-simple
-          https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
-        pop up click event on google maps marker react
-          https://stackoverflow.com/questions/51972661/how-to-apply-click-method-on-google-maps-markers-react-google-maps
-        custom google maps markers javascript
-          https://www.webucator.com/how-to/how-add-custom-icon-google-map.cfm
-          https://developers.google.com/maps/documentation/javascript/custom-markers
-          https://developers.google.com/maps/documentation/javascript/examples/marker-symbol-custom
-          https://stackoverflow.com/questions/10376617/how-do-you-create-a-marker-with-a-custom-icon-for-google-maps-api-v3
-        heatmap
-          https://developers.google.com/maps/documentation/javascript/earthquakes
-          https://developers.google.com/maps/documentation/javascript/firebase
-
-  */
-
 
   render() {
 
@@ -79,11 +79,24 @@ class Map extends Component {
 
     const GoogleMapExample = withGoogleMap(props => (
         <GoogleMap
-          defaultCenter = { { lat: 40.756795, lng: -73.954298 } }
+          defaultCenter = { { lat: 37.774929, lng: -122.419416 } }
           defaultZoom = { 13 }
         >
         </GoogleMap>
      ));
+
+     /*
+
+     var myLatLng = {lat: 37.774929, lng: -122.419416};
+
+     var marker = new google.maps.Marker({
+        position: myLatlng,
+        title:"Hello World!"
+      });
+
+      marker.setMap(GoogleMapExample);
+
+      */
 
 
     return (

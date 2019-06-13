@@ -50,7 +50,7 @@ export const addPaymentSource = functions.firestore.document('/stripe_customers/
     return admin.firestore().collection('stripe_customers').doc(context.params.userId).collection("sources").doc(response.fingerprint).set(response, { merge: true });
   } catch (error) {
     console.log(error);
-    await snap.ref.set({ 'error': userFacingMessage(error) }, { merge: true });
+    await snap.ref.set({ 'error': 'add payment source is messed up' }, { merge: true });
     return reportError(error, { user: context.params.userId });
   }
 });
@@ -89,7 +89,7 @@ export const createStripeCharge = functions.firestore.document('stripe_customers
       // We want to capture errors and render them in a user-friendly way, while
       // still logging an exception with StackDriver
       console.log(error);
-      await snap.ref.set({ error: userFacingMessage(error) }, { merge: true });
+      await snap.ref.set({ error: 'create charge is messed up' }, { merge: true });
       return reportError(error, { user: context.params.userId });
     }
 
@@ -139,6 +139,9 @@ function reportError(err, context = {}) {
   // [END reporterror]
 
   // Sanitize the error message for the user
+  
+  /*
   function userFacingMessage(error) {
     return error.type ? error.message : 'An error occurred, developers have been alerted';
   }
+  */

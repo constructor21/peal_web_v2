@@ -102,7 +102,8 @@ class CardForm extends Component {
                 }).then((payload) => {
                     console.log('[passed token]', payload);
                     console.log('card id is...', payload.token.card.id)
-                    this.props.createStripeCharge(this.state.userAuthID, payload.token.card.id)
+                    console.log('last 4 digits are...', payload.token.card.last4)
+                    // this.props.createStripeCharge(this.state.userAuthID, payload.token.card.id)
                 });
 
       } else {
