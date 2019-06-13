@@ -16,10 +16,11 @@ For the map element, I wanted to fill the container, so I went with 100%.
 
 */
 
-// TODO: add a route guard
-
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+
 import { withGoogleMap, GoogleMap } from 'react-google-maps';
 
 import './Map.css';
@@ -39,11 +40,6 @@ class Map extends Component {
   /*
 
   Locations game plan
-
-      (install the package [after doing the research to see if that's the best one to go with])
-      (add the locations tab to the dashboard)
-
-
 
       *If user hasn't entered billing info then show a message asking them to do so
       *If they have then pull their company address from the redux store
@@ -77,6 +73,9 @@ class Map extends Component {
 
 
   render() {
+
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to='/' />
 
     const GoogleMapExample = withGoogleMap(props => (
         <GoogleMap
@@ -113,4 +112,11 @@ class Map extends Component {
 
 }
 
-export default Map;
+
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(Map);

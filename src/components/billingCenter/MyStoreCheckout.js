@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+
+import { addStripeToken } from '../../store/actions/stripeActions'
+import { createStripeCharge } from '../../store/actions/stripeActions'
+
 import { CardElement, injectStripe, ReactStripeElements } from 'react-stripe-elements';
 
 import './MyStripeBilling.css'
@@ -64,7 +70,10 @@ class CardForm extends Component {
       super(props);
 
       this.state = {
-        complete: false
+        complete: false,
+        userAuthID: this.props.auth.uid
+        // TypeError: Cannot read property 'uid' of undefined -> when have in 'currentUser'
+        // TypeError: this.props.auth is not a function -> when try firebase.auth().currentUser.uid
       }
 
       this.submit = this.submit.bind(this);
@@ -72,20 +81,38 @@ class CardForm extends Component {
 
   // clicking the Save button tokenizes the card information and sends it to your server
   async submit(ev) {
+
     ev.preventDefault();
     console.log("user click submitted");
     // The stripe prop is available inside the component due to the use of injectStripe
-    let {token} = await this.props.stripe.createToken({name: "Name"});
-    let response = await fetch("/charge", {
-      method: "POST",
-      headers: {"Content-Type": "text/plain"},
-      body: token.id
-    });
 
-    if (response.ok) this.setState({complete: true});
+    if (this.props.stripe) {
+        console.log("we're in business");
+
+
+        var card_id = ''
+
+        this.props.stripe
+                .createToken()
+                .then((payload) => {
+                    console.log('[token]', payload);
+                    // this.props.firebase.firestore.collection('stripe_customers').doc(this.props.firebase.auth.currentUser.uid).collection('tokens').add({ token: payload.token.id });
+                    this.props.addStripeToken(this.state.userAuthID, payload.token.id);
+                    return payload;
+                }).then((payload) => {
+                    console.log('[passed token]', payload);
+                    console.log('card id is...', payload.token.card.id)
+                    this.props.createStripeCharge(this.state.userAuthID, payload.token.card.id)
+                });
+
+      } else {
+          console.log("Stripe.js hasn't loaded yet.");
+      }
   }
 
   render() {
+
+    const { auth } = this.props;
 
     if (this.state.complete) return <h1>Card Information Saved</h1>;
 
@@ -127,4 +154,32 @@ class CardForm extends Component {
 
 }
 
-export default injectStripe(CardForm);
+const mapStateToProps = (state) => {
+
+  return {
+    auth: state.firebase.auth,
+  }
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addStripeToken: (authId, token) => dispatch(addStripeToken(authId, token)),
+    createStripeCharge: (authId, card) => dispatch(createStripeCharge(authId, card))
+  }
+}
+
+
+/*
+both the Redux HOC and the Stripe HOC want to configure things in the React context for the component,
+however, whichever component is the outermost "wins".
+Choice:
+  injectStripe(connect()(YourComponent))
+  or
+  connect()(injectStripe(YourComponent))
+If Redux's context is the "outer" HOC, then the Stripe-created HOC
+will lose track of the <Elements> components registered with it.
+*/
+
+
+export default injectStripe(connect(mapStateToProps, mapDispatchToProps)(CardForm));

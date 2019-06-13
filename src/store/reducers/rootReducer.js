@@ -4,6 +4,7 @@ import dayPickerReducer from './dayPickerReducer'
 import mediaReducer from './mediaReducer'
 import billingReducer from './billingReducer'
 import mediaFileReducer from './mediaFileReducer'
+import stripeReducer from './stripeReducer'
 import { combineReducers } from 'redux'                 // combines all the reducers into one
 import { firestoreReducer } from 'redux-firestore'      // premade reducer for syncing firestore with store state
 import { firebaseReducer } from 'react-redux-firebase'  // premade reducer that will sync firebase auth status with store state
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   day: dayPickerReducer,
   creativeName: mediaReducer,
   mediaFile: mediaFileReducer,
-  billing: billingReducer
+  billing: billingReducer,
+  stripePlug: stripeReducer
 });
 
 export default rootReducer
