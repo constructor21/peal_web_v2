@@ -97,7 +97,7 @@ firebase deploy --only functions
 
 
 
-https://www.gps-coordinates.net/   for address to location converter 
+https://www.gps-coordinates.net/   for address to location converter
 
 
 
@@ -123,12 +123,6 @@ Change delete method to match the creation logic
 
 
 Fix post-launch + all the TODOs
-
-Show markers for all displays in the city
-Locations tab --> google maps ... metrics dashboard that populates different info based on display marker clicked
-    - guard the route
-
-Explore further data architecture [from the original picture on the small whiteboard]
 
 Add a cancel subscription button in the billing center --> if they want to cancel have a pop up that says don't cancel, 50% off for the next two months ... button options [save money] [confirm cancelation]
 

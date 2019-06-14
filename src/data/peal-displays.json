@@ -4,12 +4,13 @@
     "type": "name",
     "properties": { "name": "stick-talk" }
   },
-  "features": [
+  "displayInfo": [
     {
       "type": "Display",
       "properties": {
         "DISPLAY_ID": 1,
         "BUSINESS_NAME": "Baiano Pizzeria",
+        "DESCRIPTION": "Pizza Shop",
         "CITY": "Berkeley",
         "ADDRESS": "1916 Martin Luther King Jr Way, Berkeley, CA 94704"
       },
@@ -23,6 +24,7 @@
       "properties": {
         "DISPLAY_ID": 2,
         "BUSINESS_NAME": "Au Coquelet",
+        "DESCRIPTION": "Cafe",
         "CITY": "Berkeley",
         "ADDRESS": "2000 University Ave, Berkeley, CA 94704"
       },
@@ -36,6 +38,7 @@
       "properties": {
         "DISPLAY_ID": 3,
         "BUSINESS_NAME": "Au Coquelet",
+        "DESCRIPTION": "Cafe",
         "CITY": "Berkeley",
         "ADDRESS": "2000 University Ave, Berkeley, CA 94704"
       },
@@ -49,6 +52,7 @@
       "properties": {
         "DISPLAY_ID": 4,
         "BUSINESS_NAME": "Proper Fashion",
+        "DESCRIPTION": "Clothing Store",
         "CITY": "Oakland",
         "ADDRESS": "1200 Clay St, Ste 120, Oakland, CA 94612"
       },
