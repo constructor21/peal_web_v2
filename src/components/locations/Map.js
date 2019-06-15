@@ -76,6 +76,8 @@ const MapWrapped = withScriptjs(withGoogleMap(ReactMap));
 
 // TODO: make a .env.local file to hold the api key
 
+// TODO: need an image of the display on the side of the map when you click on it 
+
 export default function Map() {
   return (
 

@@ -105,6 +105,18 @@ https://www.gps-coordinates.net/   for address to location converter
 
 
 
+Stripe links
+https://stripe.com/docs/recipes/elements-react
+https://stripe.com/docs/testing
+https://angularfirebase.com/lessons/stripe-recurring-subscription-payments-with-angular-and-firebase-cloud-functions/
+https://www.youtube.com/watch?v=_lZc2O2oUJk
+https://www.youtube.com/watch?v=NsPGRIVOg0U
+https://angularfirebase.com/lessons/angular-stripe-payments-part-2-firebase-cloud-functions-backend/#Configuring-Stripe-with-Environment-Variables
+https://alligator.io/react/payments-stripe-checkout-react/
+https://www.robinwieruch.de/react-express-stripe-payment/
+https://github.com/krohling/crash-course-react-redux-stripe
+
+
 
 
 
