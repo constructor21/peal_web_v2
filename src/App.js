@@ -12,11 +12,6 @@ import CreateCampaign from './components/campaigns/CreateCampaign';
 import BillingCenter from './components/billingCenter/BillingCenter';
 import Map from './components/locations/Map';
 
-/*
-  testing purposes only
-*/
-import ContentContainerTwo from './components/mediaUpload/ContentContainerTwo';
-
 class App extends Component {
 
   constructor(props){
@@ -65,7 +60,6 @@ class App extends Component {
               <Route path='/create' component={CreateCampaign} />
               <Route path='/billing' component={BillingCenter} />
               <Route path='/locations' component={Map} />
-              <Route path='/testing' component={ContentContainerTwo} />
             </Switch>
           </div>
 

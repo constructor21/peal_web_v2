@@ -151,7 +151,7 @@ class CreateCampaign extends Component {
         <div className="container">
 
           <form className="white bottom-padding-override">
-            <h6 className="grey-text text-darken-3">Step 1: Upload Content </h6>
+            <h6 className="grey-text text-darken-3">Step 1: Upload Content (1080 x 1920 for best results) </h6>
             <span> _____ </span>
             <ContentContainer />
           </form>
