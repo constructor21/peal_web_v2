@@ -1,5 +1,9 @@
+
 import React, {Component, useMemo, useEffect, useState} from 'react';
 import Dropzone, {useDropzone} from 'react-dropzone';
+
+import { connect } from 'react-redux'
+import {storage} from '../../config/fbConfig';
 
 const thumbsContainer = {
   display: 'flex',
@@ -92,7 +96,7 @@ function Previews(props) {
   const [files, setFiles] = useState([]);
     //    ^value    ^setter
   const { isDragActive, getRootProps, getInputProps, isDragReject, isDragAccept, rejectedFiles, acceptedFiles } = useDropzone({
-    accept: 'image/png, image/jpg, image/jpeg, video/mov, video/mpeg', // what is mpeg and what about mp4
+    accept: 'image/png, image/jpg, image/jpeg, video/mov, video/.mp4',
     onDrop: acceptedFiles => {
       if(mediaValidation()) {
         setFiles(acceptedFiles.map(file => Object.assign(file, {
@@ -100,6 +104,8 @@ function Previews(props) {
         })));
       }
       console.log(acceptedFiles[0]) // this is what needs to be passed from child to parent and then into storage
+      // attempt to upload to firestore
+      props.uploadMedia(acceptedFiles);
     }
   });
 
@@ -158,24 +164,108 @@ class ContentContainer extends Component {
 
     }
 
+    formValidation = (mediaName) => {
+
+      console.log("in the form validation method"); // this runs
+
+      const validFileExtensions = ['.mp4', '.mov', '.png', '.jpg', '.jpeg'];
+      console.log("---");
+      console.log(mediaName.toLowerCase());
+      console.log("---");
+      for (var i = 0; i != validFileExtensions.length; i++) {
+        if(mediaName.toLowerCase().includes(validFileExtensions[i])) {
+          this.props.addMediaName(mediaName.toLowerCase());
+          return true;
+        }
+      }
+      return false;
+
+    }
+
+    handleUpload = () => {
+
+
+      console.log("in the handle Upload function"); // this runs
+
+      this.formValidation("test data");
+
+      const {media} = this.state;
+
+      console.log("this is 'media' ")
+      console.log(media);
+      console.log("this is 'media.media' ")
+      console.log(media.media);
+
+      if(!this.formValidation(media.media.name)) {
+        return;
+      }
+
+      // console.log("getting here");
+      this.props.addMediaFile(media); // could try {media} or media.media
+
+
+    }
+
+    handleDrop = (files, event) => {
+
+      console.log("in the handleDrop function"); // this runs
+
+        const media = files[0];
+        console.log("before set state");
+        console.log(media);
+        this.setState(
+          {
+            media: {media}
+          },
+          function() {
+              console.log("setState completed", this.state)
+          }
+
+        );
+
+        setTimeout(() => {
+          console.log("in timeout");
+          this.handleUpload();
+        },200)
+
+    }
+
   render() {
     return (
       <div>
-        <Previews />
+        <Previews
+          uploadMedia={this.handleDrop.bind(this)}
+        />
       </div>
     )
   }
 }
 
-export default ContentContainer
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+    creativeName: state.creativeName
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+    addMediaName: (value) => {
+      dispatch({ type: 'ADD_MEDIA_NAME', payload: value })
+    },
+    addMediaFile: (value) => {
+      dispatch({ type: 'SAVE_MEDIA_FILE', payload: value })
+    }
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContentContainer);
 
 
 
 /* *************** V1 ********************
-
-
-
-
 
 import React, { Component } from 'react';
 import FileDrop from 'react-file-drop';

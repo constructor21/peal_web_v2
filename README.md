@@ -101,6 +101,9 @@ https://www.gps-coordinates.net/   for address to location converter
 
 
 
+Updating parent state from the child
+  https://www.youtube.com/watch?v=AnRDdEz1FJc&t=2s
+  https://medium.com/@kyledavelaar/updating-parent-component-state-from-children-components-in-react-2ead9b9cec9f
 
 
 
