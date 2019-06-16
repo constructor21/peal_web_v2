@@ -60,9 +60,8 @@ const rejectStyle = {
   borderColor: '#ff1744'
 };
 
-function testing(media){
 
-  const file = media[0];
+function mediaValidation() {
 
   /*
 
@@ -85,9 +84,6 @@ function testing(media){
 
   */
 
-}
-
-function mediaValidation() {
   console.log("testing")
   return true
 }
@@ -134,11 +130,12 @@ function Previews(props) {
       isDragReject
     ]);
 
-  // add the object brackets for to render an error message to the user if image is not the correct size
   return (
     <section className="container">
       <div {...getRootProps({className: 'dropzone', style})}>
         <input {...getInputProps()} />
+        {isDragActive && !isDragReject && "Drop it like it's hot!"}
+        {isDragReject && "File type not accepted, sorry!"}
         <p> Drag & drop oe click here to upload media! </p>
       </div>
       <aside style={thumbsContainer}>
