@@ -84,14 +84,16 @@ const MapWrapped = withScriptjs(withGoogleMap(ReactMap));
 
 export default function Map() {
   return (
-
-   <div className="setMapPosition"  id="map-box">
-     <MapWrapped
-       googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCBggHcthnSSx33LABZX6DsNb1xrNxXd40`}
-       loadingElement={ <div style={{ height: `400px`, width: '800px' }} /> }
-       containerElement={ <div style={{ height: `400px`, width: '800px' }} /> }
-       mapElement={<div style={{ height: `100%` }} />}
-     />
+   <div>
+    <MetricsPanel />
+     <div className="setMapPosition"  id="map-box">
+       <MapWrapped
+         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCBggHcthnSSx33LABZX6DsNb1xrNxXd40`}
+         loadingElement={ <div style={{ height: `400px`, width: '800px' }} /> }
+         containerElement={ <div style={{ height: `400px`, width: '800px' }} /> }
+         mapElement={<div style={{ height: `100%` }} />}
+       />
+     </div>
    </div>
 
  );
