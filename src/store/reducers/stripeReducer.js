@@ -1,3 +1,10 @@
+/*
+  Actions initiate actions.
+  Reducers manage state and share it with the rest of the application.
+
+  Action called first, reducer changes state before handing it to the store 
+*/
+
 const initState = {
   tokenCreated: false,
   cardCharged: false,

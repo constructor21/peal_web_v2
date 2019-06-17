@@ -15,7 +15,7 @@ const logging = require('@google-cloud/logging');
 
 const stripe = require('stripe')(functions.config().stripe.token);
 
-const currency = functions.config().stripe.currency || 'USD';
+// const currency = functions.config().stripe.currency || 'USD';
 
 
 export const helloWorld = functions.https.onRequest((request, response) => {
@@ -31,6 +31,7 @@ export const createStripeCustomer = functions.auth.user().onCreate(async (user) 
   const customer = await stripe.customers.create({ email: user.email });
   return admin.firestore().collection('stripe_customers').doc(user.uid).set({ customer_id: customer.id });
 });
+
 
 
 // Add a payment source (card) for a user by writing a stripe payment source token to Realtime database
@@ -50,51 +51,19 @@ export const addPaymentSource = functions.firestore.document('/stripe_customers/
     return admin.firestore().collection('stripe_customers').doc(context.params.userId).collection("sources").doc(response.fingerprint).set(response, { merge: true });
   } catch (error) {
     console.log(error);
-    await snap.ref.set({ 'error': 'add payment source is messed up' }, { merge: true });
+    await snap.ref.set({ 'error': error }, { merge: true });
     return reportError(error, { user: context.params.userId });
   }
 });
 
-// charge the user
+
 
 /*
 TypeScript “error TS2533: Object is possibly 'null' or 'undefined'” occurs ...
 used if (val != undefined) { } but that leads to a different error of "error TS7030: Not all code paths return a value"
 went to tsconfig.json and added "strictNullChecks":false to supress the warnging
 */
-export const createStripeCharge = functions.firestore.document('stripe_customers/{userId}/charges/{id}').onCreate(async (snap, context) => {
 
-    const val = snap.data();
-
-    try {
-
-      // Look up the Stripe customer id written in createStripeCustomer
-      const snapshot = await admin.firestore().collection(`stripe_customers`).doc(context.params.userId).get();
-      const snapval = snapshot.data();
-      const customer = snapval.customer_id;
-      // Create a charge using the pushId as the idempotency key
-      // protecting against double charges
-      const amount = val.amount;
-      const idempotencyKey = context.params.id;
-      const source = 1;
-      const charge = { amount, currency, customer, source };
-      if (val.source !== null) {
-        charge.source = val.source;
-      }
-      const response = await stripe.charges.create(charge, { idempotency_key: idempotencyKey });
-      // If the result is successful, write it back to the database
-      return snap.ref.set(response, { merge: true });
-
-    } catch (error) {
-      // We want to capture errors and render them in a user-friendly way, while
-      // still logging an exception with StackDriver
-      console.log(error);
-      await snap.ref.set({ error: 'create charge is messed up' }, { merge: true });
-      return reportError(error, { user: context.params.userId });
-    }
-
-
-});
 
 
 // To keep on top of errors, we should raise a verbose error report with Stackdriver rather
@@ -136,12 +105,3 @@ function reportError(err, context = {}) {
       });
     });
   }
-  // [END reporterror]
-
-  // Sanitize the error message for the user
-
-  /*
-  function userFacingMessage(error) {
-    return error.type ? error.message : 'An error occurred, developers have been alerted';
-  }
-  */
