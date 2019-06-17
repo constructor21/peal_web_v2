@@ -139,7 +139,7 @@ function reportError(err, context = {}) {
   // [END reporterror]
 
   // Sanitize the error message for the user
-  
+
   /*
   function userFacingMessage(error) {
     return error.type ? error.message : 'An error occurred, developers have been alerted';

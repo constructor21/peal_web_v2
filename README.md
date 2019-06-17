@@ -71,7 +71,7 @@ Rules are matches to specific code paths. You can different rules for different 
   What’s a Token? It’s a unique string that Stripe generates to refer to a user’s sensitive credit information.
 
 
-  used env variables to hide secret key >> firebase functions:config:set stripe.token="sk_live_1uVHS5zVSOSKQ8pdtRm6MO5n"
+  used env variables to hide secret key >> firebase functions:config:set stripe.token="sk_test_JtOjT7CwPuj7qfI9jPqVV1Lv"
                                                 ^in the root directory
     recovered via -> firebase.config().stripe.token
 
@@ -105,20 +105,35 @@ Updating parent state from the child
   https://www.youtube.com/watch?v=AnRDdEz1FJc&t=2s
   https://medium.com/@kyledavelaar/updating-parent-component-state-from-children-components-in-react-2ead9b9cec9f
 
+React DropZone
+  https://react-dropzone.netlify.com/
+  https://react-dropzone-uploader.js.org/
+  https://medium.com/technoetics/handling-file-upload-in-reactjs-b9b95068f6b
+  https://react-dropzone.js.org/#!/Accepting%20specific%20file%20types
+  https://github.com/codingforentrepreneurs/Try-Reactjs/blob/master/src/learn/ImgDropAndCrop.js
+  https://www.youtube.com/watch?v=aK3aUW08YGw&list=PLEsfXFp6DpzQbwYDx1zgcKJ4tzyWFaESK&index=25
+  https://upmostly.com/tutorials/react-dropzone-file-uploads-react/
+  https://malcoded.com/posts/react-dropzone/
+
+
+
+Using TypeScript with React
+  https://blog.bitsrc.io/why-and-how-use-typescript-in-your-react-app-60e8987be8de
+  https://blog.logrocket.com/how-why-a-guide-to-using-typescript-with-react-fffb76c61614/
+  https://alligator.io/react/typescript-with-react/
+
+GraphQL with Firesbase
+
+GraphQL vs. REST API
 
 
 
 Stripe links
-https://stripe.com/docs/recipes/elements-react
-https://stripe.com/docs/testing
-https://angularfirebase.com/lessons/stripe-recurring-subscription-payments-with-angular-and-firebase-cloud-functions/
-https://www.youtube.com/watch?v=_lZc2O2oUJk
-https://www.youtube.com/watch?v=NsPGRIVOg0U
-https://angularfirebase.com/lessons/angular-stripe-payments-part-2-firebase-cloud-functions-backend/#Configuring-Stripe-with-Environment-Variables
-https://alligator.io/react/payments-stripe-checkout-react/
-https://www.robinwieruch.de/react-express-stripe-payment/
-https://github.com/krohling/crash-course-react-redux-stripe
-
+https://stripe.com/docs/billing/quickstart
+https://stripe.com/docs/api/plans/create
+https://stripe.com/docs/api/subscriptions/object
+https://stripe.com/docs/api/service_products
+https://stripe.com/docs/api/payment_methods/create
 
 
 
@@ -140,5 +155,3 @@ Change delete method to match the creation logic
 Fix post-launch + all the TODOs
 
 Add a cancel subscription button in the billing center --> if they want to cancel have a pop up that says don't cancel, 50% off for the next two months ... button options [save money] [confirm cancelation]
-
-Preview image or video [react drop zone &/or gestalt video uploader]

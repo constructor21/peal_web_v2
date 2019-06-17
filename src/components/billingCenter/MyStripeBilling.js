@@ -13,7 +13,7 @@ class MyStripeBilling extends Component {
     // this is the public key. The secret one is saved in an env variable
     render() {
       return (
-        <StripeProvider apiKey="pk_live_gFrLSXXasviFmiRkfRybWXAL">
+        <StripeProvider apiKey="pk_test_yrK3Fgp6ueQ2Ah739L7tW3kn">
           <Elements>
             <CardForm fontSize='14px' />
           </Elements>

@@ -1,3 +1,135 @@
+// https://stripe.com/docs/api/payment_methods/create
+
+import React from 'react';
+import {injectStripe} from 'react-stripe-elements';
+
+import CardSection from './CardSection';
+
+class CardForm extends React.Component {
+
+  handleSubmit = (ev) => {
+    // We don't want to let default form submission happen here, which would refresh the page.
+    ev.preventDefault();
+
+
+    this.props.stripe.products.create({
+      name: 'Advertising Fee',
+      type: 'service1',
+    });
+
+    this.props.stripe.products.create({
+      name: 'Installation Fee',
+      type: 'service2',
+    });
+
+    this.props.stripe.products.create({
+      name: 'Closed Network Fee',
+      type: 'service3',
+    });
+
+    // $45
+    this.props.stripe.plans.create({
+      product: 'prod_CbvTFuXWh7BPJH',
+      nickname: 'Bronze',
+      currency: 'usd',
+      interval: 'month',
+      amount: 10000,
+    });
+
+    // $98
+    this.props.stripe.plans.create({
+      product: 'prod_CbvTFuXWh7BPJH',
+      nickname: 'SaaS Platform USD',
+      currency: 'usd',
+      interval: 'month',
+      amount: 10000,
+    });
+
+    // $200
+    this.props.stripe.plans.create({
+      product: 'prod_CbvTFuXWh7BPJH',
+      nickname: 'SaaS Platform USD',
+      currency: 'usd',
+      interval: 'month',
+      amount: 10000,
+    });
+
+
+    // You can also use createToken to create tokens.
+    // See our tokens documentation for more:
+    // https://stripe.com/docs/stripe-js/reference#stripe-create-token
+    this.props.stripe.createToken({type: 'card'}).then(({token}) => {
+      console.log("token accepted")
+      console.log(token);
+    });
+
+
+
+    // Within the context of `Elements`, this call to createPaymentMethod knows from which Element to
+    // create the PaymentMethod, since there's only one in this group.
+    // See our createPaymentMethod documentation for more:
+    // https://stripe.com/docs/stripe-js/reference#stripe-create-payment-method
+    /*
+    this.props.stripe
+      .createPaymentMethod('card', {billing_details: {name: 'Jenny Rosen'}})
+      .then(({paymentMethod}) => {
+        console.log('Received Stripe PaymentMethod:', paymentMethod);
+      });
+    */
+
+
+
+
+    // You can also use handleCardPayment with the Payment Intents API automatic confirmation flow.
+    // See our handleCardPayment documentation for more:
+    // https://stripe.com/docs/stripe-js/reference#stripe-handle-card-payment
+
+    // this.props.stripe.handleCardPayment('{PAYMENT_INTENT_CLIENT_SECRET}', data);
+        // data was providing an undefined error
+
+
+
+
+
+
+
+
+
+    /*
+
+    // You can also use createSource to create Sources.
+    // See our Sources documentation for more:
+    // https://stripe.com/docs/stripe-js/reference#stripe-create-source
+    this.props.stripe.createSource({
+      type: 'card',
+      owner: {
+        name: 'Jenny Rosen',
+      },
+    });
+
+    */
+
+
+  };
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <CardSection />
+        <button>Confirm Peal Subscription</button>
+      </form>
+    );
+  }
+}
+
+export default injectStripe(CardForm);
+
+
+
+
+
+/*
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -55,11 +187,9 @@ const createOptions = (fontSize, padding) => {
     };
 };
 
-/*
 
-The CardElement includes inputs for all of the major card fields: the card number, the expiration date, and the CVC.
+// The CardElement includes inputs for all of the major card fields: the card number, the expiration date, and the CVC.
 
-*/
 
 
 
@@ -96,7 +226,6 @@ class CardForm extends Component {
                 .createToken()
                 .then((payload) => {
                     console.log('[token]', payload);
-                    // this.props.firebase.firestore.collection('stripe_customers').doc(this.props.firebase.auth.currentUser.uid).collection('tokens').add({ token: payload.token.id });
                     this.props.addStripeToken(this.state.userAuthID, payload.token.id);
                     return payload;
                 }).then((payload) => {
@@ -171,16 +300,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-/*
-both the Redux HOC and the Stripe HOC want to configure things in the React context for the component,
-however, whichever component is the outermost "wins".
-Choice:
-  injectStripe(connect()(YourComponent))
-  or
-  connect()(injectStripe(YourComponent))
-If Redux's context is the "outer" HOC, then the Stripe-created HOC
-will lose track of the <Elements> components registered with it.
-*/
-
-
 export default injectStripe(connect(mapStateToProps, mapDispatchToProps)(CardForm));
+
+*/

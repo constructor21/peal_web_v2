@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-// TODO: Save to redux store so you can still have the confirmation page 
+// TODO: Save to redux store so you can still have the confirmation page
 
 export class BusinessDetails extends Component {
 
@@ -104,8 +104,8 @@ export class BusinessDetails extends Component {
               <FormHelperText id="component-error-text">{this.state.addressError}</FormHelperText>
 
               {/* Literally just using this to create space because you can't override materialize css spacing */}
-              <div class="row">
-              <div class="input-field col s12">
+              <div className="row">
+              <div className="input-field col s12">
                 <label></label>
               </div>
               </div>
@@ -119,8 +119,8 @@ export class BusinessDetails extends Component {
               <FormHelperText id="component-error-text" className="errorText">{this.state.cityError}</FormHelperText>
 
               {/* Literally just using this to create space because you can't override materialize css spacing */}
-              <div class="row">
-              <div class="input-field col s12">
+              <div className="row">
+              <div className="input-field col s12">
                 <label></label>
               </div>
               </div>
