@@ -88,8 +88,6 @@ class CardForm extends Component {
         console.log("we're in business");
 
 
-        var card_id = ''
-
         this.props.stripe
                 .createToken()
                 .then((payload) => {
@@ -101,6 +99,8 @@ class CardForm extends Component {
                     console.log('card id is...', payload.token.card.id)
                     console.log('last 4 digits are...', payload.token.card.last4)
                 });
+
+
 
 
 

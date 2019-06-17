@@ -43,6 +43,10 @@ function ReactMap() {
           console.log("hi from peal!");
           setSelectedDisplay(display);
         }}
+        icon={{
+          url: `/peal_logo_maps.png`,
+          scaledSize: new window.google.maps.Size(25, 25)
+        }}
       />
 
     ))}
@@ -59,7 +63,7 @@ function ReactMap() {
         >
 
           <div>
-            <p>{selectedDisplay.properties.DESCRIPTION}</p>
+            <p> {selectedDisplay.properties.DESCRIPTION} : {selectedDisplay.properties.BUSINESS_NAME} </p>
           </div>
         </InfoWindow>
       )}
@@ -76,7 +80,7 @@ const MapWrapped = withScriptjs(withGoogleMap(ReactMap));
 
 // TODO: make a .env.local file to hold the api key
 
-// TODO: need an image of the display on the side of the map when you click on it 
+// TODO: need an image of the display on the side of the map when you click on it
 
 export default function Map() {
   return (

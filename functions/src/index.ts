@@ -1,38 +1,38 @@
 import * as functions from 'firebase-functions';
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
-
 const admin = require('firebase-admin');
 
 admin.initializeApp();
 
 const logging = require('@google-cloud/logging');
 
-const stripe = require('stripe')(functions.config().stripe.token);
+// const stripe = require('stripe')(functions.config().stripe.token);
+
+const stripe = require('stripe')('sk_test_JtOjT7CwPuj7qfI9jPqVV1Lv');
 
 // const currency = functions.config().stripe.currency || 'USD';
-
 
 export const helloWorld = functions.https.onRequest((request, response) => {
   response.send("Testing function from Peal!");
 });
 
 
-// -- When a user is created, register them with Stripe --
-// Before we can create a subscription in Stripe, we need to have a customer.
-// The most convenient way to handle this is to create the customer when the user signs up.
-// In this function, we use an auth trigger to create the customer on stripe
+
+// You need to try things off of this customer id ... don't create when the user is created..
+// .... trigger it when the firestore action edits the document ...  conosle stuff to make sure its working
+
 export const createStripeCustomer = functions.auth.user().onCreate(async (user) => {
   const customer = await stripe.customers.create({ email: user.email });
   return admin.firestore().collection('stripe_customers').doc(user.uid).set({ customer_id: customer.id });
 });
 
 
+/*
+export const createCustomer = functions.firestore.document('stripe_customers').onCreate(async (snap, context) => {
+  const customer = await stripe.customers.create({ email: user.email });
+  return admin.firestore().collection('stripe_customers').doc(user.uid).set({ customer_id: customer.id });
+})
+*/
 
 // Add a payment source (card) for a user by writing a stripe payment source token to Realtime database
 export const addPaymentSource = functions.firestore.document('/stripe_customers/{userId}/tokens/{pushId}').onCreate(async (snap, context) => {

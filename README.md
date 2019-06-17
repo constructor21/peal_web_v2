@@ -138,6 +138,11 @@ https://stripe.com/docs/api/payment_methods/create
 
 
 
+Save last four digits
+Delete button + popup message
+Pears instead of markers
+Images of the location --> get image url and render it in a box to the left 
+
 
 
 
