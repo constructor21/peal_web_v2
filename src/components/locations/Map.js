@@ -27,8 +27,8 @@ function ReactMap() {
   return (
 
     <GoogleMap
-      defaultZoom={10}
-      defaultCenter = { { lat: 37.774929, lng: -122.419416 } }
+      defaultZoom={11}
+      defaultCenter = { { lat: 37.8044, lng: -122.2711 } }
     >
 
     {displayData.displayInfo.map(display => (
@@ -44,7 +44,7 @@ function ReactMap() {
           setSelectedDisplay(display);
         }}
         icon={{
-          url: `/peal_logo_maps.png`,
+          url: `/Peal_Logo.png`,
           scaledSize: new window.google.maps.Size(25, 25)
         }}
       />
@@ -79,8 +79,6 @@ function ReactMap() {
 const MapWrapped = withScriptjs(withGoogleMap(ReactMap));
 
 // TODO: make a .env.local file to hold the api key
-
-// TODO: need an image of the display on the side of the map when you click on it
 
 export default function Map() {
   return (

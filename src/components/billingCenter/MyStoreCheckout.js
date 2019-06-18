@@ -98,11 +98,9 @@ class CardForm extends Component {
                     console.log('[passed token]', payload);
                     console.log('card id is...', payload.token.card.id)
                     console.log('last 4 digits are...', payload.token.card.last4)
+                    console.log("save to redux store");
+                    this.props.saveCard(payload.token.card.last4)
                 });
-
-
-
-
 
       } else {
           console.log("Stripe.js hasn't loaded yet.");
@@ -154,7 +152,9 @@ class CardForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-
+  console.log("stripe value...")
+  console.log(state.stripePlug)
+  console.log("....")
   return {
     auth: state.firebase.auth,
   }
@@ -163,7 +163,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addStripeToken: (authId, token) => dispatch(addStripeToken(authId, token))
+
+    addStripeToken: (authId, token) => dispatch(addStripeToken(authId, token)),
+
+    saveCard: (value) => {
+      dispatch({ type: 'CREATE_TOKEN', payload: value })
+    }
+
+
   }
 }
 

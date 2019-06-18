@@ -6,7 +6,7 @@ import { StripeProvider, Elements } from 'react-stripe-elements';
 import CardForm from './MyStoreCheckout'
 
 
-// TODO: Find a way to give customers an option to delete a payment method
+// TODO: shrink the space between the two forms 
 
 class Success extends Component {
 
@@ -56,12 +56,21 @@ class Success extends Component {
            </div>
            </div>
 
-           <h6> Add a new payment method: </h6>
-           <StripeProvider apiKey="pk_test_yrK3Fgp6ueQ2Ah739L7tW3kn">
-             <Elements>
-               <CardForm fontSize='14px' />
-             </Elements>
-           </StripeProvider>
+           <h6> Your Business Location:  </h6>
+
+          </form>
+
+
+        <form action="#" className="white">
+
+          <h6> Edit Business Address:  </h6>
+
+          <h6> Add a new payment method: </h6>
+          <StripeProvider apiKey="pk_test_yrK3Fgp6ueQ2Ah739L7tW3kn">
+            <Elements>
+              <CardForm fontSize='14px' />
+            </Elements>
+          </StripeProvider>
 
         </form>
 

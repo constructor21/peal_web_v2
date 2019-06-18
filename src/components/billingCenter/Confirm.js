@@ -7,7 +7,11 @@ import { saveLocationInfo } from '../../store/actions/billingActions'
 class Confirm extends Component {
 
   state = {
-    locationInfo: [this.props.values.address, this.props.values.city, this.props.values.zipCode]
+    locationInfo: [this.props.values.address, this.props.values.city, this.props.values.zipCode],
+    confirmStreet: this.props.confirmStreet,
+    confirmCity: this.props.confirmCity,
+    confirmZipCode: this.props.confirmZipCode,
+    confirmDigits: this.props.confirmDigits
   }
 
   confirm = (e) => {
@@ -29,14 +33,23 @@ class Confirm extends Component {
 
     const { values: { address, city, zipCode } } = this.props;
 
+    const { confirmStreet } = this.props;
+
+    const { confirmCity } = this.props;
+
+    const { confirmZipCode } = this.props;
+
+    const { confirmDigits } = this.props;
+
     return (
 
       <div className="container">
 
         <ul class="collection">
-          <li class="collection-item">{address}</li>
-          <li class="collection-item">{city}</li>
-          <li class="collection-item">{zipCode}</li>
+          <li class="collection-item">{this.state.confirmStreet}</li>
+          <li class="collection-item">{this.state.confirmCity}</li>
+          <li class="collection-item">{this.state.confirmZipCode}</li>
+          <li class="collection-item">{"**** **** ****"}{this.state.confirmDigits}</li>
         </ul>
 
         <form className="white">
@@ -62,11 +75,19 @@ class Confirm extends Component {
 // This may be causing a conflict ... maybe you don't need this since you are setting the state yourself
   // notice the campaign title is not set this way in the createCampaign file!!!!
 const mapStateToProps = (state) => {
-  console.log("---");
+  console.log("*****------");
   console.log(state.billing.locationInfo);
-  console.log("----");
+  console.log(state.stripePlug.street);
+  console.log(state.stripePlug.city);
+  console.log(state.stripePlug.zipCode);
+  console.log(state.stripePlug.last4digits);
+  console.log("*****------");
   return {
     locationInfo: state.billing.locationInfo,
+    confirmStreet: state.stripePlug.street,
+    confirmCity: state.stripePlug.city,
+    confirmZipCode: state.stripePlug.zipCode,
+    confirmDigits: state.stripePlug.last4digits
   }
 }
 

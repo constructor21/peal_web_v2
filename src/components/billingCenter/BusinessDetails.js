@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import { connect } from 'react-redux'
 
-// TODO: Save to redux store so you can still have the confirmation page
 
 export class BusinessDetails extends Component {
 
@@ -20,7 +20,6 @@ export class BusinessDetails extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    console.log(this.state);
   };
 
   validate = () => {
@@ -67,6 +66,17 @@ export class BusinessDetails extends Component {
     // if there are no errors
     if (!err) {
 
+      //save to redux
+
+      console.log("save the billing address info here")
+      // console.log(this.state.address);
+      this.props.saveStreet(this.state.address)
+      // console.log(this.state.city);
+      this.props.saveCity(this.state.city);
+      // console.log(this.state.zipCode);
+      this.props.saveZipCode(this.state.zipCode);
+      console.log("____________")
+
       // clear form
       this.setState({
         address: "",
@@ -95,7 +105,7 @@ export class BusinessDetails extends Component {
 
             <form className="white">
 
-              <h6> Address </h6>
+              <h6> Street </h6>
               <TextField
                 name="address"
                 value={this.state.address}
@@ -151,5 +161,33 @@ export class BusinessDetails extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  console.log("stripe value...")
+  console.log(state.stripePlug)
+  console.log("....")
+  return {
+    auth: state.firebase.auth
+  }
+}
 
-export default BusinessDetails;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+    saveStreet: (value) => {
+      dispatch({ type: 'SAVE_STREET', payload: value })
+    },
+
+    saveCity: (value) => {
+      dispatch({ type: 'SAVE_CITY', payload: value })
+    },
+
+    saveZipCode: (value) => {
+      dispatch({ type: 'SAVE_ZIP_CODE', payload: value })
+    }
+
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BusinessDetails)

@@ -1,4 +1,3 @@
-// UserForm Equivilant
 
 import React, { Component } from 'react';
 import BusinessDetails from './BusinessDetails';

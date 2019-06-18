@@ -6,7 +6,7 @@ const dayPickerReducer = (state=[], action) => {
 
     case 'ADD':
       return [...state, action.payload]
-      console.log(state);
+      // console.log(state);
 
     case 'REMOVE':
       state = [];
