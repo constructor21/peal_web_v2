@@ -4,10 +4,13 @@ import { Redirect, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { saveLocationInfo } from '../../store/actions/billingActions'
 
+import './Confirm.css';
+
 class Confirm extends Component {
 
   state = {
-    locationInfo: [this.props.values.address, this.props.values.city, this.props.values.zipCode],
+    // locationInfo: [this.props.values.address, this.props.values.city, this.props.values.zipCode],
+    locationInfo: [this.props.confirmStreet, this.props.confirmCity, this.props.confirmZipCode],
     confirmStreet: this.props.confirmStreet,
     confirmCity: this.props.confirmCity,
     confirmZipCode: this.props.confirmZipCode,
@@ -19,7 +22,7 @@ class Confirm extends Component {
     console.log("confirm button pressed");
     // PROCESS FORM in firestore right here //
     console.log("saved action to state");
-    this.props.saveLocationInfo(this.state);
+    this.props.saveLocationInfo(this.state.locationInfo);
     console.log("store the location info in firstore");
 
   };
@@ -43,7 +46,7 @@ class Confirm extends Component {
 
     return (
 
-      <div className="container">
+      <div className="container top-padding">
 
         <ul class="collection">
           <li class="collection-item">{this.state.confirmStreet}</li>

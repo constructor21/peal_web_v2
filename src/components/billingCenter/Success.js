@@ -5,8 +5,8 @@ import './Success.css';
 import { StripeProvider, Elements } from 'react-stripe-elements';
 import CardForm from './MyStoreCheckout'
 
-
-// TODO: shrink the space between the two forms 
+import CancelSubscription from './CancelSubscription'
+import DeletePaymentSource from './DeletePaymentSource'
 
 class Success extends Component {
 
@@ -18,25 +18,28 @@ class Success extends Component {
         <p> An overview of your payment methods, settings and subscriptions with Peal. </p>
 
 
-        <form action="#" className="white">
+        <form action="#" className="white" id="bottom-padding-override">
            <h6> Your Credit and Debit Cards: </h6>
            <p>
              <label>
                <input name="group1" type="radio" />
                <span>**** **** **** 1234</span>
              </label>
+             <DeletePaymentSource />
            </p>
            <p>
              <label>
                <input name="group1" type="radio" />
                <span>**** **** **** 8923</span>
              </label>
+             <DeletePaymentSource />
            </p>
            <p>
              <label>
                <input name="group1" type="radio"  />
                <span>**** **** **** 0932</span>
              </label>
+             <DeletePaymentSource />
            </p>
 
            {/* Literally just using this to create space because you can't override materialize css spacing */}
@@ -49,6 +52,8 @@ class Success extends Component {
            <h6> Your Subscription Tier:  </h6>
            <p> $98 / mo </p>
 
+           <CancelSubscription />
+
            {/* Literally just using this to create space because you can't override materialize css spacing */}
            <div class="row">
            <div class="input-field col s12">
@@ -58,12 +63,21 @@ class Success extends Component {
 
            <h6> Your Business Location:  </h6>
 
+
           </form>
 
 
         <form action="#" className="white">
 
-          <h6> Edit Business Address:  </h6>
+          <h6> Business Address Change?  </h6>
+          <p> Contact us at hello@pealdisplay.com to notify us if you are changing locations </p>
+
+          {/* Literally just using this to create space because you can't override materialize css spacing */}
+          <div class="row">
+          <div class="input-field col s12">
+            <label></label>
+          </div>
+          </div>
 
           <h6> Add a new payment method: </h6>
           <StripeProvider apiKey="pk_test_yrK3Fgp6ueQ2Ah739L7tW3kn">

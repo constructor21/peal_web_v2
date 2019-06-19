@@ -134,9 +134,13 @@ https://stripe.com/docs/api/plans/create
 https://stripe.com/docs/api/subscriptions/object
 https://stripe.com/docs/api/service_products
 https://stripe.com/docs/api/payment_methods/create
+https://stripe.com/docs/api/sources/create
+https://stripe.com/docs/api/payment_methods/create
+https://stripe.com/docs/sources/customers
+https://stripe.com/docs/api/sources/object
 
 
-
+Functions can't make external API requests if you are not on a blaze plan
 
 
 

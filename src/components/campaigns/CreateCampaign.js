@@ -192,12 +192,6 @@ class CreateCampaign extends Component {
 }
 
 
-/*
-Thoughts
-  - ownProps argument
-  - name everything mediaFile
-*/
-
 // this maps the redux store state to the props of this component
 const mapStateToProps = (state) => {
   console.log("////");
