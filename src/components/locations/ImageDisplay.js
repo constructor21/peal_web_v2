@@ -7,9 +7,22 @@ var auCoqueletVenueImage = require('../../data/images/AuCoqueletVenueImage.png')
 var baianoPizzeriaVenueImage = require('../../data/images/BaianoPizzeriaVenueImage.png')
 
 
+var selectedBusinessImageDisplayReceiver;
+
+
+var imageDictionary = {
+  "Baiano Pizzeria": baianoPizzeriaVenueImage,
+  "Au Coquelet": auCoqueletVenueImage,
+  "Proper Fashion": properFashionsVenueImage
+}
+
+
 class ImageDisplay extends Component {
 
   render() {
+
+    console.log("testing logging in image display")
+
     return (
       <div className="imageContainer">
         <img src={baianoPizzeriaVenueImage} />

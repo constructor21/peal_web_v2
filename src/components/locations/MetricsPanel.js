@@ -3,12 +3,31 @@ import React, {Component} from 'react'
 import './MetricsPanel.css';
 import ImageDisplay from './ImageDisplay';
 
+import selectedBusinessName from './Map'
+
 // height grows dynamically, can't be set with css
 
-// TODO: Foot traffic for Au Coquelet is 5k per week, 20k per month 
+
+var defaultFootTraffic = "coming soon: [estimated foot traffic]"
+var defaultNeighboorhoodDesciption = "coming soon: [neighborhood description]"
+
+var auCoqueletFootTraffic = "5k customers per week"
+var auCoqueletNeighboorhoodDesciption = "Central downtown location across the street from Berkeley campus"
+
+var selectedBusinessMetricsReceiver;
+
+var metricsDictionary = {
+  "Baiano Pizzeria": [defaultFootTraffic, defaultNeighboorhoodDesciption],
+  "Au Coquelet": [auCoqueletFootTraffic, auCoqueletNeighboorhoodDesciption],
+  "Proper Fashion": [defaultFootTraffic, defaultNeighboorhoodDesciption]
+}
 
 class MetricsPanel extends Component {
+
   render() {
+
+    console.log("testing logging in metrics panel")
+
     return (
       <div className="metrics-panel-container">
         <div className="section">
@@ -16,8 +35,8 @@ class MetricsPanel extends Component {
             <div className="card-content">
               <span className="card-title">Display Metrics</span>
               <ul>
-                <li>coming soon: [neighborhood description]</li>
-                <li>coming soon: [estimated foot traffic]</li>
+                <li>{defaultNeighboorhoodDesciption}</li>
+                <li> {defaultFootTraffic} </li>
               </ul>
               <ImageDisplay />
             </div>

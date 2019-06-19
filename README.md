@@ -146,6 +146,26 @@ Functions can't make external API requests if you are not on a blaze plan
 
 Tasks
 
+
+
+
+Check the logging in metrics panel and image display
+Make sure the dictionaries in both files didn't break the page
+Check if the spacing between delete, cancel buttons and their content worked
+
+
+Implement local storage approach to handle map clicking
+
+Notes tutorial (looking up a different one will likely be needed)
+-dynamic card adding and deleting
+-pull last4 digits & location array from firestore
+
+
+
+
+
+
+
 Jean -> billing center front end
 Aaron -> Stripe backend
 

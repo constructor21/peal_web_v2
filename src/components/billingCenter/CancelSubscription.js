@@ -69,10 +69,6 @@ class CancelSubscription extends Component {
     });
   };
 
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-
   handleCloseWithYesPressed = () => {
     console.log("user initiated cancel subscription action");
     this.setState({ open: false });
@@ -102,15 +98,12 @@ class CancelSubscription extends Component {
          <DialogContent dividers>
            <Typography gutterBottom>
              Please email hello@pealdisplay.com to notify us you would like to cancel this subscription and
-             stop being charged
+             stop being charged.
            </Typography>
          </DialogContent>
          <DialogActions>
            <Button onClick={this.handleCloseWithYesPressed} color="primary">
-             Yes
-           </Button>
-           <Button onClick={this.handleClose} color="primary">
-             No
+             Got it
            </Button>
          </DialogActions>
        </Dialog>

@@ -18,6 +18,9 @@ class Success extends Component {
         <p> An overview of your payment methods, settings and subscriptions with Peal. </p>
 
 
+        {/* TODO: This needs to be a dynamically built list */}
+
+
         <form action="#" className="white" id="bottom-padding-override">
            <h6> Your Credit and Debit Cards: </h6>
            <p>
@@ -27,7 +30,9 @@ class Success extends Component {
                  <input name="group1" type="radio" />
                  <span>**** **** **** 1234</span>
                </label>
-               <DeletePaymentSource />
+               <div className="createSpace">
+                <DeletePaymentSource />
+               </div>
            </div>
 
            </p>
@@ -38,7 +43,9 @@ class Success extends Component {
                  <input name="group1" type="radio" />
                  <span>**** **** **** 8923</span>
                </label>
-               <DeletePaymentSource />
+               <div className="createSpace">
+                <DeletePaymentSource />
+               </div>
             </div>
 
            </p>
@@ -49,7 +56,9 @@ class Success extends Component {
                  <input name="group1" type="radio"  />
                  <span>**** **** **** 0932</span>
                </label>
-               <DeletePaymentSource />
+               <div className="createSpace">
+                <DeletePaymentSource />
+               </div>
              </div>
 
 
@@ -67,7 +76,9 @@ class Success extends Component {
 
            <div className='keepInRow'>
              <p> $98 / mo </p>
-             <CancelSubscription />
+             <div className="createSpace">
+               <CancelSubscription />
+             </div>
            </div>
 
            {/* Literally just using this to create space because you can't override materialize css spacing */}
@@ -79,6 +90,8 @@ class Success extends Component {
 
            <h6> Your Business Location:  </h6>
 
+           {/* TODO: Pull Location data from the firebase location info array */}
+
 
           </form>
 
@@ -86,7 +99,7 @@ class Success extends Component {
         <form action="#" className="white">
 
           <h6> Business Address Change?  </h6>
-          <p> Contact us at hello@pealdisplay.com to notify us if you are changing locations </p>
+          <p> Contact us at hello@pealdisplay.com to notify us if you are changing locations. </p>
 
           {/* Literally just using this to create space because you can't override materialize css spacing */}
           <div class="row">

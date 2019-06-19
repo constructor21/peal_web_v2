@@ -18,6 +18,8 @@ import MetricsPanel from './MetricsPanel';
 import * as displayData from "../../data/peal-displays.json";
 
 
+var selectedBusinessNameSender = "";
+
 function ReactMap() {
 
   // this is the state
@@ -42,6 +44,8 @@ function ReactMap() {
         onClick={() => {
           console.log("hi from peal!");
           setSelectedDisplay(display);
+          selectedBusinessNameSender = display.properties.BUSINESS_NAME
+          console.log(display.properties.BUSINESS_NAME);
         }}
         icon={{
           url: `/Peal_Logo.png`,
