@@ -21,25 +21,38 @@ class Success extends Component {
         <form action="#" className="white" id="bottom-padding-override">
            <h6> Your Credit and Debit Cards: </h6>
            <p>
-             <label>
-               <input name="group1" type="radio" />
-               <span>**** **** **** 1234</span>
-             </label>
-             <DeletePaymentSource />
+
+            <div className='keepInRow'>
+               <label>
+                 <input name="group1" type="radio" />
+                 <span>**** **** **** 1234</span>
+               </label>
+               <DeletePaymentSource />
+           </div>
+
            </p>
            <p>
-             <label>
-               <input name="group1" type="radio" />
-               <span>**** **** **** 8923</span>
-             </label>
-             <DeletePaymentSource />
+
+           <div className='keepInRow'>
+               <label>
+                 <input name="group1" type="radio" />
+                 <span>**** **** **** 8923</span>
+               </label>
+               <DeletePaymentSource />
+            </div>
+
            </p>
            <p>
-             <label>
-               <input name="group1" type="radio"  />
-               <span>**** **** **** 0932</span>
-             </label>
-             <DeletePaymentSource />
+
+            <div className='keepInRow'>
+               <label>
+                 <input name="group1" type="radio"  />
+                 <span>**** **** **** 0932</span>
+               </label>
+               <DeletePaymentSource />
+             </div>
+
+
            </p>
 
            {/* Literally just using this to create space because you can't override materialize css spacing */}
@@ -50,9 +63,12 @@ class Success extends Component {
            </div>
 
            <h6> Your Subscription Tier:  </h6>
-           <p> $98 / mo </p>
 
-           <CancelSubscription />
+
+           <div className='keepInRow'>
+             <p> $98 / mo </p>
+             <CancelSubscription />
+           </div>
 
            {/* Literally just using this to create space because you can't override materialize css spacing */}
            <div class="row">
