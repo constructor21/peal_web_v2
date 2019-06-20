@@ -14,7 +14,7 @@ export const createCampaign = (campaign) => {
     var storageFolderName = campaign.authId
     var theRealData = campaign.mediaFile.media
 
-    console.log("the real data is ", theRealData);  
+    console.log("the real data is ", theRealData);
 
     var getUniqueId = firestore.collection("campaigns").doc();
     console.log(getUniqueId.id);
@@ -89,6 +89,9 @@ export const deleteCampaign = (documentId) =>  {
 };
 
 
+// TODO: this is the proper campaigns array, you need to call a dispatch and save the payload to the state
+  // pass that to the campaignList component 
+
 export const downloadCampaignsForUser = () => {
   // firebase and firestore functions know about the database because of thunk in index.js
   return (dispatch, getState, {getFirebase, getFirestore,}) => {
@@ -97,19 +100,19 @@ export const downloadCampaignsForUser = () => {
     const firebase = getFirebase();
 
     var authId = firebase.auth();
-     
+
 
     var userCampaignsIDs = firestore.collection(`Customers/${authId}/Campaigns`).doc();
-    
+
     var campaigns = [];
 
     userCampaignsIDs.map(id => {
       var campaign = firestore.collection(`campaigns/${id}`).doc();
 
       campaigns.push(campaign);
-    }); 
-   
-    return campaigns;
+    });
+
+    // return campaigns;
 
   }
 
