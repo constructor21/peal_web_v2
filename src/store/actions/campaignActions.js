@@ -87,3 +87,30 @@ export const deleteCampaign = (documentId) =>  {
 
   }
 };
+
+
+export const downloadCampaignsForUser = () => {
+  // firebase and firestore functions know about the database because of thunk in index.js
+  return (dispatch, getState, {getFirebase, getFirestore,}) => {
+    // make async call to database (because it takes some time to do that means it returns a promise)
+    const firestore = getFirestore();
+    const firebase = getFirebase();
+
+    var authId = firebase.auth();
+     
+
+    var userCampaignsIDs = firestore.collection(`Customers/${authId}/Campaigns`).doc();
+    
+    var campaigns = [];
+
+    userCampaignsIDs.map(id => {
+      var campaign = firestore.collection(`campaigns/${id}`).doc();
+
+      campaigns.push(campaign);
+    }); 
+   
+    return campaigns;
+
+  }
+
+};

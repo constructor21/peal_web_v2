@@ -98,3 +98,4 @@ export default compose(
     { collection: 'initialBillFlow' }
   ])
 )(Dashboard)
+// `Customers/${state.firebase.auth}`
