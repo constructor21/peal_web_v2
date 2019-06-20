@@ -17,24 +17,14 @@ export const helloWorld = functions.https.onRequest((request, response) => {
 });
 
 
-
-// You need to try things off of this customer id ... don't create when the user is created..
-// .... trigger it when the firestore action edits the document ...  conosle stuff to make sure its working
-
 export const createStripeCustomer = functions.auth.user().onCreate(async (user) => {
   const customer = await stripe.customers.create({ email: user.email });
   return admin.firestore().collection('stripe_customers').doc(user.uid).set({ customer_id: customer.id });
 });
 
 
-/*
-export const createCustomer = functions.firestore.document('stripe_customers').onCreate(async (snap, context) => {
-  const customer = await stripe.customers.create({ email: user.email });
-  return admin.firestore().collection('stripe_customers').doc(user.uid).set({ customer_id: customer.id });
-})
-*/
-
 // Add a payment source (card) for a user by writing a stripe payment source token to Realtime database
+    // this results in an error ...
 export const addPaymentSource = functions.firestore.document('/stripe_customers/{userId}/tokens/{pushId}').onCreate(async (snap, context) => {
   const source = snap.data();
 

@@ -18,13 +18,20 @@ import MetricsPanel from './MetricsPanel';
 import * as displayData from "../../data/peal-displays.json";
 
 
-var selectedBusinessNameSender = "";
-
 function ReactMap() {
 
   // this is the state
   const [selectedDisplay, setSelectedDisplay] = useState(null);
           // ^value          ^setter                      ^initial value is null
+
+  /*
+  useEffect(() => {
+    console.log("use effect called") // happens on every button click!
+    localStorage.setItem("localStorageVariableName", selectedBusinessNameSender)
+    console.log(selectedBusinessNameSender) // still an empty string because issue updating global variable form a callback
+    console.log("___")
+  });
+  */
 
   return (
 
@@ -44,8 +51,25 @@ function ReactMap() {
         onClick={() => {
           console.log("hi from peal!");
           setSelectedDisplay(display);
-          selectedBusinessNameSender = display.properties.BUSINESS_NAME
-          console.log(display.properties.BUSINESS_NAME);
+
+          // dynamic upon button click
+          var selectedBusinessNameSender = display.properties.BUSINESS_NAME
+          console.log("clicked on....")
+          console.log(selectedBusinessNameSender) // this isn't updating the global variable b/c in a callback
+          console.log(".....")
+
+          // fill up local storage with the proper data
+          localStorage.setItem("localStorageVariableName", selectedBusinessNameSender)
+
+          var currLocation = localStorage.getItem("localStorageVariableName")
+          console.log("did this update?")
+          console.log(currLocation) // Yes it does!
+          console.log(".....")
+
+          // delete whatever is currently is in local storage
+          // localStorage.clear();
+
+
         }}
         icon={{
           url: `/Peal_Logo.png`,
@@ -82,12 +106,17 @@ function ReactMap() {
 
 const MapWrapped = withScriptjs(withGoogleMap(ReactMap));
 
+
+
 // TODO: make a .env.local file to hold the api key
 
 export default function Map() {
+
+  var currLocationToPass = localStorage.getItem("localStorageVariableName")
+
   return (
    <div>
-    <MetricsPanel />
+    <MetricsPanel location={currLocationToPass} />
      <div className="setMapPosition"  id="map-box">
        <MapWrapped
          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCBggHcthnSSx33LABZX6DsNb1xrNxXd40`}

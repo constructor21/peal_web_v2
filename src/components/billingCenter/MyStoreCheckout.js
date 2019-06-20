@@ -1,11 +1,11 @@
 
 
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
 import { addStripeToken } from '../../store/actions/stripeActions'
+import { addCardSource } from '../../store/actions/stripeActions'
 
 import { CardElement, injectStripe, ReactStripeElements } from 'react-stripe-elements';
 
@@ -99,7 +99,8 @@ class CardForm extends Component {
                     console.log('card id is...', payload.token.card.id)
                     console.log('last 4 digits are...', payload.token.card.last4)
                     console.log("save to redux store");
-                    this.props.saveCard(payload.token.card.last4)
+                    this.props.saveCard(payload.token.card.last4);
+                    this.props.addCardSource(this.state.userAuthID, payload.token.card.id);
                 });
 
       } else {
@@ -165,6 +166,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
 
     addStripeToken: (authId, token) => dispatch(addStripeToken(authId, token)),
+
+    addCardSource: (authId, cardSource) => dispatch(addCardSource(authId, cardSource)),
 
     saveCard: (value) => {
       dispatch({ type: 'CREATE_TOKEN', payload: value })

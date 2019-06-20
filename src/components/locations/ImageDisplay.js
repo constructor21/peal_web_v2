@@ -7,6 +7,7 @@ var auCoqueletVenueImage = require('../../data/images/AuCoqueletVenueImage.png')
 var baianoPizzeriaVenueImage = require('../../data/images/BaianoPizzeriaVenueImage.png')
 
 
+var gotItI = localStorage.getItem("localStorageVariableName")
 var selectedBusinessImageDisplayReceiver;
 
 
@@ -22,6 +23,7 @@ class ImageDisplay extends Component {
   render() {
 
     console.log("testing logging in image display")
+    console.log(gotItI);
 
     return (
       <div className="imageContainer">

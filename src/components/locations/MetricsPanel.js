@@ -3,7 +3,6 @@ import React, {Component} from 'react'
 import './MetricsPanel.css';
 import ImageDisplay from './ImageDisplay';
 
-import selectedBusinessName from './Map'
 
 // height grows dynamically, can't be set with css
 
@@ -14,7 +13,9 @@ var defaultNeighboorhoodDesciption = "coming soon: [neighborhood description]"
 var auCoqueletFootTraffic = "5k customers per week"
 var auCoqueletNeighboorhoodDesciption = "Central downtown location across the street from Berkeley campus"
 
-var selectedBusinessMetricsReceiver;
+
+// var gotItM = localStorage.getItem("localStorageVariableName")
+// var selectedBusinessMetricsReceiver;
 
 var metricsDictionary = {
   "Baiano Pizzeria": [defaultFootTraffic, defaultNeighboorhoodDesciption],
@@ -27,6 +28,8 @@ class MetricsPanel extends Component {
   render() {
 
     console.log("testing logging in metrics panel")
+    console.log(this.props) // not dynamic ...
+    console.log("end of metrics props")
 
     return (
       <div className="metrics-panel-container">
