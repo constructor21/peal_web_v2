@@ -14,6 +14,7 @@ import DeleteCampaign from './DeleteCampaign'
 
 import './CampaignDetails.css'
 
+// TODO: Get rid of dashboard and billing old page flash using this approach 
 
 function calculateDiff(startYear, startMonth, startDay, endYear, endMonth, endDay) {
   console.log("hello");
