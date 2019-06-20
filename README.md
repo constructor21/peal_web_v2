@@ -143,7 +143,7 @@ Functions can't make external API requests if you are not on a blaze plan
 
 
 TODO: Don't allow someone to select past dates
-TODO: Store the confirmPressedBtn in firestore, not redux 
+TODO: Store the confirmPressedBtn in firestore, not redux
 
 
 Tasks
@@ -164,6 +164,8 @@ Notes tutorial (looking up a different one will likely be needed)
 
 
 
+ https://peal-9d82d.firebaseapp.com
+ https://pealanalytics.com/
 
 
 

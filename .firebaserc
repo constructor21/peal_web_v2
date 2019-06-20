@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "peal-web-v2"
+    "peal-9d82d": "peal-9d82d",
+    "default": "peal-9d82d"
   }
 }
