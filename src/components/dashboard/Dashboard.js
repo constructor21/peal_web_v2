@@ -73,15 +73,20 @@ class Dashboard extends Component {
 }
 
 // mapStateToProps is this function always by convention
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   // accessing the state of the redux store
+
+  console.log("trying to get confirm property")
+  console.log(state.firestore.data.initialBillFlow)
+  console.log("****////*****")
+
   return {
     // decides which props get passed from the store to this component
       // the first campaigns is just what you named this object
       // campaign comes from the root reducer
       // the second campaigns comes from the campaignReducer
     campaigns: state.firestore.ordered.campaigns, // ordered is just a required keyword for pulling from firestore
-    confirmBtnPressed: state.billing.confirmBtnPressed,
+    confirmBtnPressed: state.firestore.data.initialBillFlow,
     auth: state.firebase.auth
   }
 }
@@ -89,6 +94,7 @@ const mapStateToProps = (state) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'campaigns', orderBy: ['createdAt', 'desc'] }
+    { collection: 'campaigns', orderBy: ['createdAt', 'desc'] },
+    { collection: 'initialBillFlow' }
   ])
 )(Dashboard)

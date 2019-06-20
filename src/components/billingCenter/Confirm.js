@@ -3,6 +3,7 @@ import { Redirect, NavLink } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import { saveLocationInfo } from '../../store/actions/billingActions'
+import { saveConfirmBtnYEStoFirestore } from '../../store/actions/billingActions'
 
 import './Confirm.css';
 
@@ -20,7 +21,7 @@ class Confirm extends Component {
   confirm = (e) => {
     e.preventDefault();
     console.log("confirm button pressed");
-    // PROCESS FORM in firestore right here //
+    this.props.saveConfirmBtnYEStoFirestore()
     console.log("saved action to state");
     this.props.saveLocationInfo(this.state.locationInfo);
     console.log("store the location info in firstore");
@@ -97,7 +98,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     // accepts an individual campaign that we are passing to the dispatch function an action creator
-    saveLocationInfo: (locationInfo) => dispatch(saveLocationInfo(locationInfo))
+    saveLocationInfo: (locationInfo) => dispatch(saveLocationInfo(locationInfo)),
+    saveConfirmBtnYEStoFirestore: () => dispatch(saveConfirmBtnYEStoFirestore())
   }
 }
 
