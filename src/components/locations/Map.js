@@ -18,6 +18,8 @@ import MetricsPanel from './MetricsPanel';
 import * as displayData from "../../data/peal-displays.json";
 
 
+// TODO: make class completely seperate from the funciton in this file and pass it up that way?
+
 function ReactMap() {
 
   // this is the state

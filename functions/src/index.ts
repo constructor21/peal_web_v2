@@ -24,7 +24,8 @@ export const createStripeCustomer = functions.auth.user().onCreate(async (user) 
 
 
 // Add a payment source (card) for a user by writing a stripe payment source token to Realtime database
-    // this results in an error ...
+    // this returns an error in the logs when the a user is manually created
+    // TODO: check if this works when a token is addeded to the database
 export const addPaymentSource = functions.firestore.document('/stripe_customers/{userId}/tokens/{pushId}').onCreate(async (snap, context) => {
   const source = snap.data();
 
@@ -45,6 +46,44 @@ export const addPaymentSource = functions.firestore.document('/stripe_customers/
     return reportError(error, { user: context.params.userId });
   }
 });
+
+
+// https://stripe.com/docs/billing/quickstart
+// TODO: change to month when you make the site live
+export const createPealProductAndSubscribeCustomer = functions.firestore.document('stripe_customers/{userId}/charges/{id}').onCreate(async (snap, context) => {
+
+  const snapshot = await admin.firestore().collection('stripe_customers').doc(context.params.userId).get();
+  const customer = snapshot.data().customer_id;
+
+  // The product is either of type service, which is eligible for use with Subscriptions and Plans or good, which is eligible for use with Orders and SKUs.
+  const product = await stripe.products.create({
+    name: 'Peal_98',
+    type: 'service',
+  });
+
+  // Specifies billing frequency. Either day, week, month or year.
+  const plan = await stripe.plans.create({
+    product: product.id,
+    currency: 'usd',
+    interval: 'day',
+    amount: 9800,
+  });
+
+  const subscription = await stripe.subscriptions.create({
+    customer: customer,
+    items: [{plan: plan.id}],
+  });
+
+};
+
+export const addPayment = functions.firestore.document('stripe_customers/{userId}/charges/{id}').onCreate(async (snap, context) => {
+
+};
+
+export const deletePayment = functions.firestore.document('stripe_customers/{userId}/charges/{id}').onCreate(async (snap, context) => {
+
+};
+
 
 
 

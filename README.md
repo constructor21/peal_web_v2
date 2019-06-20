@@ -129,7 +129,6 @@ GraphQL vs. REST API
 
 
 Stripe links
-https://stripe.com/docs/billing/quickstart
 https://stripe.com/docs/api/plans/create
 https://stripe.com/docs/api/subscriptions/object
 https://stripe.com/docs/api/service_products
