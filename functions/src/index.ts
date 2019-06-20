@@ -48,11 +48,14 @@ export const addPaymentSource = functions.firestore.document('/stripe_customers/
 });
 
 
+
 // https://stripe.com/docs/billing/quickstart
-// TODO: change to month when you make the site live
 export const createPealProductAndSubscribeCustomer = functions.firestore.document('stripe_customers/{userId}/charges/{id}').onCreate(async (snap, context) => {
 
   const snapshot = await admin.firestore().collection('stripe_customers').doc(context.params.userId).get();
+  console.log("snapshot start...")
+  console.log(snapshot)
+  console.log("snapshot end...")
   const customer = snapshot.data().customer_id;
 
   // The product is either of type service, which is eligible for use with Subscriptions and Plans or good, which is eligible for use with Orders and SKUs.
@@ -65,7 +68,7 @@ export const createPealProductAndSubscribeCustomer = functions.firestore.documen
   const plan = await stripe.plans.create({
     product: product.id,
     currency: 'usd',
-    interval: 'day',
+    interval: 'month',
     amount: 9800,
   });
 
@@ -74,15 +77,42 @@ export const createPealProductAndSubscribeCustomer = functions.firestore.documen
     items: [{plan: plan.id}],
   });
 
+  return admin.firestore().collection('stripe_customers').doc(user.uid).set({
+    product: product.name,
+    interval:  plan.interval,
+    subscription: subscription.amount
+  });
+
 };
 
-export const addPayment = functions.firestore.document('stripe_customers/{userId}/charges/{id}').onCreate(async (snap, context) => {
 
-};
 
+
+// https://stripe.com/docs/api/sources/detach
 export const deletePayment = functions.firestore.document('stripe_customers/{userId}/charges/{id}').onCreate(async (snap, context) => {
 
+
+  const snapshot = await admin.firestore().collection('stripe_customers').doc(context.params.userId).get();
+
+  const customer = snapshot.data().customer_id;
+
+  stripe.customers.deleteSource(
+    customer,
+    'src_1EnIcAEAFgdVOsNsw4VcQdo1',
+    function(err, confirmation) {
+      // asynchronously called ... handle some firebase stuff
+    }
+  );
+
+
+  // a return statment may still be necessary here
+
 };
+
+
+
+
+
 
 
 

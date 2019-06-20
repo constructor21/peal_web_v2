@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
+import { firestoreConnect } from 'react-redux-firebase' // connects a component to a firestore collection
+import { compose } from 'redux'
+
 import Success from './Success';
 import BillingContainer from './BillingContainer';
 
@@ -24,7 +27,7 @@ class BillingCenter extends Component {
     console.log(confirmBtnPressed);
     console.log(locationInfo);
 
-    if (confirmBtnPressed) {        // this the example you should follow of conditional rendering 
+    if (confirmBtnPressed) {        // this the example you should follow of conditional rendering
       return (
         <div>
           <Success />
@@ -43,12 +46,17 @@ class BillingCenter extends Component {
 
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     auth: state.firebase.auth,
-    confirmBtnPressed: state.billing.confirmBtnPressed,
+    confirmBtnPressed: state.firestore.data.initialBillFlow,
     locationInfo: state.billing.locationInfo
   }
 }
 
-export default connect(mapStateToProps)(BillingCenter)
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'initialBillFlow' }
+  ])
+)(BillingCenter)

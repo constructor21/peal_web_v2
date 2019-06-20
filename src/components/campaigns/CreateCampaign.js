@@ -11,6 +11,7 @@ import './CreateCampaign.css';
 
 import Example from '../campaignCalendar/DayPicker';
 
+// TODO: you need to pull from a unique auth id, not the campaigns folder as a whole so users don't see each others campaigns 
 
 class CreateCampaign extends Component {
   state = {

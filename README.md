@@ -142,6 +142,9 @@ https://stripe.com/docs/api/sources/object
 Functions can't make external API requests if you are not on a blaze plan
 
 
+TODO: Don't allow someone to select past dates
+TODO: Store the confirmPressedBtn in firestore, not redux 
+
 
 Tasks
 
