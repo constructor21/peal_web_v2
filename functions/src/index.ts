@@ -48,6 +48,7 @@ export const addPaymentSource = functions.firestore.document('/stripe_customers/
 });
 
 
+
 // https://stripe.com/docs/billing/quickstart
 // TODO: change to month when you make the site live
 export const createPealProductAndSubscribeCustomer = functions.firestore.document('stripe_customers/{userId}/charges/{id}').onCreate(async (snap, context) => {
@@ -83,7 +84,6 @@ export const addPayment = functions.firestore.document('stripe_customers/{userId
 export const deletePayment = functions.firestore.document('stripe_customers/{userId}/charges/{id}').onCreate(async (snap, context) => {
 
 };
-
 
 
 

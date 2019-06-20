@@ -75,9 +75,9 @@ class Success extends Component {
 
 
            <div className='keepInRow'>
-             <p> $98 / mo </p>
+             <p> $98 / month </p>
              <div className="createSpace">
-               <CancelSubscription />
+               { /* <CancelSubscription /> */ }
              </div>
            </div>
 
