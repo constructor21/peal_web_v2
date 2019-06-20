@@ -142,7 +142,7 @@ function Previews(props) {
         <input {...getInputProps()} />
         {isDragActive && !isDragReject && "Drop it like it's hot!"}
         {isDragReject && "File type not accepted, sorry!"}
-        <p> Drag & drop oe click here to upload media! </p>
+        <p> Drag & drop or click here to upload media! </p>
       </div>
       <aside style={thumbsContainer}>
         {thumbs}
@@ -168,7 +168,7 @@ class ContentContainer extends Component {
 
       console.log("in the form validation method"); // this runs
 
-      const validFileExtensions = ['.mp4', '.mov', '.png', '.jpg', '.jpeg'];
+      const validFileExtensions = ['.mp4', '.mpeg', '.mov', '.png', '.jpg', '.jpeg'];
       console.log("---");
       console.log(mediaName.toLowerCase());
       console.log("---");
